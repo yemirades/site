@@ -33,6 +33,7 @@ export function Nav() {
               src={`${basePath}/portrait-figma.jpg`}
               alt=""
               fill
+              priority
               sizes="32px"
               className="object-cover object-top"
             />
