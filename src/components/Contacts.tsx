@@ -10,8 +10,8 @@ export function Contacts() {
   const t = content[lang];
 
   return (
-    <section id="contacts" className="bg-accent px-4 py-20 text-white sm:px-8 sm:py-28">
-      <div className="mx-auto max-w-[960px]">
+    <section id="contacts" className="bg-[var(--inverse)] px-4 py-20 text-[var(--inverse-ink)] transition-colors duration-300 sm:px-8 sm:py-28">
+      <div className="mx-auto max-w-[1200px]">
         <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
           <Reveal>
             <p className="text-[10px] uppercase">{t.contactsTitle}</p>
@@ -27,7 +27,7 @@ export function Contacts() {
             <Reveal delay={0.08}>
               <a
                 href={`mailto:${email}`}
-                className="mt-10 inline-flex border-b border-white pb-1 text-[11px] uppercase transition-opacity hover:opacity-60"
+                className="mt-10 inline-flex border-b border-current pb-1 text-[11px] uppercase transition-opacity hover:opacity-60"
               >
                 {t.contactsCta} ↗
               </a>
@@ -35,7 +35,7 @@ export function Contacts() {
           </div>
         </div>
 
-        <div className="mt-28 grid gap-8 border-t border-white/40 pt-5 text-[10px] uppercase sm:grid-cols-3 sm:items-end sm:gap-0">
+        <div className="mt-28 grid gap-8 border-t border-current pt-5 text-[10px] uppercase opacity-80 sm:grid-cols-3 sm:items-end sm:gap-0">
           <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
             {socials.map((s) => (
               <a

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
 import { LiveClock } from "./LiveClock";
@@ -11,62 +10,57 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export function Hero() {
   const { lang } = useLang();
   const t = content[lang];
-  const name = ["Mirat", "Yerbolatov"];
 
   return (
-    <section
-      id="top"
-      className="relative min-h-[720px] overflow-hidden bg-white px-4 sm:px-8 lg:min-h-screen"
-    >
-      <div className="relative mx-auto min-h-[720px] max-w-[960px] lg:min-h-screen">
-        <motion.p
-          initial={{ opacity: 0, y: -8 }}
+    <section id="top" className="theme-surface relative min-h-[650px] px-4 sm:min-h-[610px] sm:px-8">
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center pt-24 text-center sm:pt-28">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.88 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative size-[108px] overflow-hidden rounded-full bg-[#21142f] sm:size-[120px]"
+          data-video-slot
+        >
+          <video
+            aria-label={lang === "ru" ? "Видео-портрет Мирата" : "Video portrait of Mirat"}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={`${basePath}/portrait-figma.jpg`}
+            className="h-full w-full object-cover object-top"
+          />
+          <span className="pointer-events-none absolute bottom-2 right-2 size-2 rounded-full bg-white/80 ring-4 ring-black/20" />
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-          className="absolute left-0 top-24 max-w-[310px] text-[11px] uppercase leading-[1.22] tracking-[0.015em] sm:left-1/2 sm:top-6 sm:w-[280px] sm:-translate-x-1/2 sm:text-[12px]"
+          transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-9 font-display text-[66px] leading-[0.84] tracking-[-0.02em] sm:mt-10 sm:text-[82px] lg:text-[92px]"
+        >
+          Mirat Yerbolatov
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.22 }}
+          className="mt-5 max-w-[365px] text-[10px] uppercase leading-[1.28] tracking-[0.01em] sm:text-[12px]"
         >
           {t.about}
         </motion.p>
 
-        <div className="absolute inset-x-0 bottom-7 grid items-end gap-8 sm:bottom-8 sm:grid-cols-3 sm:gap-0">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[76px] leading-[0.76] tracking-[-0.025em] sm:text-[92px] lg:text-[108px]"
-          >
-            <span className="block">{name[0]}</span>
-            <span className="block">{name[1]}</span>
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.65, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="order-first justify-self-end sm:order-none sm:justify-self-center"
-          >
-            <div className="relative h-[104px] w-[132px] overflow-hidden rounded-t-[54px] rounded-b-[18px] bg-accent sm:h-[112px] sm:w-[142px]">
-              <Image
-                src={`${basePath}/portrait-figma.jpg`}
-                alt={t.name}
-                width={240}
-                height={184}
-                priority
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.55, delay: 0.45 }}
-            className="flex items-center gap-3 text-[10px] uppercase leading-none tracking-[0.015em] sm:justify-self-end sm:pb-1"
-          >
-            <LiveClock />
-            <span>{t.location}</span>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.55, delay: 0.34 }}
+          className="mt-16 flex items-center gap-3 text-[9px] uppercase leading-none tracking-[0.015em] sm:mt-20 sm:text-[10px]"
+        >
+          <LiveClock />
+          <span>{t.location}</span>
+        </motion.div>
       </div>
     </section>
   );

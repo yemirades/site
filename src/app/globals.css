@@ -7,8 +7,29 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #080808;
+  --page: #050505;
+  --ink: #f7f7f3;
+  --muted: rgba(247, 247, 243, 0.54);
+  --line: rgba(247, 247, 243, 0.2);
+  --pill: #f7f7f3;
+  --pill-ink: #080808;
+  --soft: #111111;
+  --inverse: #f2f0ea;
+  --inverse-ink: #080808;
+  --background: var(--page);
+  --foreground: var(--ink);
+}
+
+:root[data-theme="light"] {
+  --page: #f2f0ea;
+  --ink: #080808;
+  --muted: rgba(8, 8, 8, 0.55);
+  --line: rgba(8, 8, 8, 0.2);
+  --pill: #080808;
+  --pill-ink: #f7f7f3;
+  --soft: #e5e2da;
+  --inverse: #080808;
+  --inverse-ink: #f7f7f3;
 }
 
 html {
@@ -21,6 +42,7 @@ body {
   color: var(--foreground);
   font-synthesis: none;
   overflow-x: hidden;
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 ::selection {
@@ -31,6 +53,76 @@ body {
 a,
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+.theme-surface {
+  background: var(--page);
+  color: var(--ink);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.project-card {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  background: #0c0d14;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.1), transparent 72%);
+  opacity: 0;
+  transform: translateX(-45%);
+  transition: opacity 450ms ease, transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .project-card::after {
+  opacity: 1;
+  transform: translateX(45%);
+}
+
+.case-mycar {
+  background:
+    radial-gradient(circle at 78% 28%, rgba(67, 99, 255, 0.52), transparent 23%),
+    linear-gradient(135deg, #050b2f 8%, #101c75 54%, #030519 100%);
+}
+
+.case-logofolio {
+  background:
+    linear-gradient(90deg, transparent 49.7%, rgba(9, 9, 9, 0.7) 50%, transparent 50.3%),
+    linear-gradient(0deg, transparent 49.7%, rgba(9, 9, 9, 0.7) 50%, transparent 50.3%),
+    #d9d0bf;
+}
+
+.case-bbs {
+  background:
+    radial-gradient(circle at 20% 78%, rgba(29, 67, 255, 0.9), transparent 28%),
+    linear-gradient(125deg, #030417 0%, #071354 55%, #0a1040 100%);
+}
+
+.case-kartell {
+  background:
+    radial-gradient(circle at 70% 28%, rgba(255, 212, 180, 0.42), transparent 25%),
+    linear-gradient(135deg, #752f18 0%, #db6a28 52%, #52180c 100%);
+}
+
+.case-agro {
+  background:
+    linear-gradient(115deg, transparent 0 50%, rgba(229, 255, 189, 0.18) 50% 58%, transparent 58%),
+    #163f29;
+}
+
+.case-pay {
+  background:
+    radial-gradient(circle at 22% 22%, rgba(245, 226, 255, 0.36), transparent 24%),
+    linear-gradient(135deg, #2d1458, #743baf 52%, #21103b);
 }
 
 @media (prefers-reduced-motion: reduce) {
