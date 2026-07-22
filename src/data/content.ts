@@ -1,4 +1,4 @@
-export type Lang = "ru" | "en";
+export type Lang = "kk" | "en";
 
 export type Project = {
   title: string;
@@ -11,45 +11,45 @@ export const projects: Project[] = [
   {
     title: "Mycar x Samsung",
     year: "2025",
-    tag: { ru: "Кампания", en: "Campaign" },
+    tag: { kk: "Науқан", en: "Campaign" },
   },
   {
     title: "Logofolio",
     year: "2021 — 2025",
     href: "https://www.behance.net/gallery/235337833/",
-    tag: { ru: "Логотипы", en: "Logos" },
+    tag: { kk: "Логотиптер", en: "Logos" },
   },
   {
     title: "BBS Visual Identity",
     year: "2024",
     href: "https://www.behance.net/gallery/211315577/",
-    tag: { ru: "Айдентика", en: "Identity" },
+    tag: { kk: "Айдентика", en: "Identity" },
   },
   {
     title: "KARTELL E-commerce",
     year: "2024",
     href: "https://www.behance.net/gallery/196883003/",
-    tag: { ru: "Веб-дизайн", en: "Web Design" },
+    tag: { kk: "Веб-дизайн", en: "Web Design" },
   },
   {
     title: "Agro Logomark",
     year: "2026",
-    tag: { ru: "Логотип", en: "Logomark" },
+    tag: { kk: "Логобелгі", en: "Logomark" },
   },
   {
     title: "Mycar Pay Landing",
     year: "2025",
     href: "https://mycarpay.kz/",
-    tag: { ru: "Лендинг", en: "Landing" },
+    tag: { kk: "Лендинг", en: "Landing" },
   },
 ];
 
 export const services: Record<Lang, { title: string; desc: string }[]> = {
-  ru: [
-    { title: "Веб-дизайн", desc: "Понятные и функциональные сайты и лендинги." },
-    { title: "Брендинг", desc: "Визуальная идентика и фирменный стиль." },
-    { title: "Логотипы", desc: "Логотипы и знаки для брендов." },
-    { title: "Дизайн для маркетинга", desc: "Креативы и коммуникация для кампаний." },
+  kk: [
+    { title: "Веб-дизайн", desc: "Түсінікті әрі функционалды сайттар мен лендингтер." },
+    { title: "Брендинг", desc: "Визуалды айдентика және бренд жүйелері." },
+    { title: "Логотиптер", desc: "Брендтерге арналған логотиптер мен белгілер." },
+    { title: "Маркетингтік дизайн", desc: "Науқандарға арналған креативтер мен коммуникациялар." },
   ],
   en: [
     { title: "Web Design", desc: "Clear and functional websites and landings." },
@@ -83,18 +83,18 @@ export const content: Record<
     contactsLead: string;
   }
 > = {
-  ru: {
-    nav: { about: "Обо мне", works: "Проекты", services: "Услуги", contacts: "Контакты" },
+  kk: {
+    nav: { about: "Мен туралы", works: "Жобалар", services: "Қызметтер", contacts: "Байланыс" },
     name: "Мират Ерболат",
-    role: "Мультидисциплинарный дизайнер",
-    location: "Алматы, Казахстан",
+    role: "Мультидисциплинарлы дизайнер",
+    location: "Алматы, Қазақстан",
     about:
-      "Сәлем! Я мультидисциплинарный дизайнер с бэкграундом в маркетинге. Создаю понятные и функциональные сайты и бренд-айдентику. Сейчас работаю в Mycar Group.",
-    worksTitle: "Проекты",
-    servicesTitle: "Услуги",
-    contactsTitle: "Контакты",
-    contactsCta: "Написать мне",
-    contactsLead: "Есть проект или идея? Давайте обсудим.",
+      "Сәлем! Мен маркетинг саласында тәжірибесі бар мультидисциплинарлы дизайнермін. Түсінікті әрі функционалды сайттар мен бренд айдентикасын жасаймын. Қазір Mycar Group-та жұмыс істеймін.",
+    worksTitle: "Жобалар",
+    servicesTitle: "Қызметтер",
+    contactsTitle: "Байланыс",
+    contactsCta: "Хабарласу",
+    contactsLead: "Жобаңыз немесе идеяңыз бар ма? Талқылайық.",
   },
   en: {
     nav: { about: "About", works: "Works", services: "Services", contacts: "Contacts" },

@@ -95,7 +95,7 @@ export function Works() {
 
   return (
     <section id="works" className="theme-surface px-4 pb-24 sm:px-8 sm:pb-36">
-      <h2 className="sr-only">{lang === "ru" ? "Проекты" : "Selected works"}</h2>
+      <h2 className="sr-only">{lang === "kk" ? "Жобалар" : "Selected works"}</h2>
       <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24">
         {projects.map((project, index) => {
           const card = (

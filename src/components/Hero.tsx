@@ -22,7 +22,7 @@ export function Hero() {
           data-video-slot
         >
           <video
-            aria-label={lang === "ru" ? "Видео-портрет Мирата" : "Video portrait of Mirat"}
+            aria-label={lang === "kk" ? "Мираттың видео-портреті" : "Video portrait of Mirat"}
             autoPlay
             muted
             loop
@@ -30,7 +30,9 @@ export function Hero() {
             preload="metadata"
             poster={`${basePath}/portrait-figma.jpg`}
             className="h-full w-full object-cover object-top"
-          />
+          >
+            <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
+          </video>
           <span className="pointer-events-none absolute bottom-2 right-2 size-2 rounded-full bg-white/80 ring-4 ring-black/20" />
         </motion.div>
 
