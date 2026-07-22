@@ -10,50 +10,50 @@ export function Contacts() {
   const t = content[lang];
 
   return (
-    <section id="contacts" className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
-      <Reveal>
-        <h2 className="mb-10 text-sm font-medium uppercase tracking-widest text-neutral-400">
-          {t.contactsTitle}
-        </h2>
-      </Reveal>
+    <section id="contacts" className="bg-accent px-4 py-20 text-white sm:px-8 sm:py-28">
+      <div className="mx-auto max-w-[960px]">
+        <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
+          <Reveal>
+            <p className="text-[10px] uppercase">{t.contactsTitle}</p>
+          </Reveal>
 
-      <Reveal>
-        <p className="max-w-2xl text-3xl font-semibold tracking-tight text-neutral-900 sm:text-5xl">
-          {t.contactsLead}
-        </p>
-      </Reveal>
+          <div className="sm:col-span-2">
+            <Reveal>
+              <p className="max-w-[620px] font-display text-[70px] leading-[0.82] tracking-[-0.02em] sm:text-[110px]">
+                {t.contactsLead}
+              </p>
+            </Reveal>
 
-      <Reveal delay={0.1}>
-        <a
-          href={`mailto:${email}`}
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-white transition-transform hover:scale-[1.02]"
-        >
-          {t.contactsCta} <span>↗</span>
-        </a>
-      </Reveal>
-
-      <Reveal delay={0.15}>
-        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 text-neutral-500 transition-colors hover:text-neutral-900"
-            >
-              {s.label}
-              <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                ↗
-              </span>
-            </a>
-          ))}
+            <Reveal delay={0.08}>
+              <a
+                href={`mailto:${email}`}
+                className="mt-10 inline-flex border-b border-white pb-1 text-[11px] uppercase transition-opacity hover:opacity-60"
+              >
+                {t.contactsCta} ↗
+              </a>
+            </Reveal>
+          </div>
         </div>
-      </Reveal>
 
-      <div className="mt-16 flex items-center justify-between border-t border-neutral-200 pt-6 text-sm text-neutral-400">
-        <span>{t.location}</span>
-        <LiveClock />
+        <div className="mt-28 grid gap-8 border-t border-white/40 pt-5 text-[10px] uppercase sm:grid-cols-3 sm:items-end sm:gap-0">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity hover:opacity-55"
+              >
+                {s.label} ↗
+              </a>
+            ))}
+          </div>
+          <div className="flex items-center gap-3 sm:justify-self-end">
+            <LiveClock />
+            <span>{t.location}</span>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Stint_Ultra_Condensed } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "cyrillic"],
+const stint = Stint_Ultra_Condensed({
+  variable: "--font-stint",
+  weight: "400",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const pitagon = localFont({
+  src: "./fonts/PitagonSansMono-Medium.ttf",
+  variable: "--font-pitagon",
+  weight: "500",
+  style: "normal",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,8 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[#ededed] font-sans text-neutral-900">
+    <html
+      lang="en"
+      className={`${stint.variable} ${pitagon.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-white font-mono text-black">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
