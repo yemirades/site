@@ -11,7 +11,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export function Hero() {
   const { lang } = useLang();
   const t = content[lang];
-  const name = lang === "en" ? ["Mirat", "Yerbolatov"] : ["Мират", "Ерболат"];
+  const name = ["Mirat", "Yerbolatov"];
 
   return (
     <section
