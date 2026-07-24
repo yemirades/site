@@ -114,9 +114,9 @@ function ProjectCase({
     offset: ["start end", "start 0.22"],
   });
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 66,
-    damping: 22,
-    mass: 0.82,
+    stiffness: 48,
+    damping: 19,
+    mass: 0.94,
   });
   const y = useTransform(smoothProgress, [0, 0.86, 1], ["78%", "0%", "0%"]);
   const rotateX = useTransform(smoothProgress, [0, 0.88, 1], [68, 0, 0]);
@@ -125,16 +125,11 @@ function ProjectCase({
   const opacity = useTransform(smoothProgress, [0, 0.7, 1], [0.72, 1, 1]);
 
   const artwork = (
-    <motion.div
-      className="project-motion-card"
-      style={reduceMotion ? undefined : { y, rotateX, z, scale, opacity }}
+    <div
+      className={`project-card ${visualClasses[index]} aspect-[1.48/1] rounded-[5px] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1] sm:rounded-[9px]`}
     >
-      <div
-        className={`project-card ${visualClasses[index]} aspect-[1.48/1] rounded-[5px] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1] sm:rounded-[9px]`}
-      >
-        <ProjectArtwork index={index} />
-      </div>
-    </motion.div>
+      <ProjectArtwork index={index} />
+    </div>
   );
 
   return (
@@ -149,18 +144,24 @@ function ProjectCase({
       </div>
 
       <div className="project-motion-stage">
-        {project.href ? (
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${project.title} — Behance`}
-          >
-            {artwork}
-          </a>
-        ) : (
-          artwork
-        )}
+        <motion.div
+          className="project-motion-card"
+          style={reduceMotion ? undefined : { y, rotateX, z, scale, opacity }}
+        >
+          {project.href ? (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title} — Behance`}
+              className="block"
+            >
+              {artwork}
+            </a>
+          ) : (
+            artwork
+          )}
+        </motion.div>
       </div>
 
       <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-right sm:text-[10px]">
