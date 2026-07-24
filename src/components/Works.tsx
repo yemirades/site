@@ -109,26 +109,25 @@ function ProjectCase({
 }) {
   const rowRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-  const direction = index % 2 === 0 ? -1 : 1;
   const { scrollYProgress } = useScroll({
     target: rowRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "start 0.22"],
   });
-  const rawY = useTransform(scrollYProgress, [0, 0.48, 1], [72, 0, -58]);
-  const rawRotate = useTransform(
-    scrollYProgress,
-    [0, 0.48, 1],
-    [direction * 2.4, 0, direction * -0.8],
-  );
-  const rawScale = useTransform(scrollYProgress, [0, 0.48, 1], [0.94, 1, 0.985]);
-  const y = useSpring(rawY, { stiffness: 95, damping: 25, mass: 0.55 });
-  const rotate = useSpring(rawRotate, { stiffness: 90, damping: 24, mass: 0.55 });
-  const scale = useSpring(rawScale, { stiffness: 90, damping: 24, mass: 0.55 });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 66,
+    damping: 22,
+    mass: 0.82,
+  });
+  const y = useTransform(smoothProgress, [0, 0.86, 1], ["78%", "0%", "0%"]);
+  const rotateX = useTransform(smoothProgress, [0, 0.88, 1], [68, 0, 0]);
+  const z = useTransform(smoothProgress, [0, 0.88, 1], [-140, 0, 0]);
+  const scale = useTransform(smoothProgress, [0, 0.88, 1], [1.18, 1, 1]);
+  const opacity = useTransform(smoothProgress, [0, 0.7, 1], [0.72, 1, 1]);
 
   const artwork = (
     <motion.div
       className="project-motion-card"
-      style={reduceMotion ? undefined : { y, rotate, scale }}
+      style={reduceMotion ? undefined : { y, rotateX, z, scale, opacity }}
     >
       <div
         className={`project-card ${visualClasses[index]} aspect-[1.48/1] rounded-[5px] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1] sm:rounded-[9px]`}
