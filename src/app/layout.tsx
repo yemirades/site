@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Stint_Ultra_Condensed } from "next/font/google";
 import localFont from "next/font/local";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const stint = Stint_Ultra_Condensed({
   variable: "--font-stint",
@@ -36,6 +38,7 @@ export default function RootLayout({
       className={`${stint.variable} ${pitagon.variable} h-full antialiased`}
     >
       <body className="min-h-full font-mono">
+        <SmoothScroll />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
