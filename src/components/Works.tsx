@@ -1,7 +1,15 @@
 "use client";
 
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
-import { projects } from "@/data/content";
+import { projects, type Project } from "@/data/content";
 import { Reveal } from "./Reveal";
 
 const visualClasses = [
@@ -90,6 +98,82 @@ function ProjectArtwork({ index }: { index: number }) {
   );
 }
 
+function ProjectCase({
+  project,
+  index,
+  lang,
+}: {
+  project: Project;
+  index: number;
+  lang: "kk" | "en";
+}) {
+  const rowRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const direction = index % 2 === 0 ? -1 : 1;
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ["start end", "end start"],
+  });
+  const rawY = useTransform(scrollYProgress, [0, 0.48, 1], [72, 0, -58]);
+  const rawRotate = useTransform(
+    scrollYProgress,
+    [0, 0.48, 1],
+    [direction * 2.4, 0, direction * -0.8],
+  );
+  const rawScale = useTransform(scrollYProgress, [0, 0.48, 1], [0.94, 1, 0.985]);
+  const y = useSpring(rawY, { stiffness: 95, damping: 25, mass: 0.55 });
+  const rotate = useSpring(rawRotate, { stiffness: 90, damping: 24, mass: 0.55 });
+  const scale = useSpring(rawScale, { stiffness: 90, damping: 24, mass: 0.55 });
+
+  const artwork = (
+    <motion.div
+      className="project-motion-card"
+      style={reduceMotion ? undefined : { y, rotate, scale }}
+    >
+      <div
+        className={`project-card ${visualClasses[index]} aspect-[1.48/1] rounded-[5px] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1] sm:rounded-[9px]`}
+      >
+        <ProjectArtwork index={index} />
+      </div>
+    </motion.div>
+  );
+
+  return (
+    <div
+      ref={rowRef}
+      className="group grid gap-3 sm:grid-cols-[82px_minmax(0,1fr)_82px] sm:items-center sm:gap-5"
+    >
+      <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-[10px]">
+        <span>[{String(index + 1).padStart(2, "0")}]</span>
+        <span className="ml-1">{project.year}</span>
+        <span className="text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
+      </div>
+
+      <div className="project-motion-stage">
+        {project.href ? (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${project.title} — Behance`}
+          >
+            {artwork}
+          </a>
+        ) : (
+          artwork
+        )}
+      </div>
+
+      <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-right sm:text-[10px]">
+        <span className="text-[var(--muted)] sm:hidden">{project.title}</span>
+        <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+          {project.href ? "Behance ↗" : "Case soon"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function Works() {
   const { lang } = useLang();
 
@@ -97,42 +181,11 @@ export function Works() {
     <section id="works" className="theme-surface px-4 pb-24 sm:px-8 sm:pb-36">
       <h2 className="sr-only">{lang === "kk" ? "Жобалар" : "Selected works"}</h2>
       <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24">
-        {projects.map((project, index) => {
-          const card = (
-            <div className="group grid gap-3 sm:grid-cols-[82px_minmax(0,1fr)_82px] sm:items-center sm:gap-5">
-              <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-[10px]">
-                <span>[{String(index + 1).padStart(2, "0")}]</span>
-                <span className="ml-1">{project.year}</span>
-                <span className="text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
-              </div>
-
-              <div
-                className={`project-card ${visualClasses[index]} aspect-[1.48/1] rounded-[5px] transition-transform duration-700 ease-out group-hover:scale-[0.995] sm:aspect-[2.05/1] sm:rounded-[9px]`}
-              >
-                <ProjectArtwork index={index} />
-              </div>
-
-              <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-right sm:text-[10px]">
-                <span className="text-[var(--muted)] sm:hidden">{project.title}</span>
-                <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  {project.href ? "Behance ↗" : "Case soon"}
-                </span>
-              </div>
-            </div>
-          );
-
-          return (
-            <Reveal key={project.title} delay={index * 0.04}>
-              {project.href ? (
-                <a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} — Behance`}>
-                  {card}
-                </a>
-              ) : (
-                card
-              )}
-            </Reveal>
-          );
-        })}
+        {projects.map((project, index) => (
+          <Reveal key={project.title} delay={index * 0.04}>
+            <ProjectCase project={project} index={index} lang={lang} />
+          </Reveal>
+        ))}
       </div>
     </section>
   );

@@ -3,14 +3,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
-import { useTheme } from "@/context/ThemeContext";
 import { socials } from "@/data/content";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function Nav() {
   const { lang, setLang } = useLang();
-  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const social = Object.fromEntries(socials.map((item) => [item.label, item.href]));
 
@@ -89,22 +87,6 @@ export function Nav() {
               </button>
             ))}
           </div>
-
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={
-              lang === "kk"
-                ? `${theme === "dark" ? "Ашық" : "Қараңғы"} тақырыпты қосу`
-                : `Switch to ${theme === "dark" ? "light" : "dark"} theme`
-            }
-            title={theme === "dark" ? "Light theme" : "Dark theme"}
-            className="flex size-8 items-center justify-center rounded-[7px] bg-[var(--pill)] text-[var(--pill-ink)] transition-transform hover:rotate-12"
-          >
-            <span aria-hidden="true" className="text-[13px] leading-none">
-              {theme === "dark" ? "☼" : "◐"}
-            </span>
-          </button>
 
           <button
             type="button"

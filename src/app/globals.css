@@ -20,18 +20,6 @@
   --foreground: var(--ink);
 }
 
-:root[data-theme="light"] {
-  --page: #f2f0ea;
-  --ink: #080808;
-  --muted: rgba(8, 8, 8, 0.55);
-  --line: rgba(8, 8, 8, 0.2);
-  --pill: #080808;
-  --pill-ink: #f7f7f3;
-  --soft: #e5e2da;
-  --inverse: #080808;
-  --inverse-ink: #f7f7f3;
-}
-
 html {
   scroll-behavior: smooth;
   background: var(--background);
@@ -42,7 +30,6 @@ body {
   color: var(--foreground);
   font-synthesis: none;
   overflow-x: hidden;
-  transition: background-color 300ms ease, color 300ms ease;
 }
 
 ::selection {
@@ -62,7 +49,6 @@ button {
 .theme-surface {
   background: var(--page);
   color: var(--ink);
-  transition: background-color 300ms ease, color 300ms ease;
 }
 
 .project-card {
@@ -70,6 +56,16 @@ button {
   position: relative;
   overflow: hidden;
   background: #0c0d14;
+}
+
+.project-motion-stage {
+  perspective: 1200px;
+}
+
+.project-motion-card {
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card::after {

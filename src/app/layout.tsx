@@ -3,7 +3,6 @@ import { Stint_Ultra_Condensed } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { ThemeProvider } from "@/context/ThemeContext";
 
 const stint = Stint_Ultra_Condensed({
   variable: "--font-stint",
@@ -34,14 +33,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
-      suppressHydrationWarning
       className={`${stint.variable} ${pitagon.variable} h-full antialiased`}
     >
       <body className="min-h-full font-mono">
-        <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
