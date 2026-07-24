@@ -111,18 +111,22 @@ function ProjectCase({
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: rowRef,
-    offset: ["start end", "start 0.22"],
+    offset: ["start 1.02", "start 0.38"],
   });
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 48,
-    damping: 19,
-    mass: 0.94,
+    stiffness: 78,
+    damping: 22,
+    mass: 0.8,
   });
-  const y = useTransform(smoothProgress, [0, 0.86, 1], ["78%", "0%", "0%"]);
-  const rotateX = useTransform(smoothProgress, [0, 0.88, 1], [68, 0, 0]);
-  const z = useTransform(smoothProgress, [0, 0.88, 1], [-140, 0, 0]);
-  const scale = useTransform(smoothProgress, [0, 0.88, 1], [1.18, 1, 1]);
-  const opacity = useTransform(smoothProgress, [0, 0.7, 1], [0.72, 1, 1]);
+  const y = useTransform(smoothProgress, [0, 0.7, 1], ["82%", "0%", "0%"]);
+  const rotateX = useTransform(smoothProgress, [0, 0.74, 1], [68, 0, 0]);
+  const z = useTransform(smoothProgress, [0, 0.74, 1], [-140, 0, 0]);
+  const scale = useTransform(
+    smoothProgress,
+    [0, 0.62, 0.82, 1],
+    [1.18, 1.02, 1, 1],
+  );
+  const opacity = useTransform(smoothProgress, [0, 0.48, 1], [0.68, 1, 1]);
 
   const artwork = (
     <div
