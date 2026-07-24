@@ -5,7 +5,6 @@ import {
   motion,
   useReducedMotion,
   useScroll,
-  useSpring,
   useTransform,
 } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
@@ -113,20 +112,19 @@ function ProjectCase({
     target: rowRef,
     offset: ["start 1.02", "start 0.38"],
   });
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 78,
-    damping: 22,
-    mass: 0.8,
-  });
-  const y = useTransform(smoothProgress, [0, 0.7, 1], ["82%", "0%", "0%"]);
-  const rotateX = useTransform(smoothProgress, [0, 0.74, 1], [68, 0, 0]);
-  const z = useTransform(smoothProgress, [0, 0.74, 1], [-140, 0, 0]);
-  const scale = useTransform(
-    smoothProgress,
-    [0, 0.62, 0.82, 1],
-    [1.18, 1.02, 1, 1],
+  const easedProgress = useTransform(
+    scrollYProgress,
+    (value) => 1 - Math.pow(1 - value, 2.2),
   );
-  const opacity = useTransform(smoothProgress, [0, 0.48, 1], [0.68, 1, 1]);
+  const y = useTransform(easedProgress, [0, 1], ["82%", "0%"]);
+  const rotateX = useTransform(easedProgress, [0, 1], [68, 0]);
+  const z = useTransform(easedProgress, [0, 1], [-140, 0]);
+  const scale = useTransform(
+    easedProgress,
+    [0, 0.72, 1],
+    [1.18, 1.02, 1],
+  );
+  const opacity = useTransform(easedProgress, [0, 0.65, 1], [0.68, 1, 1]);
 
   const artwork = (
     <div
