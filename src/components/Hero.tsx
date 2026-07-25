@@ -12,53 +12,66 @@ export function Hero() {
   const t = content[lang];
 
   return (
-    <section id="top" className="theme-surface relative min-h-[650px] px-4 sm:min-h-[610px] sm:px-8">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center pt-24 text-center sm:pt-28">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative size-[148px] overflow-hidden rounded-full bg-[#21142f] sm:size-[176px]"
-          data-video-slot
-        >
-          <video
-            aria-label={lang === "kk" ? "Мираттың видео-портреті" : "Video portrait of Mirat"}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={`${basePath}/portrait-figma.jpg`}
-            className="h-full w-full object-cover object-top"
+    <section
+      id="top"
+      className="theme-surface relative min-h-[760px] overflow-hidden px-4 sm:px-8 lg:min-h-[568px]"
+    >
+      <div className="relative mx-auto flex min-h-[760px] max-w-[1200px] flex-col pt-[88px] lg:block lg:min-h-[568px] lg:pt-0">
+        <div className="relative mx-auto aspect-[386/339] w-full max-w-[386px] shrink-0 overflow-hidden lg:absolute lg:left-1/2 lg:top-[111px] lg:h-[339px] lg:w-[386px] lg:-translate-x-1/2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.88 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 overflow-hidden bg-[#777777]"
+            data-video-slot
           >
-            <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
-          </video>
-          <span className="pointer-events-none absolute bottom-2 right-2 size-2 rounded-full bg-white/80 ring-4 ring-black/20" />
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-9 font-display text-[66px] leading-[0.84] tracking-[-0.02em] sm:mt-10 sm:text-[82px] lg:text-[92px]"
-        >
-          Mirat Yerbolatov
-        </motion.h1>
+            <video
+              aria-label={
+                lang === "kk"
+                  ? "Мираттың видео-портреті"
+                  : "Video portrait of Mirat"
+              }
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={`${basePath}/portrait-figma.jpg`}
+              className="h-full w-full object-cover object-center mix-blend-screen"
+            >
+              <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
+            </video>
+          </motion.div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-5 max-w-[365px] text-[10px] uppercase leading-[1.28] tracking-[0.01em] sm:text-[12px]"
+          className="mt-6 w-full max-w-[378px] self-end text-[18px] font-semibold leading-[1.1] tracking-[-0.02em] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
         >
           {t.about}
         </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.75,
+            delay: 0.12,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="mt-auto w-full max-w-[438px] font-display text-[58px] font-medium leading-[0.9] tracking-[-0.05em] lg:absolute lg:bottom-[10px] lg:left-0 lg:mt-0 lg:text-[80px]"
+        >
+          <span className="block">Mirat</span>
+          <span className="block">Yerbolatuly</span>
+        </motion.h1>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="mt-16 flex items-center gap-3 text-[9px] uppercase leading-none tracking-[0.015em] sm:mt-20 sm:text-[10px]"
+          className="mb-5 mt-5 flex items-center gap-[9px] self-end text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-[11px] lg:right-0 lg:mb-0 lg:mt-0"
         >
           <LiveClock />
           <span>{t.location}</span>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-stint), Georgia, serif;
-  --font-mono: var(--font-pitagon), "Courier New", monospace;
+  --font-display: "Stack Sans Headline Variable", Arial, sans-serif;
+  --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
   --color-accent: #21142f;
 }
 
