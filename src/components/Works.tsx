@@ -10,6 +10,7 @@ import {
 import { useLang } from "@/context/LanguageContext";
 import { projects, type Project } from "@/data/content";
 import { Reveal } from "./Reveal";
+import { ArrowIcon } from "./ArrowIcon";
 
 const visualClasses = [
   "case-mycar",
@@ -168,8 +169,15 @@ function ProjectCase({
 
       <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-right sm:text-[10px]">
         <span className="text-[var(--muted)] sm:hidden">{project.title}</span>
-        <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-          {project.href ? "Behance ↗" : "Case soon"}
+        <span className="inline-flex items-center gap-1 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+          {project.href ? (
+            <>
+              Behance
+              <ArrowIcon className="size-3" />
+            </>
+          ) : (
+            "Case soon"
+          )}
         </span>
       </div>
     </div>

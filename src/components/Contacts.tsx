@@ -4,6 +4,7 @@ import { useLang } from "@/context/LanguageContext";
 import { content, email, socials } from "@/data/content";
 import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
+import { ArrowIcon } from "./ArrowIcon";
 
 export function Contacts() {
   const { lang } = useLang();
@@ -27,9 +28,10 @@ export function Contacts() {
             <Reveal delay={0.08}>
               <a
                 href={`mailto:${email}`}
-                className="mt-10 inline-flex border-b border-current pb-1 text-[11px] uppercase transition-opacity hover:opacity-60"
+                className="mt-10 inline-flex items-center gap-1 border-b border-current pb-1 text-[11px] uppercase transition-opacity hover:opacity-60"
               >
-                {t.contactsCta} ↗
+                {t.contactsCta}
+                <ArrowIcon className="size-3.5" />
               </a>
             </Reveal>
           </div>
@@ -43,9 +45,10 @@ export function Contacts() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-opacity hover:opacity-55"
+                className="inline-flex items-center gap-1 transition-opacity hover:opacity-55"
               >
-                {s.label} ↗
+                {s.label}
+                <ArrowIcon className="size-3" />
               </a>
             ))}
           </div>

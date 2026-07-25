@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { socials } from "@/data/content";
+import { ArrowIcon } from "./ArrowIcon";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -17,7 +18,7 @@ export function Nav() {
     { href: social.Telegram, label: "Telegram", external: true },
     { href: social.Instagram, label: "Instagram", external: true },
     { href: social.LinkedIn, label: "LinkedIn", external: true },
-    { href: "#contacts", label: "CV ↗" },
+    { href: "#contacts", label: "CV", arrow: true },
   ];
 
   useEffect(() => {
@@ -60,9 +61,10 @@ export function Nav() {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="whitespace-nowrap px-2 py-1 transition-opacity hover:opacity-55"
+              className="inline-flex items-center gap-0.5 whitespace-nowrap px-2 py-1 transition-opacity hover:opacity-55"
             >
               {link.label.toLowerCase()}
+              {link.arrow ? <ArrowIcon /> : null}
             </a>
           ))}
         </nav>
@@ -132,7 +134,10 @@ export function Nav() {
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-between border-b border-current/20 py-3 text-[12px] uppercase last:border-b-0"
             >
-              <span>{link.label}</span>
+              <span className="inline-flex items-center gap-1">
+                {link.label}
+                {link.arrow ? <ArrowIcon /> : null}
+              </span>
               <span className="text-[9px] opacity-45">0{index + 1}</span>
             </a>
           ))}
