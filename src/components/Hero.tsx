@@ -14,15 +14,15 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="theme-surface relative min-h-[760px] overflow-hidden px-4 sm:px-8 lg:min-h-[568px]"
+      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:min-h-[568px]"
     >
-      <div className="relative mx-auto flex min-h-[760px] max-w-[1200px] flex-col pt-[88px] lg:block lg:min-h-[568px] lg:pt-0">
-        <div className="relative mx-auto aspect-[386/339] w-full max-w-[386px] shrink-0 overflow-hidden lg:absolute lg:left-1/2 lg:top-[111px] lg:h-[339px] lg:w-[386px] lg:-translate-x-1/2">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pt-[72px] lg:block lg:min-h-[568px] lg:pt-0">
+        <div className="relative mx-auto aspect-[386/339] w-full max-w-[240px] shrink-0 overflow-hidden sm:max-w-[320px] lg:absolute lg:left-1/2 lg:top-[111px] lg:h-[339px] lg:w-[386px] lg:max-w-none lg:-translate-x-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.88 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 overflow-hidden bg-[#777777]"
+            className="absolute inset-0 overflow-hidden bg-black"
             data-video-slot
           >
             <video
@@ -37,7 +37,7 @@ export function Hero() {
               playsInline
               preload="metadata"
               poster={`${basePath}/portrait-figma.jpg`}
-              className="h-full w-full object-cover object-center mix-blend-screen"
+              className="h-full w-full object-cover object-center"
             >
               <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
             </video>
@@ -48,7 +48,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-6 w-full max-w-[378px] self-end text-[18px] font-semibold leading-[1.1] tracking-[-0.02em] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
+          className="mt-4 w-full max-w-[378px] self-end text-[16px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
         >
           {t.about}
         </motion.p>
@@ -71,7 +71,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="mb-5 mt-5 flex items-center gap-[9px] self-end text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-[11px] lg:right-0 lg:mb-0 lg:mt-0"
+          className="mb-4 mt-3 flex items-center gap-[9px] self-end text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-[11px] lg:right-0 lg:mb-0 lg:mt-0"
         >
           <LiveClock />
           <span>{t.location}</span>
