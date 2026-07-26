@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import {
   motion,
@@ -12,6 +13,8 @@ import { projects, type Project } from "@/data/content";
 import { Reveal } from "./Reveal";
 import { ArrowIcon } from "./ArrowIcon";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const visualClasses = [
   "case-mycar",
   "case-logofolio",
@@ -21,50 +24,49 @@ const visualClasses = [
   "case-pay",
 ];
 
-function ProjectArtwork({ index }: { index: number }) {
+const imageCovers: Partial<Record<number, string>> = {
+  1: "case-logofolio.png",
+  2: "case-bbs.png",
+  5: "case-mycar-pay.png",
+};
+
+function ProjectArtwork({
+  index,
+  title,
+}: {
+  index: number;
+  title: string;
+}) {
   if (index === 0) {
     return (
-      <div className="absolute inset-0 flex items-center justify-center p-8 text-white">
-        <div className="text-center">
-          <p className="text-[9px] tracking-[0.24em] opacity-65 sm:text-xs">Campaign / 2025</p>
-          <p className="mt-3 text-3xl font-medium tracking-[-0.05em] sm:text-7xl">MYCAR × SAMSUNG</p>
-          <div className="mx-auto mt-6 h-px w-20 bg-white/60 sm:w-36" />
-        </div>
-      </div>
+      <video
+        aria-label={`${title} project cover`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source
+          src={`${basePath}/case-mycar-samsung.mp4`}
+          type="video/mp4"
+        />
+      </video>
     );
   }
 
-  if (index === 1) {
-    return (
-      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 text-[#111]">
-        {[
-          ["Y", "SERIF"],
-          ["M", "GROTESK"],
-          ["A", "DISPLAY"],
-          ["25", "MARKS"],
-        ].map(([mark, caption]) => (
-          <div key={caption} className="flex items-center justify-between border border-black/35 p-4 sm:p-7">
-            <span className="font-display text-5xl leading-none sm:text-8xl">{mark}</span>
-            <span className="self-end text-[7px] sm:text-[10px]">{caption}</span>
-          </div>
-        ))}
-      </div>
-    );
-  }
+  const imageCover = imageCovers[index];
 
-  if (index === 2) {
+  if (imageCover) {
     return (
-      <div className="absolute inset-0 flex items-center text-white">
-        <div className="hidden h-full w-[42%] items-end p-8 sm:flex">
-          <div className="h-[72%] w-[58%] rounded-t-full bg-gradient-to-t from-[#183fff] to-[#020516] opacity-80" />
-        </div>
-        <div className="ml-auto w-full p-7 sm:w-[58%] sm:p-10">
-          <p className="text-xs font-semibold sm:text-lg">⬡ BBS</p>
-          <p className="mt-8 max-w-[390px] text-2xl font-semibold leading-[0.98] tracking-[-0.04em] sm:text-5xl">
-            we create <span className="text-[#254dff]">maximum value</span> for our clients
-          </p>
-        </div>
-      </div>
+      <Image
+        src={`${basePath}/${imageCover}`}
+        alt={`${title} project cover`}
+        fill
+        sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1280px) calc(100vw - 228px), 1044px"
+        className="object-cover"
+      />
     );
   }
 
@@ -89,13 +91,7 @@ function ProjectArtwork({ index }: { index: number }) {
     );
   }
 
-  return (
-    <div className="absolute inset-0 flex items-center justify-center text-white">
-      <div className="rounded-full border border-white/35 px-8 py-5 backdrop-blur-sm sm:px-16 sm:py-9">
-        <p className="text-3xl font-medium tracking-[-0.06em] sm:text-7xl">mycar pay</p>
-      </div>
-    </div>
-  );
+  return null;
 }
 
 function ProjectCase({
@@ -129,9 +125,9 @@ function ProjectCase({
 
   const artwork = (
     <div
-      className={`project-card ${visualClasses[index]} aspect-[1.48/1] rounded-[5px] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1] sm:rounded-[9px]`}
+      className={`project-card ${visualClasses[index]} aspect-[1.48/1] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1]`}
     >
-      <ProjectArtwork index={index} />
+      <ProjectArtwork index={index} title={project.title} />
     </div>
   );
 
