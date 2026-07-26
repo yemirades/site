@@ -111,6 +111,41 @@ button {
   transform: translateX(45%);
 }
 
+.clients-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.clients-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: clients-marquee-loop 28s linear infinite;
+}
+
+.clients-logo-set {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: clamp(64px, 8.33vw, 120px);
+  padding-right: clamp(64px, 8.33vw, 120px);
+}
+
+.clients-marquee:hover .clients-marquee-track,
+.clients-marquee:focus-within .clients-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes clients-marquee-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .case-mycar {
   background:
     radial-gradient(circle at 78% 28%, rgba(67, 99, 255, 0.52), transparent 23%),
@@ -154,6 +189,10 @@ button {
   }
 
   .clock-colon {
+    animation: none;
+  }
+
+  .clients-marquee-track {
     animation: none;
   }
 }

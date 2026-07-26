@@ -125,7 +125,7 @@ function ProjectCase({
 
   const artwork = (
     <div
-      className={`project-card ${visualClasses[index]} aspect-[1.48/1] transition-[filter] duration-700 ease-out group-hover:brightness-[1.05] sm:aspect-[2.05/1]`}
+      className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
     >
       <ProjectArtwork index={index} title={project.title} />
     </div>
