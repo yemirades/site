@@ -70,7 +70,7 @@ export function Nav() {
         </nav>
 
         <div className="pointer-events-auto flex justify-self-end gap-1.5">
-          <div className="flex bg-[var(--pill)] p-1 text-[14px] font-medium uppercase leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)]">
+          <div className="flex bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)]">
             {([
               { value: "en", label: "EN" },
               { value: "kk", label: "KZ" },
@@ -79,7 +79,7 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`px-2 py-1 uppercase transition-colors ${
+                className={`px-2 py-1 transition-colors ${
                   lang === language.value
                     ? "bg-[var(--page)] text-[var(--ink)]"
                     : "opacity-55 hover:opacity-100"
@@ -132,7 +132,7 @@ export function Nav() {
               rel={link.external ? "noopener noreferrer" : undefined}
               tabIndex={menuOpen ? 0 : -1}
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-between border-b border-current/20 py-3 text-[12px] uppercase last:border-b-0"
+              className="flex items-center justify-between border-b border-current/20 py-3 text-[12px] last:border-b-0"
             >
               <span className="inline-flex items-center gap-1">
                 {link.label}

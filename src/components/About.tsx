@@ -15,7 +15,7 @@ export function About() {
           <h2 className="font-display text-7xl leading-none sm:text-8xl">
             {lang === "en" ? "About" : "Мен туралы"}
           </h2>
-          <p className="text-[12px] uppercase leading-[1.35] text-[var(--muted)] sm:col-span-2 sm:max-w-[490px] sm:justify-self-end">
+          <p className="text-[12px] leading-[1.35] text-[var(--muted)] sm:col-span-2 sm:max-w-[490px] sm:justify-self-end">
             {t.about}
           </p>
         </div>

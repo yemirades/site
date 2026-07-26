@@ -26,7 +26,7 @@ function ProjectArtwork({ index }: { index: number }) {
     return (
       <div className="absolute inset-0 flex items-center justify-center p-8 text-white">
         <div className="text-center">
-          <p className="text-[9px] uppercase tracking-[0.24em] opacity-65 sm:text-xs">Campaign / 2025</p>
+          <p className="text-[9px] tracking-[0.24em] opacity-65 sm:text-xs">Campaign / 2025</p>
           <p className="mt-3 text-3xl font-medium tracking-[-0.05em] sm:text-7xl">MYCAR × SAMSUNG</p>
           <div className="mx-auto mt-6 h-px w-20 bg-white/60 sm:w-36" />
         </div>
@@ -45,7 +45,7 @@ function ProjectArtwork({ index }: { index: number }) {
         ].map(([mark, caption]) => (
           <div key={caption} className="flex items-center justify-between border border-black/35 p-4 sm:p-7">
             <span className="font-display text-5xl leading-none sm:text-8xl">{mark}</span>
-            <span className="self-end text-[7px] uppercase sm:text-[10px]">{caption}</span>
+            <span className="self-end text-[7px] sm:text-[10px]">{caption}</span>
           </div>
         ))}
       </div>
@@ -83,7 +83,7 @@ function ProjectArtwork({ index }: { index: number }) {
       <div className="absolute inset-0 flex items-center justify-center text-[#e5ffbd]">
         <div className="text-center">
           <p className="font-display text-7xl leading-none sm:text-[150px]">A</p>
-          <p className="text-[8px] uppercase tracking-[0.34em] sm:text-xs">Agro logomark</p>
+          <p className="text-[8px] tracking-[0.34em] sm:text-xs">Agro logomark</p>
         </div>
       </div>
     );
@@ -140,7 +140,7 @@ function ProjectCase({
       ref={rowRef}
       className="group grid gap-3 sm:grid-cols-[82px_minmax(0,1fr)_82px] sm:items-center sm:gap-5"
     >
-      <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-[10px]">
+      <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-[10px]">
         <span>[{String(index + 1).padStart(2, "0")}]</span>
         <span className="ml-1">{project.year}</span>
         <span className="text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
@@ -167,7 +167,7 @@ function ProjectCase({
         </motion.div>
       </div>
 
-      <div className="flex items-center justify-between text-[9px] uppercase leading-none sm:block sm:text-right sm:text-[10px]">
+      <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-right sm:text-[10px]">
         <span className="text-[var(--muted)] sm:hidden">{project.title}</span>
         <span className="inline-flex items-center gap-1 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
           {project.href ? (

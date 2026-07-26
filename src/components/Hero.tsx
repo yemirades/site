@@ -61,7 +61,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-4 w-full max-w-[378px] self-end text-[clamp(12px,3.75vw,14px)] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
+          className="mt-4 w-full max-w-[378px] self-end text-[16px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
         >
           <span className="sm:hidden">
             {mobileAboutLines.map((line) => (
