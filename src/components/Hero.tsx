@@ -10,6 +10,20 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export function Hero() {
   const { lang } = useLang();
   const t = content[lang];
+  const mobileAboutLines =
+    lang === "en"
+      ? [
+          "Sälem! I’m a Multidisciplinary designer,",
+          "focused on building clear and functional",
+          "websites and visual identities. Currently",
+          "working at Mycar Group.",
+        ]
+      : [
+          "Сәлем! Мен мультидисциплинарлы дизайнермін,",
+          "түсінікті әрі функционалды сайттар мен",
+          "визуалды айдентикалар жасаймын. Қазір",
+          "Mycar Group-та жұмыс істеймін.",
+        ];
 
   return (
     <section
@@ -35,8 +49,7 @@ export function Hero() {
               muted
               loop
               playsInline
-              preload="metadata"
-              poster={`${basePath}/portrait-figma.jpg`}
+              preload="auto"
               className="h-full w-full object-cover object-center"
             >
               <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
@@ -48,9 +61,16 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-4 w-full max-w-[378px] self-end text-[16px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
+          className="mt-4 w-full max-w-[378px] self-end text-[clamp(12px,3.75vw,14px)] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:right-0 lg:top-[238px] lg:mt-0 lg:text-[20px]"
         >
-          {t.about}
+          <span className="sm:hidden">
+            {mobileAboutLines.map((line) => (
+              <span key={line} className="block whitespace-nowrap">
+                {line}
+              </span>
+            ))}
+          </span>
+          <span className="hidden sm:inline">{t.about}</span>
         </motion.p>
 
         <motion.h1
@@ -71,7 +91,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="mb-4 mt-3 flex items-center gap-[9px] self-end text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-[11px] lg:right-0 lg:mb-0 lg:mt-0"
+          className="mb-4 mt-3 flex items-center gap-[9px] self-start text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-[11px] lg:right-0 lg:mb-0 lg:mt-0"
         >
           <LiveClock />
           <span>{t.location}</span>

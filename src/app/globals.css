@@ -46,6 +46,23 @@ button {
   cursor: pointer;
 }
 
+.clock-colon {
+  display: inline-block;
+  animation: clock-colon-blink 1s steps(1, end) infinite;
+}
+
+@keyframes clock-colon-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .theme-surface {
   background: var(--page);
   color: var(--ink);
@@ -124,5 +141,9 @@ button {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .clock-colon {
+    animation: none;
   }
 }

@@ -188,7 +188,10 @@ export function Works() {
   const { lang } = useLang();
 
   return (
-    <section id="works" className="theme-surface px-4 pb-24 sm:px-8 sm:pb-36">
+    <section
+      id="works"
+      className="theme-surface px-4 pb-24 pt-10 sm:px-8 sm:pb-36 lg:pt-20"
+    >
       <h2 className="sr-only">{lang === "kk" ? "Жобалар" : "Selected works"}</h2>
       <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24">
         {projects.map((project, index) => (

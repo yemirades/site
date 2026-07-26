@@ -22,5 +22,21 @@ export function LiveClock() {
     return () => clearInterval(id);
   }, []);
 
-  return <span className="tabular-nums">{time}</span>;
+  const [hours = "", minutes = ""] = time.split(":");
+
+  return (
+    <span className="tabular-nums" aria-label={time || undefined}>
+      {time ? (
+        <>
+          {hours}
+          <span aria-hidden="true" className="clock-colon">
+            :
+          </span>
+          {minutes}
+        </>
+      ) : (
+        <span aria-hidden="true">&nbsp;</span>
+      )}
+    </span>
+  );
 }
