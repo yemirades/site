@@ -121,19 +121,15 @@ button {
   width: max-content;
   will-change: transform;
   animation: clients-marquee-loop 28s linear infinite;
+  animation-play-state: running;
 }
 
 .clients-logo-set {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  gap: clamp(64px, 8.33vw, 120px);
-  padding-right: clamp(64px, 8.33vw, 120px);
-}
-
-.clients-marquee:hover .clients-marquee-track,
-.clients-marquee:focus-within .clients-marquee-track {
-  animation-play-state: paused;
+  gap: clamp(44px, 6.1vw, 88px);
+  padding-right: clamp(44px, 6.1vw, 88px);
 }
 
 @keyframes clients-marquee-loop {
