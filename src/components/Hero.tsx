@@ -14,10 +14,9 @@ export function Hero() {
   const mobileAboutLines =
     lang === "en"
       ? [
-          "Sälem! I’m a product designer",
-          "with a background in communication",
-          "design. Currently working at",
-          "Mycar Group.",
+          "Sälem! I’m a product designer with",
+          "a background in communication design.",
+          "Currently working at Mycar Group.",
         ]
       : [
           "Сәлем! Мен мультидисциплинарлы дизайнермін,",
@@ -75,7 +74,7 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero relative z-10 mt-5 flex w-full flex-col items-start gap-1 text-[clamp(36px,11vw,48px)] font-bold leading-[0.9] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="font-hero relative z-10 mt-5 flex w-full flex-col items-start gap-1 text-[56px] font-bold leading-[0.9] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
             <span>MIRAT</span>
@@ -95,7 +94,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-auto w-full max-w-[378px] text-[clamp(13px,3.7vw,16px)] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:bottom-0 lg:left-0 lg:mt-0 lg:text-[20px]"
+          className="mt-auto w-full max-w-[378px] text-[clamp(16px,4.6vw,18px)] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:bottom-0 lg:left-0 lg:mt-0 lg:text-[20px]"
         >
           <span className="sm:hidden">
             {mobileAboutLines.map((line) => (
