@@ -186,10 +186,10 @@ export function Works() {
   return (
     <section
       id="works"
-      className="theme-surface px-4 pb-24 pt-10 sm:px-8 sm:pb-36 lg:pt-20"
+      className="theme-surface px-4 pb-24 pt-10 sm:px-8 sm:pb-36 lg:px-6 lg:pt-20"
     >
       <h2 className="sr-only">{lang === "kk" ? "Жобалар" : "Selected works"}</h2>
-      <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24">
+      <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24 lg:max-w-none">
         {projects.map((project, index) => (
           <Reveal key={project.title} delay={index * 0.04}>
             <ProjectCase project={project} index={index} lang={lang} />

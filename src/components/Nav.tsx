@@ -31,8 +31,8 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-5">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-[1fr_auto] items-start gap-2 sm:grid-cols-[140px_auto_140px]">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-5 lg:px-6">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-[1fr_auto] items-start gap-2 sm:grid-cols-[140px_auto_140px] lg:max-w-none">
         <a
           href="#top"
           aria-label="Yemirades — home"

@@ -11,8 +11,8 @@ export function Contacts() {
   const t = content[lang];
 
   return (
-    <section id="contacts" className="bg-[var(--inverse)] px-4 py-20 text-[var(--inverse-ink)] transition-colors duration-300 sm:px-8 sm:py-28">
-      <div className="mx-auto max-w-[1200px]">
+    <section id="contacts" className="bg-[var(--inverse)] px-4 py-20 text-[var(--inverse-ink)] transition-colors duration-300 sm:px-8 sm:py-28 lg:px-6">
+      <div className="mx-auto max-w-[1200px] lg:max-w-none">
         <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
           <Reveal>
             <p className="text-[10px]">{t.contactsTitle}</p>

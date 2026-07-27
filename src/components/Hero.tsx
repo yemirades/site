@@ -28,9 +28,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:min-h-[568px]"
+      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:min-h-[568px] lg:px-6"
     >
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pt-[72px] lg:block lg:min-h-[568px] lg:pt-0">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pt-[72px] lg:block lg:min-h-[568px] lg:max-w-none lg:pt-0">
         <div className="relative mx-auto aspect-[386/339] w-full max-w-[240px] shrink-0 overflow-hidden sm:max-w-[320px] lg:absolute lg:left-1/2 lg:top-[111px] lg:h-[339px] lg:w-[386px] lg:max-w-none lg:-translate-x-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.88 }}
