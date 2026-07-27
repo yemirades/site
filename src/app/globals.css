@@ -33,14 +33,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-synthesis: none;
+  letter-spacing: -0.02em;
   max-width: 100%;
   overflow-x: clip;
   overscroll-behavior-x: none;
+  text-transform: uppercase;
 }
 
 main {
   max-width: 100%;
   overflow-x: clip;
+}
+
+.font-display,
+.font-hero {
+  text-transform: none;
 }
 
 ::selection {
@@ -112,34 +119,46 @@ button {
   transform: translateX(45%);
 }
 
-.clients-marquee {
+.project-title-overlay {
+  align-items: flex-end;
+  bottom: 0;
+  display: flex;
+  inset-inline: 0;
+  min-height: 72px;
   overflow: hidden;
-  width: 100%;
+  padding: 28px 14px 12px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
 }
 
-.clients-marquee-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-  animation: clients-marquee-loop 28s linear infinite;
-  animation-play-state: running;
+.project-title-overlay::before {
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 48%, transparent 100%);
+  backdrop-filter: blur(16px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.18) 58%, transparent);
+  content: "";
+  inset: 0;
+  mask-image: linear-gradient(to top, #000 0%, #000 48%, transparent 100%);
+  position: absolute;
 }
 
-.clients-logo-set {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: clamp(44px, 6.1vw, 88px);
-  padding-right: clamp(44px, 6.1vw, 88px);
+.project-title-overlay span {
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes clients-marquee-loop {
-  from {
-    transform: translate3d(0, 0, 0);
+@media (min-width: 640px) {
+  .project-title-overlay {
+    min-height: 104px;
+    padding: 42px 24px 18px;
   }
 
-  to {
-    transform: translate3d(-50%, 0, 0);
+  .project-title-overlay span {
+    font-size: 14px;
   }
 }
 
@@ -189,7 +208,4 @@ button {
     animation: none;
   }
 
-  .clients-marquee-track {
-    animation: none;
-  }
 }

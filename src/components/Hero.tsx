@@ -77,7 +77,7 @@ export function Hero() {
           className="font-hero relative z-10 mt-5 flex w-full flex-col items-start gap-1 text-[56px] font-normal leading-[0.9] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
-            <span>MIRAT</span>
+            <span>Mirat</span>
             <Image
               src={`${basePath}/hero-logo.gif`}
               alt=""
@@ -87,14 +87,14 @@ export function Hero() {
               className="size-8 object-contain sm:size-10 lg:size-12"
             />
           </span>
-          <span>YERBOLATOV</span>
+          <span>Yerbolatov</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-auto w-full max-w-[378px] text-[clamp(16px,4.6vw,18px)] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:bottom-0 lg:left-0 lg:mt-0 lg:text-[20px]"
+          className="mt-auto w-full max-w-[378px] text-[14px] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[18px] lg:absolute lg:bottom-0 lg:left-0 lg:mt-0 lg:text-[20px]"
         >
           <span className="sm:hidden">
             {mobileAboutLines.map((line) => (

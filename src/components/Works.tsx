@@ -128,6 +128,9 @@ function ProjectCase({
       className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
     >
       <ProjectArtwork index={index} title={project.title} />
+      <div className="project-title-overlay">
+        <span>{project.title}</span>
+      </div>
     </div>
   );
 
@@ -163,8 +166,7 @@ function ProjectCase({
         </motion.div>
       </div>
 
-      <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-right sm:text-[10px]">
-        <span className="text-[var(--muted)] sm:hidden">{project.title}</span>
+      <div className="flex items-center justify-end text-[9px] leading-none sm:block sm:text-right sm:text-[10px]">
         <span className="inline-flex items-center gap-1 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
           {project.href ? (
             <>
