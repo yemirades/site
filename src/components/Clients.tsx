@@ -85,13 +85,13 @@ export function Clients() {
       </div>
 
       <div
-        className="mx-auto mt-12 grid max-w-[1200px] grid-cols-2 gap-1 px-4 sm:mt-14 sm:grid-cols-4 sm:px-8 lg:max-w-none lg:grid-cols-7 lg:px-6"
+        className="mx-auto mt-12 grid max-w-[1200px] grid-cols-2 gap-5 px-4 sm:mt-14 sm:px-8 lg:grid-cols-4 lg:px-6"
         aria-label="Client logos"
       >
         {clients.map((client) => (
           <div
             key={client.src}
-            className="flex h-[104px] items-center justify-center bg-[#0b1d33] sm:h-[120px]"
+            className="flex h-[104px] items-center justify-center bg-[#101010] sm:h-[132px]"
           >
             <div className={client.size}>
               <Image

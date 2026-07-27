@@ -124,13 +124,15 @@ function ProjectCase({
   const opacity = useTransform(easedProgress, [0, 0.65, 1], [0.68, 1, 1]);
 
   const artwork = (
-    <div
-      className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
-    >
-      <ProjectArtwork index={index} title={project.title} />
-      <div className="project-title-overlay">
-        <span>{project.title}</span>
+    <div>
+      <div
+        className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
+      >
+        <ProjectArtwork index={index} title={project.title} />
       </div>
+      <p className="mt-3 text-[11px] leading-none sm:mt-4 sm:text-[13px]">
+        {project.title}
+      </p>
     </div>
   );
 
