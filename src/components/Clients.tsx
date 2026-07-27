@@ -85,7 +85,7 @@ export function Clients() {
       </div>
 
       <div
-        className="mx-auto mt-12 grid max-w-[1200px] grid-cols-2 gap-5 px-4 sm:mt-14 sm:px-8 lg:grid-cols-4 lg:px-6"
+        className="mx-auto mt-12 grid max-w-[1200px] grid-cols-2 gap-3 px-3 sm:mt-14 sm:px-8 lg:grid-cols-4 lg:gap-5 lg:px-6"
         aria-label="Client logos"
       >
         {clients.map((client) => (

@@ -130,9 +130,19 @@ function ProjectCase({
       >
         <ProjectArtwork index={index} title={project.title} />
       </div>
-      <p className="mt-3 text-[11px] leading-none sm:mt-4 sm:text-[13px]">
-        {project.title}
-      </p>
+      <div className="mt-3 flex items-center justify-between gap-4 text-[11px] leading-none sm:mt-4 sm:text-[13px]">
+        <p>{project.title}</p>
+        <span className="inline-flex shrink-0 items-center gap-1 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+          {project.href ? (
+            <>
+              Behance
+              <ArrowIcon className="size-3" />
+            </>
+          ) : (
+            "Case soon"
+          )}
+        </span>
+      </div>
     </div>
   );
 
@@ -168,18 +178,7 @@ function ProjectCase({
         </motion.div>
       </div>
 
-      <div className="flex items-center justify-end text-[9px] leading-none sm:block sm:text-right sm:text-[10px]">
-        <span className="inline-flex items-center gap-1 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-          {project.href ? (
-            <>
-              Behance
-              <ArrowIcon className="size-3" />
-            </>
-          ) : (
-            "Case soon"
-          )}
-        </span>
-      </div>
+      <div aria-hidden="true" className="hidden sm:block" />
     </div>
   );
 }
