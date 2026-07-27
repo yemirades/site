@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: "Alumni Sans Variable", "Arial Narrow", sans-serif;
-  --font-hero: "Alumni Sans Variable", "Arial Narrow", sans-serif;
-  --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
+  --font-display: "Stint Ultra Condensed", "Arial Narrow", sans-serif;
+  --font-hero: "Stint Ultra Condensed", "Arial Narrow", sans-serif;
+  --font-mono: var(--font-pitagon-sans-mono), monospace;
   --color-accent: #21142f;
 }
 
