@@ -2,6 +2,7 @@
 
 @theme inline {
   --font-display: "Stack Sans Headline Variable", Arial, sans-serif;
+  --font-hero: "Alumni Sans Variable", "Arial Narrow", sans-serif;
   --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
   --color-accent: #21142f;
 }

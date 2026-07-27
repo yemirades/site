@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/alumni-sans/wght.css";
 import "@fontsource-variable/stack-sans-headline/wght.css";
 import "lenis/dist/lenis.css";
 import "./globals.css";
