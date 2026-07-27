@@ -102,7 +102,7 @@ export const content: Record<
     role: "Multidisciplinary Designer",
     location: "Almaty, Qazaqstan",
     about:
-      "Sälem! I’m a Multidisciplinary designer, focused on building clear and functional websites and visual identities. Currently working at Mycar Group.",
+      "Sälem! I’m a product designer with a background in communication design. Currently working at Mycar Group.",
     worksTitle: "Works",
     servicesTitle: "Services",
     contactsTitle: "Contacts",

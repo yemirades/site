@@ -89,7 +89,7 @@ export function Clients() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-8 lg:max-w-none lg:px-6">
         <h2
           id="clients-title"
-          className="max-w-[760px] text-[34px] font-medium leading-[0.9] tracking-[-0.03em] sm:text-[50px]"
+          className="max-w-[760px] font-display text-[42px] font-bold leading-[0.9] tracking-[-0.03em] sm:text-[64px]"
         >
           {lang === "kk" ? (
             <>

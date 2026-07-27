@@ -13,7 +13,7 @@ export function Services() {
       <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
         <div className="grid min-w-0 gap-14 sm:grid-cols-3 sm:gap-0">
           <Reveal className="min-w-0">
-            <h2 className="min-w-0 text-[34px] font-medium leading-[0.9] tracking-[-0.03em] sm:text-[50px]">
+            <h2 className="min-w-0 font-display text-[42px] font-bold leading-[0.9] tracking-[-0.03em] sm:text-[64px]">
               {t.servicesTitle}
             </h2>
           </Reveal>

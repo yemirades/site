@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
@@ -13,10 +14,10 @@ export function Hero() {
   const mobileAboutLines =
     lang === "en"
       ? [
-          "Sälem! I’m a Multidisciplinary designer,",
-          "focused on building clear and functional",
-          "websites and visual identities. Currently",
-          "working at Mycar Group.",
+          "Sälem! I’m a product designer",
+          "with a background in communication",
+          "design. Currently working at",
+          "Mycar Group.",
         ]
       : [
           "Сәлем! Мен мультидисциплинарлы дизайнермін,",
@@ -50,7 +51,7 @@ export function Hero() {
               loop
               playsInline
               preload="auto"
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center invert"
             >
               <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
               Your browser does not support the video tag.
@@ -66,10 +67,20 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero relative z-10 mt-5 flex w-full items-center justify-between text-[48px] font-bold leading-[0.9] tracking-[-0.03em] sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="font-hero relative z-10 mt-5 flex w-full items-center justify-between text-[clamp(36px,11vw,48px)] font-bold leading-[0.9] tracking-[-0.03em] sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
-          <span>Mirat</span>
-          <span>Yerbolatov</span>
+          <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
+            <span>MIRAT</span>
+            <Image
+              src={`${basePath}/hero-logo.gif`}
+              alt=""
+              width={100}
+              height={100}
+              unoptimized
+              className="size-[clamp(36px,11vw,48px)] object-contain sm:size-14 lg:size-20"
+            />
+          </span>
+          <span>YERBOLATOV</span>
         </motion.h1>
 
         <motion.p
