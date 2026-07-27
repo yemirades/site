@@ -25,14 +25,22 @@ export function Hero() {
           "визуалды айдентикалар жасаймын. Қазір",
           "Mycar Group-та жұмыс істеймін.",
         ];
+  const desktopAboutLines =
+    lang === "en"
+      ? [
+          "Sälem! I’m a product designer with",
+          "a background in communication design.",
+          "Currently working at Mycar Group.",
+        ]
+      : [t.about];
 
   return (
     <section
       id="top"
-      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:min-h-[600px] lg:px-6"
+      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[80svh] lg:min-h-0 lg:px-6"
     >
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-4 pt-[92px] lg:block lg:h-[600px] lg:min-h-0 lg:max-w-none lg:py-0">
-        <div className="relative mx-auto aspect-square w-[min(62vw,260px)] shrink-0 overflow-hidden lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[400px] lg:-translate-x-1/2 lg:-translate-y-1/2">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-4 pt-[92px] lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
+        <div className="relative mx-auto aspect-square w-[min(62vw,260px)] shrink-0 overflow-hidden lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[min(400px,52svh)] lg:-translate-x-1/2 lg:-translate-y-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -51,7 +59,7 @@ export function Hero() {
               loop
               playsInline
               preload="auto"
-              className="h-full w-full object-cover object-center invert"
+              className="h-full w-full object-cover object-center"
             >
               <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
               Your browser does not support the video tag.
@@ -67,7 +75,7 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero relative z-10 mt-5 flex w-full items-center justify-between text-[clamp(36px,11vw,48px)] font-bold leading-[0.9] tracking-[-0.03em] sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="font-hero relative z-10 mt-5 flex w-full flex-col items-start gap-1 text-[clamp(36px,11vw,48px)] font-bold leading-[0.9] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
             <span>MIRAT</span>
@@ -77,7 +85,7 @@ export function Hero() {
               width={100}
               height={100}
               unoptimized
-              className="size-[clamp(36px,11vw,48px)] object-contain sm:size-14 lg:size-20"
+              className="size-8 object-contain sm:size-10 lg:size-12"
             />
           </span>
           <span>YERBOLATOV</span>
@@ -96,7 +104,13 @@ export function Hero() {
               </span>
             ))}
           </span>
-          <span className="hidden sm:inline">{t.about}</span>
+          <span className="hidden sm:block">
+            {desktopAboutLines.map((line) => (
+              <span key={line} className="block whitespace-nowrap">
+                {line}
+              </span>
+            ))}
+          </span>
         </motion.p>
 
         <motion.div
