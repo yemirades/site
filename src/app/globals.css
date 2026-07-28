@@ -71,12 +71,6 @@ main {
   text-transform: uppercase;
 }
 
-@media (min-width: 640px) {
-  .hero-name {
-    text-transform: none;
-  }
-}
-
 ::selection {
   background: #21142f;
   color: #ffffff;
