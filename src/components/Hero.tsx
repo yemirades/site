@@ -36,10 +36,10 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[80svh] lg:min-h-0 lg:px-6"
+      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[90svh] lg:min-h-0 lg:px-10"
     >
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-4 pt-[92px] lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
-        <div className="relative mx-auto aspect-square w-[min(62vw,260px)] shrink-0 overflow-hidden lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[min(400px,52svh)] lg:-translate-x-1/2 lg:-translate-y-1/2">
+        <div className="relative ml-auto mr-0 aspect-square w-[240px] max-w-[calc(100vw-32px)] shrink-0 overflow-hidden sm:mx-auto sm:w-[min(62vw,260px)] sm:max-w-none lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[320px] lg:-translate-x-1/2 lg:-translate-y-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -58,7 +58,7 @@ export function Hero() {
               loop
               playsInline
               preload="auto"
-              className="h-full w-full object-cover object-center"
+              className="hero-video h-full w-full object-cover object-center"
             >
               <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
               Your browser does not support the video tag.
@@ -74,7 +74,7 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero relative z-10 mt-5 flex w-full flex-col items-start gap-1 text-[64px] font-normal leading-[0.9] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="font-hero hero-name relative z-10 mt-5 flex w-full flex-col items-start gap-1 text-[clamp(72px,20vw,82px)] font-normal leading-[0.86] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
             <span>Mirat</span>
@@ -84,7 +84,7 @@ export function Hero() {
               width={100}
               height={100}
               unoptimized
-              className="size-8 object-contain sm:size-10 lg:size-12"
+              className="theme-sensitive-mark size-8 object-contain sm:size-10 lg:size-12"
             />
           </span>
           <span>Yerbolatov</span>

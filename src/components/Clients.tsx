@@ -95,7 +95,7 @@ export function Clients() {
   return (
     <section
       aria-labelledby="clients-title"
-      className="theme-surface overflow-hidden px-3 py-16 sm:px-8 sm:py-20 lg:px-6"
+      className="theme-surface overflow-hidden px-3 py-16 sm:px-8 sm:py-20 lg:px-10"
     >
       <div className="mx-auto max-w-[1200px] lg:w-[90%] lg:max-w-[1600px]">
         <h2
@@ -131,7 +131,7 @@ export function Clients() {
                   alt={client.name}
                   width={client.width}
                   height={client.height}
-                  className="h-auto w-full invert object-contain"
+                  className="client-logo h-auto w-full object-contain"
                 />
               </div>
             </div>

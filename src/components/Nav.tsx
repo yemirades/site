@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
 import { socials } from "@/data/content";
 import { ArrowIcon } from "./ArrowIcon";
 
@@ -10,6 +11,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function Nav() {
   const { lang, setLang } = useLang();
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const social = Object.fromEntries(socials.map((item) => [item.label, item.href]));
 
@@ -31,7 +33,7 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-5 lg:px-6">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-5 lg:px-10">
       <div className="mx-auto grid max-w-[1200px] grid-cols-[1fr_auto] items-start gap-2 sm:grid-cols-[140px_auto_140px] lg:max-w-none">
         <a
           href="#top"
@@ -70,6 +72,43 @@ export function Nav() {
         </nav>
 
         <div className="pointer-events-auto flex justify-self-end gap-1.5">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+            }
+            aria-pressed={theme === "dark"}
+            className="flex size-9 items-center justify-center bg-[var(--pill)] text-[var(--pill-ink)] transition-colors"
+          >
+            {theme === "light" ? (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="size-[17px]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M19.2 15.5A8 8 0 0 1 8.5 4.8 8 8 0 1 0 19.2 15.5Z" />
+              </svg>
+            ) : (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="size-[17px]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <circle cx="12" cy="12" r="3.5" />
+                <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
+              </svg>
+            )}
+          </button>
+
           <div className="flex bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)]">
             {([
               { value: "en", label: "EN" },

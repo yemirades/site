@@ -9,7 +9,7 @@ export function Services() {
   const t = content[lang];
 
   return (
-    <section id="services" className="theme-surface px-4 py-24 sm:px-8 sm:py-32 lg:px-6">
+    <section id="services" className="theme-surface px-4 py-24 sm:px-8 sm:py-32 lg:px-10">
       <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
         <div className="grid min-w-0 gap-14 sm:grid-cols-3 sm:gap-0">
           <Reveal className="min-w-0">

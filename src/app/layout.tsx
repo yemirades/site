@@ -4,6 +4,7 @@ import "@fontsource/stint-ultra-condensed/400.css";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
 
 const pitagonSansMono = localFont({
@@ -27,11 +28,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="light"
       className={`${pitagonSansMono.variable} h-full antialiased`}
     >
       <body className="min-h-full font-mono">
         <SmoothScroll />
-        <LanguageProvider>{children}</LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

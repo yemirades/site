@@ -21,6 +21,20 @@
   --foreground: var(--ink);
 }
 
+[data-theme="dark"] {
+  --page: #000000;
+  --ink: #f7f7f3;
+  --muted: rgba(247, 247, 243, 0.54);
+  --line: rgba(247, 247, 243, 0.2);
+  --pill: #f7f7f3;
+  --pill-ink: #080808;
+  --soft: #101010;
+  --inverse: #f2f0ea;
+  --inverse-ink: #080808;
+  --background: var(--page);
+  --foreground: var(--ink);
+}
+
 html {
   scroll-behavior: auto;
   background: var(--background);
@@ -38,6 +52,9 @@ body {
   overflow-x: clip;
   overscroll-behavior-x: none;
   text-transform: uppercase;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 main {
@@ -48,6 +65,16 @@ main {
 .font-display,
 .font-hero {
   text-transform: none;
+}
+
+.hero-name {
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .hero-name {
+    text-transform: none;
+  }
 }
 
 ::selection {
@@ -84,6 +111,28 @@ button {
 .theme-surface {
   background: var(--page);
   color: var(--ink);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+.hero-video,
+.theme-sensitive-mark,
+.client-logo {
+  transition: filter 300ms ease;
+}
+
+.client-logo {
+  filter: invert(1);
+}
+
+[data-theme="dark"] .hero-video,
+[data-theme="dark"] .theme-sensitive-mark {
+  filter: invert(1);
+}
+
+[data-theme="dark"] .client-logo {
+  filter: none;
 }
 
 .project-card {
