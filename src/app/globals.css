@@ -8,15 +8,15 @@
 }
 
 :root {
-  --page: #000000;
-  --ink: #f7f7f3;
-  --muted: rgba(247, 247, 243, 0.54);
-  --line: rgba(247, 247, 243, 0.2);
-  --pill: #f7f7f3;
-  --pill-ink: #080808;
-  --soft: #111111;
-  --inverse: #f2f0ea;
-  --inverse-ink: #080808;
+  --page: #ffffff;
+  --ink: #080808;
+  --muted: rgba(8, 8, 8, 0.54);
+  --line: rgba(8, 8, 8, 0.2);
+  --pill: #080808;
+  --pill-ink: #f7f7f3;
+  --soft: #efefef;
+  --inverse: #080808;
+  --inverse-ink: #f7f7f3;
   --background: var(--page);
   --foreground: var(--ink);
 }

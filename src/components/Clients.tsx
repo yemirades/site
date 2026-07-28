@@ -65,7 +65,7 @@ const clients = [
 ];
 
 function CornerMarks() {
-  const cornerClass = "absolute size-3 border-white/20";
+  const cornerClass = "absolute size-3 border-[var(--line)]";
 
   return (
     <>
@@ -131,7 +131,7 @@ export function Clients() {
                   alt={client.name}
                   width={client.width}
                   height={client.height}
-                  className="h-auto w-full object-contain"
+                  className="h-auto w-full invert object-contain"
                 />
               </div>
             </div>
