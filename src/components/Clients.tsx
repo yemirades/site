@@ -95,9 +95,9 @@ export function Clients() {
   return (
     <section
       aria-labelledby="clients-title"
-      className="theme-surface overflow-hidden py-16 sm:py-20"
+      className="theme-surface overflow-hidden px-3 py-16 sm:px-8 sm:py-20 lg:px-6"
     >
-      <div className="mx-auto max-w-[1440px] px-3 sm:px-8 lg:px-6">
+      <div className="mx-auto max-w-[1200px] lg:w-[90%] lg:max-w-[1600px]">
         <h2
           id="clients-title"
           className="max-w-[760px] font-display text-[42px] font-normal leading-[0.9] tracking-[-0.03em] sm:text-[64px]"
