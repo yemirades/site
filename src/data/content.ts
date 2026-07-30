@@ -9,17 +9,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Mycar x Samsung",
-    year: "2025",
-    tag: { kk: "Науқан", en: "Campaign" },
-  },
-  {
-    title: "Logofolio",
-    year: "2021 — 2025",
-    href: "https://www.behance.net/gallery/235337833/",
-    tag: { kk: "Логотиптер", en: "Logos" },
-  },
-  {
     title: "BBS Visual Identity",
     year: "2024",
     href: "https://www.behance.net/gallery/211315577/",

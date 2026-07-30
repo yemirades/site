@@ -16,8 +16,6 @@ import { ArrowIcon } from "./ArrowIcon";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const visualClasses = [
-  "case-mycar",
-  "case-logofolio",
   "case-bbs",
   "case-kartell",
   "case-agro",
@@ -25,9 +23,8 @@ const visualClasses = [
 ];
 
 const imageCovers: Partial<Record<number, string>> = {
-  1: "case-logofolio.png",
-  2: "case-bbs.png",
-  5: "case-mycar-pay.png",
+  0: "case-bbs.png",
+  3: "case-mycar-pay.png",
 };
 
 function ProjectArtwork({
@@ -37,25 +34,6 @@ function ProjectArtwork({
   index: number;
   title: string;
 }) {
-  if (index === 0) {
-    return (
-      <video
-        aria-label={`${title} project cover`}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source
-          src={`${basePath}/case-mycar-samsung.mp4`}
-          type="video/mp4"
-        />
-      </video>
-    );
-  }
-
   const imageCover = imageCovers[index];
 
   if (imageCover) {
@@ -70,7 +48,7 @@ function ProjectArtwork({
     );
   }
 
-  if (index === 3) {
+  if (index === 1) {
     return (
       <div className="absolute inset-0 flex items-center justify-center text-[#fff8ef]">
         <div className="absolute left-[12%] top-[15%] size-[32%] rounded-full border border-white/55" />
@@ -80,7 +58,7 @@ function ProjectArtwork({
     );
   }
 
-  if (index === 4) {
+  if (index === 2) {
     return (
       <div className="absolute inset-0 flex items-center justify-center text-[#e5ffbd]">
         <div className="text-center">

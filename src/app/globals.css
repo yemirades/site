@@ -17,6 +17,7 @@
   --soft: #efefef;
   --inverse: #080808;
   --inverse-ink: #f7f7f3;
+  --radius-soft: 8px;
   --background: var(--page);
   --foreground: var(--ink);
 }
@@ -83,6 +84,11 @@ button {
 
 button {
   cursor: pointer;
+  border-radius: var(--radius-soft);
+}
+
+.soft-radius {
+  border-radius: var(--radius-soft);
 }
 
 .clock-colon {
@@ -134,6 +140,7 @@ button {
   position: relative;
   overflow: hidden;
   background: #0c0d14;
+  border-radius: var(--radius-soft);
 }
 
 .project-motion-stage {

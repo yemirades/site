@@ -55,7 +55,7 @@ export function Nav() {
 
         <nav
           aria-label="Primary navigation"
-          className="pointer-events-auto hidden items-center justify-self-center bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)] sm:flex"
+          className="soft-radius pointer-events-auto hidden items-center justify-self-center bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)] sm:flex"
         >
           {links.map((link) => (
             <a
@@ -109,7 +109,7 @@ export function Nav() {
             )}
           </button>
 
-          <div className="flex bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)]">
+          <div className="soft-radius flex bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)]">
             {([
               { value: "en", label: "EN" },
               { value: "kk", label: "KZ" },
@@ -156,7 +156,7 @@ export function Nav() {
       <div
         id="mobile-menu"
         aria-hidden={!menuOpen}
-        className={`pointer-events-auto absolute inset-x-4 top-[60px] overflow-hidden bg-[var(--pill)] text-[var(--pill-ink)] shadow-[0_16px_50px_rgba(0,0,0,.22)] transition-[opacity,transform,visibility] duration-300 sm:hidden ${
+        className={`soft-radius pointer-events-auto absolute inset-x-4 top-[60px] overflow-hidden bg-[var(--pill)] text-[var(--pill-ink)] shadow-[0_16px_50px_rgba(0,0,0,.22)] transition-[opacity,transform,visibility] duration-300 sm:hidden ${
           menuOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0"
