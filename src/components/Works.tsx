@@ -53,7 +53,7 @@ function ProjectArtwork({
       <div className="absolute inset-0 flex items-center justify-center text-[#fff8ef]">
         <div className="absolute left-[12%] top-[15%] size-[32%] rounded-full border border-white/55" />
         <div className="absolute bottom-[9%] right-[13%] size-[42%] rounded-full bg-black/15" />
-        <p className="relative text-4xl tracking-[-0.06em] sm:text-8xl">KARTELL</p>
+        <p className="relative text-4xl tracking-[-0.06em] sm:text-8xl">Kartell</p>
       </div>
     );
   }

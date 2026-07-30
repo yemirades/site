@@ -52,7 +52,6 @@ body {
   max-width: 100%;
   overflow-x: clip;
   overscroll-behavior-x: none;
-  text-transform: uppercase;
   transition:
     background-color 300ms ease,
     color 300ms ease;
@@ -61,15 +60,6 @@ body {
 main {
   max-width: 100%;
   overflow-x: clip;
-}
-
-.font-display,
-.font-hero {
-  text-transform: none;
-}
-
-.hero-name {
-  text-transform: uppercase;
 }
 
 ::selection {

@@ -15,7 +15,7 @@ export const projects: Project[] = [
     tag: { kk: "Брендинг", en: "Branding" },
   },
   {
-    title: "KARTELL E-commerce",
+    title: "Kartell E-commerce",
     year: "2024",
     href: "https://www.behance.net/gallery/196883003/",
     tag: { kk: "Веб", en: "Web" },
