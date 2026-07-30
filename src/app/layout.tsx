@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "@fontsource/stint-ultra-condensed/400.css";
+import "@fontsource-variable/stack-sans-headline/wght.css";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
-
-const pitagonSansMono = localFont({
-  src: "./fonts/PitagonSansMono-Medium.ttf",
-  variable: "--font-pitagon-sans-mono",
-  weight: "500",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Mirat Yerbolat — Multidisciplinary Designer",
@@ -29,7 +21,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="light"
-      className={`${pitagonSansMono.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <body className="min-h-full font-mono">
         <SmoothScroll />

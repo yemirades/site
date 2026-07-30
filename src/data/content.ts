@@ -12,24 +12,24 @@ export const projects: Project[] = [
     title: "BBS Visual Identity",
     year: "2024",
     href: "https://www.behance.net/gallery/211315577/",
-    tag: { kk: "Айдентика", en: "Identity" },
+    tag: { kk: "Брендинг", en: "Branding" },
   },
   {
     title: "KARTELL E-commerce",
     year: "2024",
     href: "https://www.behance.net/gallery/196883003/",
-    tag: { kk: "Веб-дизайн", en: "Web Design" },
+    tag: { kk: "Веб", en: "Web" },
   },
   {
     title: "Agro Logomark",
     year: "2026",
-    tag: { kk: "Логобелгі", en: "Logomark" },
+    tag: { kk: "Брендинг", en: "Branding" },
   },
   {
     title: "Mycar Pay Landing",
     year: "2025",
     href: "https://mycarpay.kz/",
-    tag: { kk: "Лендинг", en: "Landing" },
+    tag: { kk: "Веб", en: "Web" },
   },
 ];
 

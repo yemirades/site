@@ -102,24 +102,35 @@ function ProjectCase({
   const opacity = useTransform(easedProgress, [0, 0.65, 1], [0.68, 1, 1]);
 
   const artwork = (
-    <div>
-      <div
-        className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
-      >
-        <ProjectArtwork index={index} title={project.title} />
-      </div>
-      <div className="mt-3 flex items-center justify-between gap-4 text-[11px] leading-none sm:mt-4 sm:text-[13px]">
-        <p>{project.title}</p>
-        <span className="inline-flex shrink-0 items-center gap-1 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-          {project.href ? (
-            <>
-              Behance
-              <ArrowIcon className="size-3" />
-            </>
-          ) : (
-            "Case soon"
-          )}
+    <div
+      className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
+    >
+      <ProjectArtwork index={index} title={project.title} />
+    </div>
+  );
+
+  const caseLink = project.href ? (
+    <a
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex shrink-0 items-center gap-1 transition-transform duration-300 hover:-translate-y-0.5 hover:translate-x-0.5"
+    >
+      Behance
+      <ArrowIcon className="size-3" />
+    </a>
+  ) : (
+    <span>Case soon</span>
+  );
+
+  const caseMeta = (
+    <div className="mt-3 flex items-center justify-between gap-4 text-[11px] leading-none sm:mt-4 sm:text-[13px]">
+      <p>{project.title}</p>
+      <div className="flex shrink-0 items-center gap-3">
+        <span className="rounded-full border border-[var(--line)] px-2 py-1 text-[9px] leading-none">
+          {project.tag[lang]}
         </span>
+        <span className="sm:hidden">{caseLink}</span>
       </div>
     </div>
   );
@@ -127,7 +138,7 @@ function ProjectCase({
   return (
     <div
       ref={rowRef}
-      className="group grid gap-3 sm:grid-cols-[82px_minmax(0,1fr)_82px] sm:items-center sm:gap-5"
+      className="group grid gap-3 sm:grid-cols-[82px_minmax(0,1fr)_110px] sm:items-center sm:gap-5"
     >
       <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-[10px]">
         <span>[{String(index + 1).padStart(2, "0")}]</span>
@@ -153,10 +164,13 @@ function ProjectCase({
           ) : (
             artwork
           )}
+          {caseMeta}
         </motion.div>
       </div>
 
-      <div aria-hidden="true" className="hidden sm:block" />
+      <div className="hidden text-[10px] leading-none sm:flex sm:justify-end">
+        {caseLink}
+      </div>
     </div>
   );
 }

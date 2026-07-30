@@ -118,7 +118,7 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`px-2 py-1 transition-colors ${
+                className={`language-option px-2 py-1 transition-colors ${
                   lang === language.value
                     ? "bg-[var(--page)] text-[var(--ink)]"
                     : "opacity-55 hover:opacity-100"
