@@ -11,13 +11,14 @@ export function Services() {
   return (
     <section id="services" className="theme-surface px-4 py-24 sm:px-8 sm:py-32 lg:px-10">
       <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
-        <div className="grid min-w-0 gap-14 sm:grid-cols-3 sm:gap-0">
-          <Reveal className="min-w-0">
-            <h2 className="min-w-0 font-display text-[42px] font-normal leading-[0.9] tracking-[-0.03em] sm:text-[64px]">
-              {t.servicesTitle}
-            </h2>
-          </Reveal>
+        <Reveal className="min-w-0">
+          <h2 className="max-w-[820px] font-hero text-[42px] font-normal leading-[0.9] tracking-[-0.04em] sm:text-[64px]">
+            {t.servicesTitle}
+          </h2>
+        </Reveal>
 
+        <div className="mt-16 grid min-w-0 gap-14 sm:mt-20 sm:grid-cols-3 sm:gap-0">
+          <div aria-hidden="true" />
           <div className="min-w-0 sm:col-span-2 sm:pl-8">
             {services[lang].map((s, i) => (
               <Reveal key={s.title} delay={i * 0.04}>

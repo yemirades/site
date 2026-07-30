@@ -23,7 +23,6 @@ const visualClasses = [
 ];
 
 const imageCovers: Partial<Record<number, string>> = {
-  0: "case-bbs.png",
   3: "case-mycar-pay.png",
 };
 
@@ -35,6 +34,24 @@ function ProjectArtwork({
   title: string;
 }) {
   const imageCover = imageCovers[index];
+
+  if (index === 0) {
+    return (
+      <video
+        aria-label={`${title} animated project cover`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={`${basePath}/case-bbs.png`}
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src={`${basePath}/case-bbs.mp4`} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    );
+  }
 
   if (imageCover) {
     return (
@@ -124,10 +141,10 @@ function ProjectCase({
   );
 
   const caseMeta = (
-    <div className="mt-3 flex items-center justify-between gap-4 text-[11px] leading-none sm:mt-4 sm:text-[13px]">
+    <div className="mt-3 flex items-center justify-between gap-4 text-[13px] leading-none sm:mt-4 sm:text-[17px]">
       <p>{project.title}</p>
       <div className="flex shrink-0 items-center gap-3">
-        <span className="rounded-full border border-[var(--line)] px-2 py-1 text-[9px] leading-none">
+        <span className="rounded-full border border-[var(--line)] px-2 py-1 text-[9px] leading-none lowercase sm:text-[11px]">
           {project.tag[lang]}
         </span>
         <span className="sm:hidden">{caseLink}</span>
@@ -138,12 +155,12 @@ function ProjectCase({
   return (
     <div
       ref={rowRef}
-      className="group grid gap-3 sm:grid-cols-[82px_minmax(0,1fr)_110px] sm:items-center sm:gap-5"
+      className="group grid gap-3 sm:grid-cols-[120px_minmax(0,1fr)_120px] sm:items-center sm:gap-5"
     >
-      <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-[10px]">
-        <span>[{String(index + 1).padStart(2, "0")}]</span>
+      <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-[13px]">
+        <span>({String(index + 1).padStart(2, "0")})</span>
         <span className="ml-1">{project.year}</span>
-        <span className="text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
+        <span className="lowercase text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
       </div>
 
       <div className="project-motion-stage">
@@ -168,7 +185,7 @@ function ProjectCase({
         </motion.div>
       </div>
 
-      <div className="hidden text-[10px] leading-none sm:flex sm:justify-end">
+      <div className="hidden text-[13px] leading-none sm:flex sm:justify-end">
         {caseLink}
       </div>
     </div>
@@ -184,7 +201,7 @@ export function Works() {
       className="theme-surface px-4 pb-24 pt-10 sm:px-8 sm:pb-36 lg:px-10 lg:pt-10"
     >
       <h2 className="sr-only">{lang === "kk" ? "Жобалар" : "Selected works"}</h2>
-      <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24 lg:w-[90%] lg:max-w-[1600px]">
+      <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24 lg:w-full lg:max-w-none">
         {projects.map((project, index) => (
           <Reveal key={project.title} delay={index * 0.04}>
             <ProjectCase project={project} index={index} lang={lang} />

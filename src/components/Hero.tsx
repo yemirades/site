@@ -87,7 +87,7 @@ export function Hero() {
               className="theme-sensitive-mark size-8 object-contain sm:size-10 lg:size-12"
             />
           </span>
-          <span>Yerbolatov</span>
+          <span>Yerbolatuly</span>
         </motion.h1>
 
         <motion.p

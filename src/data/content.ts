@@ -21,9 +21,9 @@ export const projects: Project[] = [
     tag: { kk: "Веб", en: "Web" },
   },
   {
-    title: "Agro Logomark",
+    title: "Mycar Autoservice",
     year: "2026",
-    tag: { kk: "Брендинг", en: "Branding" },
+    tag: { kk: "Мобильді", en: "Mobile" },
   },
   {
     title: "Mycar Pay Landing",
@@ -70,32 +70,40 @@ export const content: Record<
     contactsTitle: string;
     contactsCta: string;
     contactsLead: string;
+    approachTitle: string;
+    approachText: string;
   }
 > = {
   kk: {
     nav: { about: "Мен туралы", works: "Жобалар", services: "Қызметтер", contacts: "Байланыс" },
-    name: "Мират Ерболат",
+    name: "Мират Ерболатұлы",
     role: "Мультидисциплинарлы дизайнер",
     location: "Алматы, Қазақстан",
     about:
       "Сәлем! Мен маркетинг саласында тәжірибесі бар мультидисциплинарлы дизайнермін. Түсінікті әрі функционалды сайттар мен бренд айдентикасын жасаймын. Қазір Mycar Group-та жұмыс істеймін.",
     worksTitle: "Жобалар",
-    servicesTitle: "Қызметтер",
+    servicesTitle: "Қалай көмектесе аламын?",
     contactsTitle: "Байланыс",
     contactsCta: "Хабарласу",
     contactsLead: "Жобаңыз немесе идеяңыз бар ма? Талқылайық.",
+    approachTitle: "Тәсіл",
+    approachText:
+      "Мен жұмысты айқындықтан бастаймын: алдымен контексті түсініп, пайдаланушы мен бизнес мақсаттарын сәйкестендіремін, содан кейін күрделі нәрсені түсінікті, пайдалы әрі мәнерлі өнімге айналдырамын.",
   },
   en: {
     nav: { about: "About", works: "Works", services: "Services", contacts: "Contacts" },
-    name: "Mirat Yerbolat",
+    name: "Mirat Yerbolatuly",
     role: "Multidisciplinary Designer",
     location: "Almaty, Qazaqstan",
     about:
       "Sälem! I’m a product designer with a background in communication design. Currently working at Mycar Group.",
     worksTitle: "Works",
-    servicesTitle: "Services",
+    servicesTitle: "How can I be helpful?",
     contactsTitle: "Contacts",
     contactsCta: "Get in touch",
     contactsLead: "Got a project or an idea? Let's talk.",
+    approachTitle: "Approach",
+    approachText:
+      "I work from clarity to craft: first I understand the context, align user and business goals, then turn complexity into a focused, useful and expressive product.",
   },
 };

@@ -1,0 +1,85 @@
+"use client";
+
+import { useRef } from "react";
+import {
+  motion,
+  type MotionValue,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useLang } from "@/context/LanguageContext";
+import { content } from "@/data/content";
+
+function ApproachWord({
+  word,
+  index,
+  total,
+  progress,
+  reduceMotion,
+}: {
+  word: string;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  reduceMotion: boolean | null;
+}) {
+  const start = (index / total) * 0.78;
+  const end = Math.min(start + 0.18, 1);
+  const opacity = useTransform(progress, [start, end], [0.16, 1]);
+  const y = useTransform(progress, [start, end], [8, 0]);
+
+  return (
+    <motion.span
+      style={reduceMotion ? { opacity: 1, y: 0 } : { opacity, y }}
+      className="inline-block"
+    >
+      {word}&nbsp;
+    </motion.span>
+  );
+}
+
+export function Approach() {
+  const { lang } = useLang();
+  const t = content[lang];
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const words = t.approachText.split(/\s+/);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.82", "end 0.45"],
+  });
+
+  return (
+    <section
+      ref={sectionRef}
+      id="approach"
+      className="theme-surface px-4 py-10 sm:px-8 sm:py-16 lg:px-10"
+    >
+      <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col rounded-[40px] bg-[var(--soft)] px-5 py-6 sm:min-h-[78svh] sm:rounded-[64px] sm:px-10 sm:py-9 lg:max-w-none lg:rounded-[80px]">
+        <div className="flex justify-center">
+          <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] leading-none">
+            {t.approachTitle}
+          </span>
+        </div>
+
+        <p className="mx-auto my-auto max-w-[1040px] text-center text-[clamp(30px,5.2vw,72px)] font-medium leading-[0.94] tracking-[-0.05em]">
+          {words.map((word, index) => (
+            <ApproachWord
+              key={`${word}-${index}`}
+              word={word}
+              index={index}
+              total={words.length}
+              progress={scrollYProgress}
+              reduceMotion={reduceMotion}
+            />
+          ))}
+        </p>
+
+        <p className="text-center text-[11px] text-[var(--muted)]">
+          Context → Clarity → Craft
+        </p>
+      </div>
+    </section>
+  );
+}

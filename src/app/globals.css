@@ -82,11 +82,17 @@ button {
 }
 
 .hero-frame {
-  border-radius: 16px;
+  border-radius: 40px;
 }
 
 .language-option {
   border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+  .hero-frame {
+    border-radius: 80px;
+  }
 }
 
 .clock-colon {
