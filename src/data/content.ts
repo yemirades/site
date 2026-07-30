@@ -85,7 +85,7 @@ export const content: Record<
     servicesTitle: "Қалай көмектесе аламын?",
     contactsTitle: "Байланыс",
     contactsCta: "Хабарласу",
-    contactsLead: "Жобаңыз немесе идеяңыз бар ма? Талқылайық.",
+    contactsLead: "Жобаңызды талқылап, бірге кофе ішейік пе? Кеттік!",
     approachTitle: "Тәсіл",
     approachText:
       "Мен жұмысты айқындықтан бастаймын: алдымен контексті түсініп, пайдаланушы мен бизнес мақсаттарын сәйкестендіремін, содан кейін күрделі нәрсені түсінікті, пайдалы әрі мәнерлі өнімге айналдырамын.",
@@ -101,7 +101,7 @@ export const content: Record<
     servicesTitle: "How can I be helpful?",
     contactsTitle: "Contacts",
     contactsCta: "Get in touch",
-    contactsLead: "Got a project or an idea? Let's talk.",
+    contactsLead: "Want to discuss your project and have a coffee? Let’s gooo!",
     approachTitle: "Approach",
     approachText:
       "I work from clarity to craft: first I understand the context, align user and business goals, then turn complexity into a focused, useful and expressive product.",

@@ -74,7 +74,7 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero hero-name relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-normal leading-[0.86] tracking-[-0.03em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="font-hero hero-name relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-semibold leading-[0.86] tracking-[-0.045em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
             <span>Mirat</span>

@@ -12,7 +12,7 @@ export function Services() {
     <section id="services" className="theme-surface px-4 py-24 sm:px-8 sm:py-32 lg:px-10">
       <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
         <Reveal className="min-w-0">
-          <h2 className="max-w-[820px] font-hero text-[42px] font-normal leading-[0.9] tracking-[-0.04em] sm:text-[64px]">
+          <h2 className="max-w-[820px] font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[64px]">
             {t.servicesTitle}
           </h2>
         </Reveal>
