@@ -163,7 +163,7 @@ function ProjectCase({
         <span className="lowercase text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
       </div>
 
-      <div className="project-motion-stage">
+      <div className="project-motion-stage lg:w-[92%] lg:max-w-[900px] lg:justify-self-center">
         <motion.div
           className="project-motion-card"
           style={reduceMotion ? undefined : { y, rotateX, z, scale, opacity }}

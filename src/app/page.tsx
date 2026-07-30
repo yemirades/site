@@ -1,4 +1,5 @@
 import { Nav } from "@/components/Nav";
+import { CursorTrail } from "@/components/CursorTrail";
 import { Hero } from "@/components/Hero";
 import { Works } from "@/components/Works";
 import { Approach } from "@/components/Approach";
@@ -8,6 +9,7 @@ import { Contacts } from "@/components/Contacts";
 export default function Home() {
   return (
     <>
+      <CursorTrail />
       <Nav />
       <main>
         <Hero />

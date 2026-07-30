@@ -56,14 +56,14 @@ export function Approach() {
       id="approach"
       className="theme-surface px-4 py-10 sm:px-8 sm:py-16 lg:px-10"
     >
-      <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col rounded-[40px] bg-[var(--soft)] px-5 py-6 sm:min-h-[78svh] sm:rounded-[64px] sm:px-10 sm:py-9 lg:max-w-none lg:rounded-[80px]">
+      <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[78svh] sm:px-10 sm:py-9 lg:max-w-none">
         <div className="flex justify-center">
           <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] leading-none">
             {t.approachTitle}
           </span>
         </div>
 
-        <p className="mx-auto my-auto max-w-[1040px] text-center text-[clamp(30px,5.2vw,72px)] font-medium leading-[0.94] tracking-[-0.05em]">
+        <p className="my-auto max-w-[1040px] text-left text-[36px] font-medium leading-[0.94] tracking-[-0.05em] sm:mx-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
           {words.map((word, index) => (
             <ApproachWord
               key={`${word}-${index}`}
