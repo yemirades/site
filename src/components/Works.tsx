@@ -144,7 +144,7 @@ function ProjectCase({
     <div className="mt-3 flex items-center justify-between gap-4 text-[13px] leading-none sm:mt-4 sm:text-[17px]">
       <p>{project.title}</p>
       <div className="flex shrink-0 items-center gap-3">
-        <span className="border border-[var(--line)] px-2 py-1 text-[9px] leading-none lowercase sm:text-[11px]">
+        <span className="rounded-full border border-[var(--line)] px-2 py-1 text-[9px] leading-none lowercase sm:text-[11px]">
           {project.tag[lang]}
         </span>
         <span className="sm:hidden">{caseLink}</span>

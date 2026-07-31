@@ -40,7 +40,7 @@ export function Nav() {
           aria-label="Yemirades — home"
           className="pointer-events-auto flex w-fit items-center gap-[10px] text-[14px] font-semibold leading-[1.25] tracking-[-0.02em]"
         >
-          <span className="relative block size-9 overflow-hidden bg-[#21142f]">
+          <span className="relative block size-9 overflow-hidden rounded-full bg-[#21142f]">
             <Image
               src={`${basePath}/portrait-figma.jpg`}
               alt=""
