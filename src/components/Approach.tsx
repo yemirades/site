@@ -58,7 +58,7 @@ export function Approach() {
     >
       <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[78svh] sm:px-10 sm:py-9 lg:max-w-none">
         <div className="flex justify-center">
-          <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] leading-none">
+          <span className="border border-[var(--line)] px-3 py-1 text-[11px] leading-none">
             {t.approachTitle}
           </span>
         </div>

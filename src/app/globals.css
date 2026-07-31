@@ -17,7 +17,7 @@
   --soft: #efefef;
   --inverse: #080808;
   --inverse-ink: #f7f7f3;
-  --radius-soft: 8px;
+  --radius-soft: 0px;
   --background: var(--page);
   --foreground: var(--ink);
 }
@@ -95,17 +95,11 @@ button {
 }
 
 .hero-frame {
-  border-radius: 40px;
+  border-radius: 0;
 }
 
 .language-option {
-  border-radius: 5px;
-}
-
-@media (min-width: 1024px) {
-  .hero-frame {
-    border-radius: 80px;
-  }
+  border-radius: 0;
 }
 
 .clock-colon {
@@ -157,7 +151,7 @@ button {
   position: relative;
   overflow: hidden;
   background: #0c0d14;
-  border-radius: var(--radius-soft);
+  border-radius: 0;
 }
 
 .project-motion-stage {
