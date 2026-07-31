@@ -120,7 +120,7 @@ function ProjectCase({
 
   const artwork = (
     <div
-      className={`project-card ${visualClasses[index]} aspect-video transition-[filter] duration-700 ease-out group-hover:brightness-[1.05]`}
+      className={`project-card ${visualClasses[index]} aspect-video`}
     >
       <ProjectArtwork index={index} title={project.title} />
     </div>
@@ -200,7 +200,9 @@ export function Works() {
       id="works"
       className="theme-surface px-4 pb-24 pt-10 sm:px-8 sm:pb-36 lg:px-10 lg:pt-10"
     >
-      <h2 className="sr-only">{lang === "kk" ? "Жобалар" : "Selected works"}</h2>
+      <h2 className="sr-only font-hero">
+        {lang === "kk" ? "Жобалар" : "Selected works"}
+      </h2>
       <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24 lg:w-full lg:max-w-none">
         {projects.map((project, index) => (
           <Reveal key={project.title} delay={index * 0.04}>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: "Stack Sans Headline Variable", Arial, sans-serif;
-  --font-hero: "Stack Sans Headline Variable", Arial, sans-serif;
+  --font-display: var(--font-giorgio), "Arial Narrow", sans-serif;
+  --font-hero: var(--font-giorgio), "Arial Narrow", sans-serif;
   --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
   --color-accent: #ff6135;
 }
@@ -60,6 +60,11 @@ body {
 main {
   max-width: 100%;
   overflow-x: clip;
+}
+
+.font-display,
+.font-hero {
+  text-transform: uppercase;
 }
 
 ::selection {
@@ -162,22 +167,6 @@ button {
   transform-origin: 50% 100%;
   transform-style: preserve-3d;
   will-change: transform;
-}
-
-.project-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.1), transparent 72%);
-  opacity: 0;
-  transform: translateX(-45%);
-  transition: opacity 450ms ease, transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.group:hover .project-card::after {
-  opacity: 1;
-  transform: translateX(45%);
 }
 
 .case-mycar {

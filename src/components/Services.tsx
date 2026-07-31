@@ -57,7 +57,7 @@ export function Services() {
                     <span className="w-7 shrink-0 text-[10px] tabular-nums">
                       0{i + 1}
                     </span>
-                    <h3 className="min-w-0 text-[38px] font-medium leading-[0.92] tracking-[-0.045em] sm:text-[clamp(44px,5.6vw,76px)]">
+                    <h3 className="min-w-0 font-hero text-[38px] font-medium leading-[0.92] tracking-[-0.035em] sm:text-[clamp(44px,5.6vw,76px)]">
                       {s.title}
                     </h3>
                   </button>

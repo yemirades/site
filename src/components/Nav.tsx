@@ -50,7 +50,7 @@ export function Nav() {
               className="object-cover object-top"
             />
           </span>
-          <span className="hidden sm:inline">@yemirades</span>
+          <span className="hidden sm:inline">yemirades.com</span>
         </a>
 
         <nav

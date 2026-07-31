@@ -1,5 +1,6 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { content, email, socials } from "@/data/content";
 import { Reveal } from "./Reveal";
@@ -9,6 +10,43 @@ import { ArrowIcon } from "./ArrowIcon";
 export function Contacts() {
   const { lang } = useLang();
   const t = content[lang];
+  const formCopy =
+    lang === "en"
+      ? {
+          title: "Project inquiry",
+          name: "Name",
+          email: "Email",
+          budget: "Budget",
+          message: "Message",
+          submit: "Send inquiry",
+          subject: "New project inquiry from the portfolio",
+        }
+      : {
+          title: "Жобаға өтінім",
+          name: "Аты-жөніңіз",
+          email: "Пошта",
+          budget: "Бюджет",
+          message: "Хабарлама",
+          submit: "Өтінімді жіберу",
+          subject: "Портфолиодан жаңа жобаға өтінім",
+        };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const body = [
+      `${formCopy.name}: ${data.get("name") ?? ""}`,
+      `${formCopy.email}: ${data.get("email") ?? ""}`,
+      `${formCopy.budget}: ${data.get("budget") ?? ""}`,
+      "",
+      `${formCopy.message}:`,
+      `${data.get("message") ?? ""}`,
+    ].join("\n");
+
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(
+      formCopy.subject,
+    )}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <section id="contacts" className="bg-[var(--inverse)] px-4 py-20 text-[var(--inverse-ink)] transition-colors duration-300 sm:px-8 sm:py-28 lg:px-10">
@@ -35,6 +73,60 @@ export function Contacts() {
               </a>
             </Reveal>
           </div>
+        </div>
+
+        <div className="mt-20 grid gap-10 border-t border-current pt-6 sm:mt-28 sm:grid-cols-3 sm:gap-0">
+          <Reveal>
+            <h2 className="font-hero text-[34px] leading-[0.9] tracking-[-0.035em] sm:text-[48px]">
+              {formCopy.title}
+            </h2>
+          </Reveal>
+
+          <Reveal className="sm:col-span-2" delay={0.06}>
+            <form onSubmit={handleSubmit} className="grid gap-8" noValidate={false}>
+              <div className="grid gap-8 sm:grid-cols-3 sm:gap-5">
+                {[
+                  { name: "name", label: formCopy.name, type: "text" },
+                  { name: "email", label: formCopy.email, type: "email" },
+                  { name: "budget", label: formCopy.budget, type: "text" },
+                ].map((field) => (
+                  <label key={field.name} className="grid gap-3 text-[11px]">
+                    <span>{field.label}</span>
+                    <input
+                      required
+                      name={field.name}
+                      type={field.type}
+                      autoComplete={
+                        field.name === "name"
+                          ? "name"
+                          : field.name === "email"
+                            ? "email"
+                            : "off"
+                      }
+                      className="min-w-0 border-0 border-b border-current bg-transparent px-0 pb-3 text-[18px] outline-none transition-colors placeholder:text-current/35 focus:border-[#ff6135] sm:text-[22px]"
+                    />
+                  </label>
+                ))}
+              </div>
+
+              <label className="grid gap-3 text-[11px]">
+                <span>{formCopy.message}</span>
+                <textarea
+                  required
+                  name="message"
+                  rows={4}
+                  className="min-h-28 resize-y border-0 border-b border-current bg-transparent px-0 pb-3 text-[18px] leading-[1.2] outline-none transition-colors placeholder:text-current/35 focus:border-[#ff6135] sm:text-[22px]"
+                />
+              </label>
+
+              <button
+                type="submit"
+                className="w-fit border-b border-current pb-1 text-[12px] transition-colors hover:text-[#ff6135]"
+              >
+                {formCopy.submit} ↗
+              </button>
+            </form>
+          </Reveal>
         </div>
 
         <div className="mt-28 grid gap-8 border-t border-current pt-5 text-[10px] opacity-80 sm:grid-cols-3 sm:items-end sm:gap-0">
