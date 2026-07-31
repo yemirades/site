@@ -64,6 +64,7 @@ main {
 
 .font-display,
 .font-hero {
+  letter-spacing: -0.02em !important;
   text-transform: uppercase;
 }
 

@@ -63,7 +63,7 @@ export function Approach() {
           </span>
         </div>
 
-        <p className="my-auto max-w-[1040px] text-left text-[36px] font-medium leading-[0.94] tracking-[-0.05em] sm:mx-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
+        <p className="my-auto max-w-[1040px] font-hero text-left text-[36px] font-medium leading-[0.94] sm:mx-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
           {words.map((word, index) => (
             <ApproachWord
               key={`${word}-${index}`}
