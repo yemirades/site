@@ -104,6 +104,10 @@ button {
   border-radius: 5px;
 }
 
+.inquiry-submit {
+  border-radius: 14px;
+}
+
 .soft-radius {
   border-radius: var(--radius-soft);
 }

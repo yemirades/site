@@ -76,9 +76,6 @@ export function Approach() {
           ))}
         </p>
 
-        <p className="text-center text-[11px] text-[var(--muted)]">
-          Context → Clarity → Craft
-        </p>
       </div>
     </section>
   );

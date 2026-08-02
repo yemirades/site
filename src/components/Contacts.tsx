@@ -14,11 +14,11 @@ export function Contacts() {
     lang === "en"
       ? {
           title: "Project inquiry",
-          name: "Name",
-          email: "Email",
+          name: "Full name",
+          email: "Your e-mail",
           budget: "Budget",
-          message: "Message",
-          submit: "Send inquiry",
+          message: "Your message",
+          submit: "Submit",
           subject: "New project inquiry from the portfolio",
         }
       : {
@@ -49,107 +49,118 @@ export function Contacts() {
   };
 
   return (
-    <section id="contacts" className="bg-[var(--inverse)] px-4 py-20 text-[var(--inverse-ink)] transition-colors duration-300 sm:px-8 sm:py-28 lg:px-10">
-      <div className="mx-auto max-w-[1200px] lg:max-w-none">
-        <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
+    <>
+      <section
+        id="contacts"
+        className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10"
+      >
+        <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <Reveal>
-            <p className="text-[10px]">{t.contactsTitle}</p>
-          </Reveal>
-
-          <div className="sm:col-span-2">
-            <Reveal>
-              <p className="max-w-[620px] font-display text-[70px] leading-[0.82] tracking-[-0.02em] sm:text-[110px]">
-                {t.contactsLead}
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.08}>
-              <a
-                href={`mailto:${email}`}
-                className="mt-10 inline-flex items-center gap-1 border-b border-current pb-1 text-[11px] transition-opacity hover:opacity-60"
-              >
-                {t.contactsCta}
-                <ArrowIcon className="size-3.5" />
-              </a>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="mt-20 grid gap-10 border-t border-current pt-6 sm:mt-28 sm:grid-cols-3 sm:gap-0">
-          <Reveal>
-            <h2 className="font-hero text-[34px] leading-[0.9] tracking-[-0.035em] sm:text-[48px]">
+            <h2 className="font-hero text-[48px] leading-[0.9] sm:text-[72px]">
               {formCopy.title}
             </h2>
           </Reveal>
 
-          <Reveal className="sm:col-span-2" delay={0.06}>
-            <form onSubmit={handleSubmit} className="grid gap-8" noValidate={false}>
-              <div className="grid gap-8 sm:grid-cols-3 sm:gap-5">
-                {[
-                  { name: "name", label: formCopy.name, type: "text" },
-                  { name: "email", label: formCopy.email, type: "email" },
-                  { name: "budget", label: formCopy.budget, type: "text" },
-                ].map((field) => (
-                  <label key={field.name} className="grid gap-3 text-[11px]">
-                    <span>{field.label}</span>
-                    <input
-                      required
-                      name={field.name}
-                      type={field.type}
-                      autoComplete={
-                        field.name === "name"
-                          ? "name"
-                          : field.name === "email"
-                            ? "email"
-                            : "off"
-                      }
-                      className="min-w-0 border-0 border-b border-current bg-transparent px-0 pb-3 text-[18px] outline-none transition-colors placeholder:text-current/35 focus:border-[#ff6135] sm:text-[22px]"
-                    />
-                  </label>
-                ))}
-              </div>
+          <Reveal delay={0.06}>
+            <form
+              onSubmit={handleSubmit}
+              className="mt-10 grid gap-3 sm:mt-14 sm:gap-4"
+              noValidate={false}
+            >
+              {[
+                { name: "name", label: formCopy.name, type: "text" },
+                { name: "email", label: formCopy.email, type: "email" },
+                { name: "budget", label: formCopy.budget, type: "text" },
+              ].map((field) => (
+                <label key={field.name}>
+                  <span className="sr-only">{field.label}</span>
+                  <input
+                    required
+                    name={field.name}
+                    type={field.type}
+                    placeholder={field.label}
+                    autoComplete={
+                      field.name === "name"
+                        ? "name"
+                        : field.name === "email"
+                          ? "email"
+                          : "off"
+                    }
+                    className="min-h-16 w-full rounded-[14px] border-0 bg-[var(--soft)] px-5 text-[18px] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#ff6135] sm:min-h-20 sm:px-6 sm:text-[22px]"
+                  />
+                </label>
+              ))}
 
-              <label className="grid gap-3 text-[11px]">
-                <span>{formCopy.message}</span>
+              <label>
+                <span className="sr-only">{formCopy.message}</span>
                 <textarea
                   required
                   name="message"
-                  rows={4}
-                  className="min-h-28 resize-y border-0 border-b border-current bg-transparent px-0 pb-3 text-[18px] leading-[1.2] outline-none transition-colors placeholder:text-current/35 focus:border-[#ff6135] sm:text-[22px]"
+                  rows={6}
+                  placeholder={formCopy.message}
+                  className="min-h-52 w-full resize-y rounded-[14px] border-0 bg-[var(--soft)] px-5 py-5 text-[18px] leading-[1.2] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#ff6135] sm:min-h-64 sm:px-6 sm:py-6 sm:text-[22px]"
                 />
               </label>
 
               <button
                 type="submit"
-                className="w-fit border-b border-current pb-1 text-[12px] transition-colors hover:text-[#ff6135]"
+                className="inquiry-submit min-h-16 w-full bg-[var(--soft)] px-5 text-[18px] font-semibold transition-colors hover:bg-[#ff6135] hover:text-black sm:min-h-20 sm:text-[22px]"
               >
-                {formCopy.submit} ↗
+                {formCopy.submit}
               </button>
             </form>
           </Reveal>
         </div>
+      </section>
 
-        <div className="mt-28 grid gap-8 border-t border-current pt-5 text-[10px] opacity-80 sm:grid-cols-3 sm:items-end sm:gap-0">
-          <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 transition-opacity hover:opacity-55"
-              >
-                {s.label}
-                <ArrowIcon className="size-3" />
-              </a>
-            ))}
+      <footer className="bg-[#ff6135] px-4 py-20 text-black sm:px-8 sm:py-28 lg:px-10">
+        <div className="mx-auto max-w-[1200px] lg:max-w-none">
+          <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
+            <Reveal>
+              <p className="text-[10px]">{t.contactsTitle}</p>
+            </Reveal>
+
+            <div className="sm:col-span-2">
+              <Reveal>
+                <p className="max-w-[760px] font-display text-[58px] leading-[0.86] sm:text-[100px]">
+                  {t.contactsLead}
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.08}>
+                <a
+                  href={`mailto:${email}`}
+                  className="mt-10 inline-flex items-center gap-1 border-b border-current pb-1 text-[12px] transition-opacity hover:opacity-60"
+                >
+                  {t.contactsCta}
+                  <ArrowIcon className="size-3.5" />
+                </a>
+              </Reveal>
+            </div>
           </div>
-          <div className="flex items-center gap-3 sm:justify-self-end">
-            <LiveClock />
-            <span>{t.location}</span>
+
+          <div className="mt-24 grid gap-8 border-t border-black/45 pt-5 text-[10px] sm:mt-32 sm:grid-cols-3 sm:items-end sm:gap-0">
+            <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 transition-opacity hover:opacity-55"
+                >
+                  {s.label}
+                  <ArrowIcon className="size-3" />
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center gap-3 sm:justify-self-end">
+              <LiveClock />
+              <span>{t.location}</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </footer>
+    </>
   );
 }

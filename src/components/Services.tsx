@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content, services } from "@/data/content";
@@ -10,10 +10,51 @@ export function Services() {
   const { lang } = useLang();
   const t = content[lang];
   const [activeService, setActiveService] = useState(0);
+  const serviceRefs = useRef<(HTMLElement | null)[]>([]);
   const intro =
     lang === "en"
       ? "Product interfaces, websites and visual systems built through clarity, purpose and close collaboration."
       : "Айқындыққа, мақсатқа және тығыз ынтымақтастыққа негізделген өнім интерфейстері, сайттар мен визуалды жүйелер.";
+
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 639px)");
+    let observer: IntersectionObserver | null = null;
+
+    const observeServices = () => {
+      observer?.disconnect();
+      observer = null;
+
+      if (!mobile.matches) return;
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const activeEntry = entries.find((entry) => entry.isIntersecting);
+          if (!activeEntry) return;
+
+          const index = Number(
+            (activeEntry.target as HTMLElement).dataset.serviceIndex,
+          );
+          if (!Number.isNaN(index)) setActiveService(index);
+        },
+        {
+          rootMargin: "-30% 0px -55% 0px",
+          threshold: 0,
+        },
+      );
+
+      serviceRefs.current.forEach((service) => {
+        if (service) observer?.observe(service);
+      });
+    };
+
+    observeServices();
+    mobile.addEventListener("change", observeServices);
+
+    return () => {
+      mobile.removeEventListener("change", observeServices);
+      observer?.disconnect();
+    };
+  }, []);
 
   return (
     <section id="services" className="theme-surface px-4 py-24 sm:px-8 sm:py-32 lg:px-10">
@@ -30,9 +71,6 @@ export function Services() {
               <p className="text-[14px] font-medium leading-[1.15] sm:text-[16px]">
                 {intro}
               </p>
-              <p className="mt-8 text-[11px] text-[var(--muted)]">
-                Communication → Collaboration → Clarity
-              </p>
             </div>
           </Reveal>
 
@@ -40,6 +78,10 @@ export function Services() {
             {services[lang].map((s, i) => (
               <Reveal key={s.title} delay={i * 0.04}>
                 <article
+                  ref={(node) => {
+                    serviceRefs.current[i] = node;
+                  }}
+                  data-service-index={i}
                   className="border-t border-[var(--line)]"
                   onMouseEnter={() => setActiveService(i)}
                   onFocus={() => setActiveService(i)}
