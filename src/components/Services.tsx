@@ -46,7 +46,7 @@ export function Services() {
           if (!Number.isNaN(index)) setActiveService(index);
         },
         {
-          rootMargin: "-30% 0px -55% 0px",
+          rootMargin: "-48% 0px -44% 0px",
           threshold: 0,
         },
       );
@@ -81,7 +81,7 @@ export function Services() {
                 {bindShortWords(intro)}
               </p>
 
-              <div className="mt-3 aspect-square w-[120px] self-end overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
+              <div className="mt-5 aspect-square w-[120px] self-end overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
                 <AnimatePresence mode="wait" initial={false}>
                   {activeService === 3 ? (
                     <motion.video

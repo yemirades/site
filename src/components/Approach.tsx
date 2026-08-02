@@ -58,13 +58,13 @@ export function Approach() {
       className="theme-surface px-4 py-10 sm:px-8 sm:py-16 lg:px-10"
     >
       <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[78svh] sm:px-10 sm:py-9 lg:max-w-none">
-        <div className="flex justify-center">
+        <div className="flex justify-start sm:justify-center">
           <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] leading-none lowercase">
             {bindShortWords(t.approachTitle)}
           </span>
         </div>
 
-        <p className="my-auto max-w-[1040px] font-hero text-left text-[36px] font-medium leading-[0.94] sm:mx-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
+        <p className="mb-auto mt-16 max-w-[1040px] font-hero text-left text-[36px] font-medium leading-[0.94] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
           {words.map((word, index) => (
             <ApproachWord
               key={`${word}-${index}`}
