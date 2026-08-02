@@ -76,12 +76,12 @@ export function Services() {
 
         <div className="mt-3 grid min-w-0 gap-3 sm:mt-[30px] sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.7fr)] sm:gap-[30px]">
           <Reveal className="h-full">
-            <div className="flex h-full flex-col sm:max-w-[280px] sm:items-start">
-              <p className="self-start text-[14px] font-medium leading-[1.15] sm:text-[16px]">
+            <div className="flex h-full items-end justify-between gap-4 sm:max-w-[280px] sm:flex-col sm:items-start sm:justify-start sm:gap-0">
+              <p className="min-w-0 flex-1 self-end text-[14px] font-medium leading-[1.15] sm:flex-none sm:self-start sm:text-[16px]">
                 {bindShortWords(intro)}
               </p>
 
-              <div className="mt-5 aspect-square w-[120px] self-start overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
+              <div className="aspect-square w-[clamp(124px,34vw,136px)] shrink-0 self-end overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
                 <AnimatePresence mode="wait" initial={false}>
                   {activeService === 3 ? (
                     <motion.video
