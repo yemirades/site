@@ -35,7 +35,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[90svh] lg:min-h-0 lg:px-10"
+      className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[100svh] lg:min-h-0 lg:px-10"
     >
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-[140px] pt-[92px] sm:pb-4 lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
         <div className="hero-frame relative ml-auto mr-0 aspect-square w-[120px] max-w-[calc(100vw-32px)] shrink-0 overflow-hidden sm:mx-auto sm:w-[min(62vw,260px)] sm:max-w-none lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[260px] lg:-translate-x-1/2 lg:-translate-y-1/2">

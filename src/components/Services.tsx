@@ -73,14 +73,14 @@ export function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid min-w-0 gap-14 sm:mt-20 sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.7fr)] sm:gap-16">
-          <Reveal>
-            <div className="max-w-[280px]">
-              <p className="text-[14px] font-medium leading-[1.15] sm:text-[16px]">
+        <div className="mt-3 grid min-w-0 gap-3 sm:mt-[30px] sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.7fr)] sm:gap-[30px]">
+          <Reveal className="h-full">
+            <div className="grid h-full grid-cols-[minmax(0,1fr)_120px] items-end gap-3 sm:flex sm:max-w-[280px] sm:flex-col sm:items-start">
+              <p className="self-start text-[14px] font-medium leading-[1.15] sm:text-[16px]">
                 {intro}
               </p>
 
-              <div className="mt-12 hidden aspect-square w-full max-w-[240px] overflow-hidden bg-[var(--soft)] sm:block">
+              <div className="aspect-square w-full overflow-hidden bg-[var(--soft)] sm:mt-auto sm:max-w-[240px]">
                 <AnimatePresence mode="wait" initial={false}>
                   {activeService === 3 ? (
                     <motion.video
@@ -114,7 +114,7 @@ export function Services() {
                         src={`${basePath}/${serviceImages[activeService]}`}
                         alt=""
                         fill
-                        sizes="240px"
+                        sizes="(max-width: 639px) 120px, 240px"
                         className="object-cover"
                       />
                     </motion.div>
