@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
@@ -38,8 +37,8 @@ export function Hero() {
       id="top"
       className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[90svh] lg:min-h-0 lg:px-10"
     >
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-10 pt-[92px] sm:pb-4 lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
-        <div className="hero-frame relative ml-auto mr-0 aspect-square w-[120px] max-w-[calc(100vw-32px)] shrink-0 overflow-hidden sm:mx-auto sm:w-[min(62vw,260px)] sm:max-w-none lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[280px] lg:-translate-x-1/2 lg:-translate-y-1/2">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-16 pt-[92px] sm:pb-4 lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
+        <div className="hero-frame relative ml-auto mr-0 aspect-square w-[120px] max-w-[calc(100vw-32px)] shrink-0 overflow-hidden sm:mx-auto sm:w-[min(62vw,260px)] sm:max-w-none lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[260px] lg:-translate-x-1/2 lg:-translate-y-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -76,17 +75,7 @@ export function Hero() {
           }}
           className="font-hero hero-name relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-semibold leading-[0.86] tracking-[-0.045em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
-          <span className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
-            <span>Mirat</span>
-            <Image
-              src={`${basePath}/hero-logo.gif`}
-              alt=""
-              width={100}
-              height={100}
-              unoptimized
-              className="theme-sensitive-mark size-8 object-contain sm:size-10 lg:size-12"
-            />
-          </span>
+          <span>Mirat</span>
           <span>Yerbolatuly</span>
         </motion.h1>
 
