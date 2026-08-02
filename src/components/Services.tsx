@@ -46,7 +46,7 @@ export function Services() {
           if (!Number.isNaN(index)) setActiveService(index);
         },
         {
-          rootMargin: "-48% 0px -44% 0px",
+          rootMargin: "-60% 0px -34% 0px",
           threshold: 0,
         },
       );
@@ -66,7 +66,7 @@ export function Services() {
   }, []);
 
   return (
-    <section id="services" className="theme-surface px-4 py-24 sm:px-8 sm:py-32 lg:px-10">
+    <section id="services" className="theme-surface px-4 pb-24 pt-12 sm:px-8 sm:py-32 lg:px-10">
       <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
         <Reveal className="min-w-0">
           <h2 className="max-w-[820px] font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[64px]">
@@ -81,7 +81,7 @@ export function Services() {
                 {bindShortWords(intro)}
               </p>
 
-              <div className="mt-5 aspect-square w-[120px] self-end overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
+              <div className="mt-5 aspect-square w-[120px] self-start overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
                 <AnimatePresence mode="wait" initial={false}>
                   {activeService === 3 ? (
                     <motion.video

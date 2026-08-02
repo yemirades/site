@@ -156,7 +156,7 @@ function ProjectCase({
       ref={rowRef}
       className="group grid gap-3 sm:grid-cols-[120px_minmax(0,1fr)_120px] sm:items-center sm:gap-5"
     >
-      <div className="flex items-center justify-between text-[9px] leading-none sm:block sm:text-[13px]">
+      <div className="flex items-center justify-between text-[9px] leading-none sm:flex sm:justify-end sm:text-[13px]">
         <span>({String(index + 1).padStart(2, "0")})</span>
         <span className="ml-1">{project.year}</span>
         <span className="lowercase text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
@@ -184,7 +184,7 @@ function ProjectCase({
         </motion.div>
       </div>
 
-      <div className="hidden text-[13px] leading-none sm:flex sm:justify-end">
+      <div className="hidden text-[13px] leading-none sm:flex sm:justify-start">
         {caseLink}
       </div>
     </div>

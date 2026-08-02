@@ -117,7 +117,7 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`language-control flex h-8 items-center px-2 transition-colors lg:h-7 ${
+                className={`language-control flex h-8 min-w-11 items-center justify-center px-3 transition-colors lg:h-7 ${
                   lang === language.value
                     ? "bg-[var(--ink)] text-[var(--page)]"
                     : "opacity-55 hover:opacity-100"

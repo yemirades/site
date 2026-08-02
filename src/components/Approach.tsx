@@ -57,7 +57,7 @@ export function Approach() {
       id="approach"
       className="theme-surface px-4 py-10 sm:px-8 sm:py-16 lg:px-10"
     >
-      <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[78svh] sm:px-10 sm:py-9 lg:max-w-none">
+      <div className="mx-auto flex min-h-[42svh] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[78svh] sm:px-10 sm:py-9 lg:max-w-none">
         <div className="flex justify-start sm:justify-center">
           <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] leading-none lowercase">
             {bindShortWords(t.approachTitle)}
