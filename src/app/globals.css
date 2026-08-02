@@ -125,42 +125,94 @@ button {
   isolation: isolate;
 }
 
-.hero-hover-grid {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  grid-template-rows: repeat(8, minmax(0, 1fr));
-  pointer-events: none;
-}
-
-.hero-hover-tile {
-  background-repeat: no-repeat;
-  background-size: 800% 800%;
-  opacity: 0;
-  transform: scale(0.15);
-  transition:
-    opacity 90ms steps(1, end),
-    transform 150ms steps(3, end);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hero-frame:hover .hero-hover-tile {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-}
-
 @media (min-width: 640px) {
   .hero-frame {
     border-radius: 24px;
   }
 }
 
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+  background: #ff6135;
+  color: #080808;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 720ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.page-loader[data-exiting="true"] {
+  pointer-events: none;
+  clip-path: inset(0 0 100% 0);
+}
+
+.page-loader__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.page-loader__progress {
+  display: flex;
+  align-items: flex-end;
+  margin-top: auto;
+  font-family: var(--font-giorgio), "Arial Narrow", sans-serif;
+  font-size: clamp(180px, 43vw, 620px);
+  font-weight: 800;
+  line-height: 0.68;
+  letter-spacing: -0.05em;
+}
+
+.page-loader__percent {
+  margin-bottom: 0.06em;
+  margin-left: 0.04em;
+  font-family: "Stack Sans Headline Variable", Arial, sans-serif;
+  font-size: 0.12em;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.page-loader__track {
+  height: 2px;
+  margin-top: 24px;
+  background: rgba(8, 8, 8, 0.22);
+  transform-origin: left center;
+}
+
+.page-loader__track span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #080808;
+  transform-origin: left center;
+  transition: transform 80ms linear;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-hover-tile {
+  .page-loader {
+    transition-duration: 20ms;
+  }
+
+  .page-loader__track span {
     transition: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .page-loader {
+    padding: 32px 40px;
+  }
+
+  .page-loader__topline {
+    font-size: 14px;
   }
 }
 

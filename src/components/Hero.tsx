@@ -7,16 +7,6 @@ import { bindShortWords } from "@/lib/typography";
 import { LiveClock } from "./LiveClock";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const heroPhotoTiles = Array.from({ length: 64 }, (_, index) => {
-  const column = index % 8;
-  const row = Math.floor(index / 8);
-
-  return {
-    column,
-    row,
-    delay: ((column * 3 + row * 5) % 8) * 22,
-  };
-});
 
 export function Hero() {
   const { lang } = useLang();
@@ -74,20 +64,6 @@ export function Hero() {
               Your browser does not support the video tag.
             </video>
           </motion.div>
-
-          <div className="hero-hover-grid" aria-hidden="true">
-            {heroPhotoTiles.map(({ column, row, delay }) => (
-              <span
-                key={`${column}-${row}`}
-                className="hero-hover-tile"
-                style={{
-                  backgroundImage: `url("${basePath}/hero-hover.png")`,
-                  backgroundPosition: `${(column / 7) * 100}% ${(row / 7) * 100}%`,
-                  transitionDelay: `${delay}ms`,
-                }}
-              />
-            ))}
-          </div>
         </div>
 
         <motion.h1

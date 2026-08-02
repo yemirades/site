@@ -10,32 +10,31 @@ import {
 } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
-import { bindShortWords, groupShortWords } from "@/lib/typography";
+import { bindShortWords } from "@/lib/typography";
 
-function ApproachWord({
-  word,
+function ApproachCharacter({
+  character,
   index,
   total,
   progress,
   reduceMotion,
 }: {
-  word: string;
+  character: string;
   index: number;
   total: number;
   progress: MotionValue<number>;
   reduceMotion: boolean | null;
 }) {
-  const start = (index / total) * 0.78;
-  const end = Math.min(start + 0.18, 1);
-  const opacity = useTransform(progress, [start, end], [0.16, 1]);
-  const y = useTransform(progress, [start, end], [8, 0]);
+  const start = (index / Math.max(total, 1)) * 0.86;
+  const end = Math.min(start + 0.1, 1);
+  const opacity = useTransform(progress, [start, end], [0.14, 1]);
 
   return (
     <motion.span
-      style={reduceMotion ? { opacity: 1, y: 0 } : { opacity, y }}
+      style={reduceMotion ? { opacity: 1 } : { opacity }}
       className="inline-block"
     >
-      {word}&nbsp;
+      {character}
     </motion.span>
   );
 }
@@ -45,10 +44,12 @@ export function Approach() {
   const t = content[lang];
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const words = groupShortWords(t.approachText);
+  const words = t.approachText.split(" ");
+  const totalCharacters = words.reduce((total, word) => total + word.length, 0);
+  let characterIndex = 0;
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 0.82", "end 0.45"],
+    offset: ["start 0.86", "end 0.38"],
   });
 
   return (
@@ -65,18 +66,30 @@ export function Approach() {
         </div>
 
         <p className="mb-auto mt-16 max-w-[1040px] font-hero text-left text-[36px] font-medium leading-[0.94] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
-          {words.map((word, index) => (
-            <ApproachWord
-              key={`${word}-${index}`}
-              word={word}
-              index={index}
-              total={words.length}
-              progress={scrollYProgress}
-              reduceMotion={reduceMotion}
-            />
+          {words.map((word, wordIndex) => (
+            <span
+              key={`${word}-${wordIndex}`}
+              className="inline-block whitespace-nowrap"
+            >
+              {Array.from(word).map((character, index) => {
+                const currentIndex = characterIndex;
+                characterIndex += 1;
+
+                return (
+                  <ApproachCharacter
+                    key={`${wordIndex}-${index}`}
+                    character={character}
+                    index={currentIndex}
+                    total={totalCharacters}
+                    progress={scrollYProgress}
+                    reduceMotion={reduceMotion}
+                  />
+                );
+              })}
+              {wordIndex < words.length - 1 ? "\u00a0" : null}
+            </span>
           ))}
         </p>
-
       </div>
     </section>
   );
