@@ -33,29 +33,11 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-5 lg:px-10">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-[1fr_auto] items-start gap-2 sm:grid-cols-[140px_auto_140px] lg:max-w-none">
-        <a
-          href="#top"
-          aria-label="Yemirades — home"
-          className="pointer-events-auto flex w-fit items-center gap-[10px] text-[14px] font-semibold leading-[1.25] tracking-[-0.02em]"
-        >
-          <span className="relative block size-9 overflow-hidden rounded-full bg-[#21142f]">
-            <Image
-              src={`${basePath}/portrait-figma.jpg`}
-              alt=""
-              fill
-              priority
-              sizes="36px"
-              className="object-cover object-top"
-            />
-          </span>
-          <span className="hidden sm:inline">yemirades.com</span>
-        </a>
-
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 border-b border-[var(--line)] bg-[var(--page)] px-4 py-3 transition-colors duration-300 sm:px-6">
+      <div className="mx-auto grid grid-cols-[1fr_auto] items-center gap-3 lg:grid-cols-[1fr_auto_1fr]">
         <nav
           aria-label="Primary navigation"
-          className="soft-radius pointer-events-auto hidden items-center justify-self-center bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)] sm:flex"
+          className="pointer-events-auto hidden items-center justify-self-start gap-2 text-[13px] font-medium leading-none lg:col-start-1 lg:row-start-1 lg:flex"
         >
           {links.map((link) => (
             <a
@@ -63,15 +45,33 @@ export function Nav() {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-0.5 whitespace-nowrap px-2 py-1 transition-opacity hover:opacity-55"
+              className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--soft)] px-4 py-2.5 text-[var(--ink)] transition-[background-color,color,transform] hover:-translate-y-px"
             >
-              {link.label.toLowerCase()}
+              {link.label}
               {link.arrow ? <ArrowIcon /> : null}
             </a>
           ))}
         </nav>
 
-        <div className="pointer-events-auto flex justify-self-end gap-1.5">
+        <a
+          href="#top"
+          aria-label="Mirat — home"
+          className="pointer-events-auto col-start-1 row-start-1 flex w-fit items-center gap-2.5 text-[18px] font-semibold leading-none text-[var(--ink)] lg:col-start-2 lg:justify-self-center lg:text-[20px]"
+        >
+          <span>Mirat</span>
+          <Image
+            src={`${basePath}/hero-logo.gif`}
+            alt=""
+            width={100}
+            height={100}
+            unoptimized
+            priority
+            loading="eager"
+            className="theme-sensitive-mark size-8 object-contain sm:size-9"
+          />
+        </a>
+
+        <div className="pointer-events-auto col-start-2 row-start-1 flex items-center justify-self-end gap-2 lg:col-start-3">
           <button
             type="button"
             onClick={toggleTheme}
@@ -81,7 +81,7 @@ export function Nav() {
                 : "Switch to light mode"
             }
             aria-pressed={theme === "dark"}
-            className="flex size-9 items-center justify-center bg-[var(--pill)] text-[var(--pill-ink)] transition-colors"
+            className="flex size-9 items-center justify-center rounded-[10px] bg-[var(--soft)] text-[var(--ink)] transition-colors"
           >
             {theme === "light" ? (
               <svg
@@ -109,7 +109,7 @@ export function Nav() {
             )}
           </button>
 
-          <div className="soft-radius flex bg-[var(--pill)] p-1 text-[14px] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--pill-ink)]">
+          <div className="flex rounded-[10px] bg-[var(--soft)] p-1 text-[13px] font-medium leading-none text-[var(--ink)]">
             {([
               { value: "en", label: "EN" },
               { value: "kk", label: "KZ" },
@@ -118,9 +118,9 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`language-option px-2 py-1 transition-colors ${
+                className={`rounded-[7px] px-2 py-1.5 transition-colors ${
                   lang === language.value
-                    ? "bg-[var(--page)] text-[var(--ink)]"
+                    ? "bg-[var(--ink)] text-[var(--page)]"
                     : "opacity-55 hover:opacity-100"
                 }`}
               >
@@ -129,13 +129,20 @@ export function Nav() {
             ))}
           </div>
 
+          <a
+            href="#contacts"
+            className="hidden whitespace-nowrap rounded-[10px] bg-[var(--ink)] px-5 py-2.5 text-[13px] font-medium leading-none text-[var(--page)] lg:inline-flex"
+          >
+            {lang === "en" ? "Contact" : "Байланыс"}
+          </a>
+
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="relative flex size-9 items-center justify-center bg-[var(--pill)] text-[var(--pill-ink)] sm:hidden"
+            className="relative flex size-9 items-center justify-center rounded-[10px] bg-[var(--soft)] text-[var(--ink)] lg:hidden"
           >
             <span
               aria-hidden="true"
@@ -156,7 +163,7 @@ export function Nav() {
       <div
         id="mobile-menu"
         aria-hidden={!menuOpen}
-        className={`soft-radius pointer-events-auto absolute inset-x-4 top-[60px] overflow-hidden bg-[var(--pill)] text-[var(--pill-ink)] shadow-[0_16px_50px_rgba(0,0,0,.22)] transition-[opacity,transform,visibility] duration-300 sm:hidden ${
+        className={`pointer-events-auto absolute inset-x-4 top-[68px] overflow-hidden rounded-[12px] border border-[var(--line)] bg-[var(--page)] text-[var(--ink)] shadow-[0_16px_50px_rgba(0,0,0,.16)] transition-[opacity,transform,visibility] duration-300 lg:hidden ${
           menuOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0"
@@ -171,7 +178,7 @@ export function Nav() {
               rel={link.external ? "noopener noreferrer" : undefined}
               tabIndex={menuOpen ? 0 : -1}
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-between border-b border-current/20 py-3 text-[12px] last:border-b-0"
+              className="flex items-center justify-between border-b border-current/15 py-3 text-[13px] last:border-b-0"
             >
               <span className="inline-flex items-center gap-1">
                 {link.label}
