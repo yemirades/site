@@ -57,6 +57,14 @@ body {
     color 300ms ease;
 }
 
+p,
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: pretty;
+}
+
 main {
   max-width: 100%;
   overflow-x: clip;

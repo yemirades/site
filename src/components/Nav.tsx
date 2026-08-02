@@ -80,7 +80,7 @@ export function Nav() {
                 : "Switch to light mode"
             }
             aria-pressed={theme === "dark"}
-            className="menu-control flex size-9 items-center justify-center bg-[var(--soft)] text-[var(--ink)] transition-colors"
+            className="menu-control flex size-10 items-center justify-center bg-[var(--soft)] text-[var(--ink)] transition-colors lg:size-9"
           >
             {theme === "light" ? (
               <svg
@@ -108,7 +108,7 @@ export function Nav() {
             )}
           </button>
 
-          <div className="flex items-center rounded-[10px] bg-[var(--soft)] p-1 text-[13px] font-medium leading-none text-[var(--ink)]">
+          <div className="flex h-10 items-center rounded-[10px] bg-[var(--soft)] p-1 text-[13px] font-medium leading-none text-[var(--ink)] lg:h-9">
             {([
               { value: "en", label: "EN" },
               { value: "kk", label: "KZ" },
@@ -117,7 +117,7 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`language-control px-2 py-1.5 transition-colors ${
+                className={`language-control flex h-8 items-center px-2 transition-colors lg:h-7 ${
                   lang === language.value
                     ? "bg-[var(--ink)] text-[var(--page)]"
                     : "opacity-55 hover:opacity-100"
@@ -141,7 +141,7 @@ export function Nav() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="menu-control relative flex size-9 items-center justify-center bg-[var(--soft)] text-[var(--ink)] lg:hidden"
+            className="menu-control relative flex size-10 items-center justify-center bg-[var(--soft)] text-[var(--ink)] lg:hidden"
           >
             <span
               aria-hidden="true"

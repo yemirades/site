@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
+import { bindShortWords } from "@/lib/typography";
 import { LiveClock } from "./LiveClock";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -13,8 +14,8 @@ export function Hero() {
   const mobileAboutLines =
     lang === "en"
       ? [
-          "Sälem! I’m a product designer with",
-          "a background in communication design.",
+          "Sälem! I’m a product designer",
+          "with a background in communication design.",
           "Currently working at Mycar Group.",
         ]
       : [
@@ -26,8 +27,8 @@ export function Hero() {
   const desktopAboutLines =
     lang === "en"
       ? [
-          "Sälem! I’m a product designer with",
-          "a background in communication design.",
+          "Sälem! I’m a product designer",
+          "with a background in communication design.",
           "Currently working at Mycar Group.",
         ]
       : [t.about];
@@ -83,19 +84,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-[15px] w-full max-w-[378px] text-[14px] font-semibold leading-[1.12] tracking-[-0.02em] sm:mt-5 sm:text-[18px] lg:absolute lg:bottom-0 lg:left-0 lg:mt-0 lg:text-[20px]"
+          className="mt-[15px] w-full max-w-[378px] text-[14px] font-semibold leading-[1.12] tracking-[-0.02em] sm:mt-5 sm:text-[18px] lg:absolute lg:bottom-3 lg:left-0 lg:mt-0 lg:text-[20px]"
         >
           <span className="sm:hidden">
             {mobileAboutLines.map((line) => (
               <span key={line} className="block whitespace-nowrap">
-                {line}
+                {bindShortWords(line)}
               </span>
             ))}
           </span>
           <span className="hidden sm:block">
             {desktopAboutLines.map((line) => (
               <span key={line} className="block whitespace-nowrap">
-                {line}
+                {bindShortWords(line)}
               </span>
             ))}
           </span>
@@ -105,10 +106,10 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="absolute bottom-6 left-0 flex items-center gap-[9px] text-[14px] font-medium leading-[1.1] tracking-[-0.02em] sm:bottom-4 lg:bottom-0 lg:left-auto lg:right-0"
+          className="absolute bottom-6 left-0 flex items-center gap-[9px] text-[14px] font-medium leading-[1.1] tracking-[-0.02em] sm:bottom-4 lg:bottom-3 lg:left-auto lg:right-0"
         >
           <LiveClock />
-          <span>{t.location}</span>
+          <span>{bindShortWords(t.location)}</span>
         </motion.div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content, services } from "@/data/content";
+import { bindShortWords } from "@/lib/typography";
 import { Reveal } from "./Reveal";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -69,18 +70,18 @@ export function Services() {
       <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
         <Reveal className="min-w-0">
           <h2 className="max-w-[820px] font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[64px]">
-            {t.servicesTitle}
+            {bindShortWords(t.servicesTitle)}
           </h2>
         </Reveal>
 
         <div className="mt-3 grid min-w-0 gap-3 sm:mt-[30px] sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.7fr)] sm:gap-[30px]">
           <Reveal className="h-full">
-            <div className="grid h-full grid-cols-[minmax(0,1fr)_120px] items-end gap-3 sm:flex sm:max-w-[280px] sm:flex-col sm:items-start">
+            <div className="flex h-full flex-col sm:max-w-[280px] sm:items-start">
               <p className="self-start text-[14px] font-medium leading-[1.15] sm:text-[16px]">
-                {intro}
+                {bindShortWords(intro)}
               </p>
 
-              <div className="aspect-square w-full overflow-hidden bg-[var(--soft)] sm:mt-auto sm:max-w-[240px]">
+              <div className="mt-3 aspect-square w-[120px] self-end overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
                 <AnimatePresence mode="wait" initial={false}>
                   {activeService === 3 ? (
                     <motion.video
@@ -150,7 +151,7 @@ export function Services() {
                       0{i + 1}
                     </span>
                     <h3 className="min-w-0 font-hero text-[38px] font-medium leading-[0.92] tracking-[-0.035em] sm:text-[clamp(44px,5.6vw,76px)]">
-                      {s.title}
+                      {bindShortWords(s.title)}
                     </h3>
                   </button>
 
@@ -166,7 +167,7 @@ export function Services() {
                   >
                     <div className="overflow-hidden">
                       <p className="pb-5 pl-11 text-[13px] leading-[1.3] text-[var(--muted)] sm:pl-[52px] sm:text-[15px]">
-                        {s.desc}
+                        {bindShortWords(s.desc)}
                       </p>
                     </div>
                   </motion.div>

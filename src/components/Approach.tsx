@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
+import { bindShortWords, groupShortWords } from "@/lib/typography";
 
 function ApproachWord({
   word,
@@ -44,7 +45,7 @@ export function Approach() {
   const t = content[lang];
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const words = t.approachText.split(/\s+/);
+  const words = groupShortWords(t.approachText);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start 0.82", "end 0.45"],
@@ -59,7 +60,7 @@ export function Approach() {
       <div className="mx-auto flex min-h-[72svh] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[78svh] sm:px-10 sm:py-9 lg:max-w-none">
         <div className="flex justify-center">
           <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] leading-none lowercase">
-            {t.approachTitle}
+            {bindShortWords(t.approachTitle)}
           </span>
         </div>
 

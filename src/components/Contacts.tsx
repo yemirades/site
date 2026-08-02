@@ -3,6 +3,7 @@
 import type { FormEvent } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { content, email, socials } from "@/data/content";
+import { bindShortWords } from "@/lib/typography";
 import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
 
@@ -56,7 +57,7 @@ export function Contacts() {
         <div className="mx-auto grid max-w-[1200px] gap-10 sm:grid-cols-3 sm:gap-6 lg:max-w-none">
           <Reveal className="sm:col-span-1">
             <h2 className="font-hero text-[42px] leading-[0.9] sm:text-[52px]">
-              {formCopy.title}
+              {bindShortWords(formCopy.title)}
             </h2>
           </Reveal>
 
@@ -116,13 +117,13 @@ export function Contacts() {
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
             <Reveal>
-              <p className="text-[10px]">{t.contactsTitle}</p>
+              <p className="text-[10px]">{bindShortWords(t.contactsTitle)}</p>
             </Reveal>
 
             <div className="sm:col-span-2">
               <Reveal>
                 <p className="max-w-[760px] font-display text-[58px] leading-[0.86] sm:text-[100px]">
-                  {t.contactsLead}
+                  {bindShortWords(t.contactsLead)}
                 </p>
               </Reveal>
 
@@ -131,7 +132,7 @@ export function Contacts() {
                   href={`mailto:${email}`}
                   className="mt-10 inline-flex items-center gap-1 border-b border-current pb-1 text-[12px] transition-opacity hover:opacity-60"
                 >
-                  {t.contactsCta}
+                  {bindShortWords(t.contactsCta)}
                 </a>
               </Reveal>
             </div>
@@ -153,7 +154,7 @@ export function Contacts() {
             </div>
             <div className="flex items-center gap-3 sm:justify-self-end">
               <LiveClock />
-              <span>{t.location}</span>
+              <span>{bindShortWords(t.location)}</span>
             </div>
           </div>
         </div>

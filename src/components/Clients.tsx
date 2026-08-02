@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
+import { bindShortWords } from "@/lib/typography";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -104,13 +105,13 @@ export function Clients() {
         >
           {lang === "kk" ? (
             <>
-              <span className="block sm:inline">бірге жұмыс істегеніме</span>{" "}
+              <span className="block sm:inline">{bindShortWords("бірге жұмыс істегеніме")}</span>{" "}
               <span className="block sm:inline">қуаныштымын</span>
             </>
           ) : (
             <>
-              <span className="block sm:inline">had a pleasure</span>{" "}
-              <span className="block sm:inline">to work with</span>
+              <span className="block sm:inline">{bindShortWords("had a pleasure")}</span>{" "}
+              <span className="block sm:inline">{bindShortWords("to work with")}</span>
             </>
           )}
         </h2>
