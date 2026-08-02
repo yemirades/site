@@ -1,10 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content, services } from "@/data/content";
 import { Reveal } from "./Reveal";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const serviceImages = [
+  "case-mycar-pay.png",
+  "case-bbs.png",
+  "case-logofolio.png",
+];
 
 export function Services() {
   const { lang } = useLang();
@@ -71,6 +79,48 @@ export function Services() {
               <p className="text-[14px] font-medium leading-[1.15] sm:text-[16px]">
                 {intro}
               </p>
+
+              <div className="mt-12 hidden aspect-square w-full max-w-[240px] overflow-hidden bg-[var(--soft)] sm:block">
+                <AnimatePresence mode="wait" initial={false}>
+                  {activeService === 3 ? (
+                    <motion.video
+                      key="marketing-video"
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.28 }}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="h-full w-full object-cover"
+                    >
+                      <source
+                        src={`${basePath}/case-mycar-samsung.mp4`}
+                        type="video/mp4"
+                      />
+                    </motion.video>
+                  ) : (
+                    <motion.div
+                      key={serviceImages[activeService]}
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.28 }}
+                      className="relative h-full w-full"
+                    >
+                      <Image
+                        src={`${basePath}/${serviceImages[activeService]}`}
+                        alt=""
+                        fill
+                        sizes="240px"
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </Reveal>
 

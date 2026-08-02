@@ -5,7 +5,6 @@ import { useLang } from "@/context/LanguageContext";
 import { content, email, socials } from "@/data/content";
 import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
-import { ArrowIcon } from "./ArrowIcon";
 
 export function Contacts() {
   const { lang } = useLang();
@@ -54,17 +53,17 @@ export function Contacts() {
         id="contacts"
         className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10"
       >
-        <div className="mx-auto max-w-[1200px] lg:max-w-none">
-          <Reveal>
-            <h2 className="font-hero text-[48px] leading-[0.9] sm:text-[72px]">
+        <div className="mx-auto grid max-w-[1200px] gap-10 sm:grid-cols-3 sm:gap-6 lg:max-w-none">
+          <Reveal className="sm:col-span-1">
+            <h2 className="font-hero text-[42px] leading-[0.9] sm:text-[52px]">
               {formCopy.title}
             </h2>
           </Reveal>
 
-          <Reveal delay={0.06}>
+          <Reveal className="sm:col-span-2" delay={0.06}>
             <form
               onSubmit={handleSubmit}
-              className="mt-10 grid gap-3 sm:mt-14 sm:gap-4"
+              className="grid gap-3"
               noValidate={false}
             >
               {[
@@ -86,7 +85,7 @@ export function Contacts() {
                           ? "email"
                           : "off"
                     }
-                    className="min-h-16 w-full rounded-[14px] border-0 bg-[var(--soft)] px-5 text-[18px] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#ff6135] sm:min-h-20 sm:px-6 sm:text-[22px]"
+                    className="min-h-14 w-full rounded-[14px] border-0 bg-[var(--soft)] px-5 text-[16px] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#ff6135] sm:min-h-16 sm:text-[18px]"
                   />
                 </label>
               ))}
@@ -98,13 +97,13 @@ export function Contacts() {
                   name="message"
                   rows={6}
                   placeholder={formCopy.message}
-                  className="min-h-52 w-full resize-y rounded-[14px] border-0 bg-[var(--soft)] px-5 py-5 text-[18px] leading-[1.2] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#ff6135] sm:min-h-64 sm:px-6 sm:py-6 sm:text-[22px]"
+                  className="min-h-40 w-full resize-y rounded-[14px] border-0 bg-[var(--soft)] px-5 py-5 text-[16px] leading-[1.2] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#ff6135] sm:min-h-48 sm:text-[18px]"
                 />
               </label>
 
               <button
                 type="submit"
-                className="inquiry-submit min-h-16 w-full bg-[var(--soft)] px-5 text-[18px] font-semibold transition-colors hover:bg-[#ff6135] hover:text-black sm:min-h-20 sm:text-[22px]"
+                className="inquiry-submit min-h-14 w-full bg-[var(--ink)] px-5 text-[16px] font-semibold text-[var(--page)] transition-colors hover:bg-[#ff6135] hover:text-black sm:min-h-16 sm:text-[18px]"
               >
                 {formCopy.submit}
               </button>
@@ -133,7 +132,6 @@ export function Contacts() {
                   className="mt-10 inline-flex items-center gap-1 border-b border-current pb-1 text-[12px] transition-opacity hover:opacity-60"
                 >
                   {t.contactsCta}
-                  <ArrowIcon className="size-3.5" />
                 </a>
               </Reveal>
             </div>
@@ -150,7 +148,6 @@ export function Contacts() {
                   className="inline-flex items-center gap-1 transition-opacity hover:opacity-55"
                 >
                   {s.label}
-                  <ArrowIcon className="size-3" />
                 </a>
               ))}
             </div>

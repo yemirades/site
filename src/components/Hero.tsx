@@ -37,7 +37,7 @@ export function Hero() {
       id="top"
       className="theme-surface relative min-h-[100svh] overflow-hidden px-4 sm:px-8 lg:h-[90svh] lg:min-h-0 lg:px-10"
     >
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-24 pt-[92px] sm:pb-4 lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1200px] flex-col pb-[140px] pt-[92px] sm:pb-4 lg:block lg:h-full lg:min-h-0 lg:max-w-none lg:py-0">
         <div className="hero-frame relative ml-auto mr-0 aspect-square w-[120px] max-w-[calc(100vw-32px)] shrink-0 overflow-hidden sm:mx-auto sm:w-[min(62vw,260px)] sm:max-w-none lg:absolute lg:left-1/2 lg:top-1/2 lg:size-[260px] lg:-translate-x-1/2 lg:-translate-y-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
@@ -105,7 +105,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="mt-6 flex items-center gap-[9px] self-start text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-0 lg:right-0 lg:mt-0"
+          className="absolute bottom-6 left-0 flex items-center gap-[9px] text-[14px] font-medium leading-[1.1] tracking-[-0.02em] sm:bottom-4 lg:bottom-0 lg:left-auto lg:right-0"
         >
           <LiveClock />
           <span>{t.location}</span>
