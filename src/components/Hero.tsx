@@ -7,6 +7,16 @@ import { bindShortWords } from "@/lib/typography";
 import { LiveClock } from "./LiveClock";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const heroPhotoTiles = Array.from({ length: 64 }, (_, index) => {
+  const column = index % 8;
+  const row = Math.floor(index / 8);
+
+  return {
+    column,
+    row,
+    delay: ((column * 3 + row * 5) % 8) * 22,
+  };
+});
 
 export function Hero() {
   const { lang } = useLang();
@@ -64,6 +74,20 @@ export function Hero() {
               Your browser does not support the video tag.
             </video>
           </motion.div>
+
+          <div className="hero-hover-grid" aria-hidden="true">
+            {heroPhotoTiles.map(({ column, row, delay }) => (
+              <span
+                key={`${column}-${row}`}
+                className="hero-hover-tile"
+                style={{
+                  backgroundImage: `url("${basePath}/hero-hover.png")`,
+                  backgroundPosition: `${(column / 7) * 100}% ${(row / 7) * 100}%`,
+                  transitionDelay: `${delay}ms`,
+                }}
+              />
+            ))}
+          </div>
         </div>
 
         <motion.h1
@@ -74,7 +98,7 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero hero-name relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-semibold leading-[0.86] tracking-[-0.045em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="font-hero hero-name pointer-events-none relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-semibold leading-[0.86] tracking-[-0.045em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span>Mirat</span>
           <span>Yerbolatuly</span>
@@ -84,7 +108,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-[15px] w-full max-w-[378px] text-[14px] font-semibold leading-[1.12] tracking-[-0.02em] sm:mt-5 sm:text-[18px] lg:absolute lg:bottom-3 lg:left-0 lg:mt-0 lg:text-[20px]"
+          className="mt-[15px] w-full max-w-[378px] text-[14px] font-semibold leading-[1.12] tracking-[-0.02em] sm:mt-5 sm:text-[18px] lg:absolute lg:bottom-[22px] lg:left-0 lg:mt-0 lg:text-[20px]"
         >
           <span className="sm:hidden">
             {mobileAboutLines.map((line) => (
@@ -106,7 +130,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="absolute bottom-6 left-0 flex items-center gap-[9px] text-[14px] font-medium leading-[1.1] tracking-[-0.02em] sm:bottom-4 lg:bottom-3 lg:left-auto lg:right-0"
+          className="absolute bottom-6 left-0 flex items-center gap-[9px] text-[14px] font-medium leading-[1.1] tracking-[-0.02em] sm:bottom-4 lg:bottom-[22px] lg:left-auto lg:right-0"
         >
           <LiveClock />
           <span>{bindShortWords(t.location)}</span>

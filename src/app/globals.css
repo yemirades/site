@@ -121,7 +121,47 @@ button {
 }
 
 .hero-frame {
-  border-radius: 0;
+  border-radius: 16px;
+  isolation: isolate;
+}
+
+.hero-hover-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  pointer-events: none;
+}
+
+.hero-hover-tile {
+  background-repeat: no-repeat;
+  background-size: 800% 800%;
+  opacity: 0;
+  transform: scale(0.15);
+  transition:
+    opacity 90ms steps(1, end),
+    transform 150ms steps(3, end);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-frame:hover .hero-hover-tile {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-frame {
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-hover-tile {
+    transition: none;
+  }
 }
 
 .language-option {

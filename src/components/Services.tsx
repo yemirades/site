@@ -19,7 +19,7 @@ export function Services() {
   const { lang } = useLang();
   const t = content[lang];
   const [activeService, setActiveService] = useState(0);
-  const serviceRefs = useRef<(HTMLElement | null)[]>([]);
+  const servicesListRef = useRef<HTMLDivElement | null>(null);
   const intro =
     lang === "en"
       ? "Product interfaces, websites and visual systems built through clarity, purpose and close collaboration."
@@ -27,47 +27,53 @@ export function Services() {
 
   useEffect(() => {
     const mobile = window.matchMedia("(max-width: 639px)");
-    let observer: IntersectionObserver | null = null;
+    let animationFrame = 0;
 
-    const observeServices = () => {
-      observer?.disconnect();
-      observer = null;
-
+    const updateActiveService = () => {
       if (!mobile.matches) return;
 
-      observer = new IntersectionObserver(
-        (entries) => {
-          const activeEntry = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort(
-              (a, b) => b.boundingClientRect.top - a.boundingClientRect.top,
-            )[0];
-          if (!activeEntry) return;
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        const servicesList = servicesListRef.current;
+        if (!servicesList) return;
 
-          const index = Number(
-            (activeEntry.target as HTMLElement).dataset.serviceIndex,
-          );
-          if (!Number.isNaN(index)) setActiveService(index);
-        },
-        {
-          rootMargin: "-58% 0px -20% 0px",
-          threshold: 0,
-        },
-      );
+        const activationLine = window.innerHeight * 0.72;
+        const serviceStep = Math.max(112, window.innerHeight * 0.14);
+        const scrollProgress = activationLine - servicesList.getBoundingClientRect().top;
+        const nextService = Math.min(
+          services[lang].length - 1,
+          Math.max(0, Math.floor(scrollProgress / serviceStep)),
+        );
 
-      serviceRefs.current.forEach((service) => {
-        if (service) observer?.observe(service);
+        setActiveService((current) =>
+          current === nextService ? current : nextService,
+        );
       });
     };
 
-    observeServices();
-    mobile.addEventListener("change", observeServices);
+    const syncMobileListeners = () => {
+      window.removeEventListener("scroll", updateActiveService);
+      window.removeEventListener("resize", updateActiveService);
+
+      if (mobile.matches) {
+        window.addEventListener("scroll", updateActiveService, {
+          passive: true,
+        });
+        window.addEventListener("resize", updateActiveService);
+        updateActiveService();
+      }
+    };
+
+    syncMobileListeners();
+    mobile.addEventListener("change", syncMobileListeners);
 
     return () => {
-      mobile.removeEventListener("change", observeServices);
-      observer?.disconnect();
+      cancelAnimationFrame(animationFrame);
+      mobile.removeEventListener("change", syncMobileListeners);
+      window.removeEventListener("scroll", updateActiveService);
+      window.removeEventListener("resize", updateActiveService);
     };
-  }, []);
+  }, [lang]);
 
   return (
     <section id="services" className="theme-surface px-4 pb-24 pt-16 sm:px-8 sm:py-32 lg:px-10">
@@ -85,7 +91,7 @@ export function Services() {
                 {bindShortWords(intro)}
               </p>
 
-              <div className="aspect-square w-[clamp(124px,34vw,136px)] shrink-0 self-end overflow-hidden bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto">
+              <div className="aspect-square w-[clamp(124px,34vw,136px)] shrink-0 self-end overflow-hidden rounded-[14px] bg-[var(--soft)] sm:mt-auto sm:w-full sm:max-w-[240px] sm:self-auto sm:rounded-[20px]">
                 <AnimatePresence mode="wait" initial={false}>
                   {activeService === 3 ? (
                     <motion.video
@@ -129,13 +135,10 @@ export function Services() {
             </div>
           </Reveal>
 
-          <div className="min-w-0">
+          <div ref={servicesListRef} className="min-w-0">
             {services[lang].map((s, i) => (
               <Reveal key={s.title} delay={i * 0.04}>
                 <article
-                  ref={(node) => {
-                    serviceRefs.current[i] = node;
-                  }}
                   data-service-index={i}
                   className="border-t border-[var(--line)]"
                   onMouseEnter={() => setActiveService(i)}
