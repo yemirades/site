@@ -23,7 +23,9 @@ const visualClasses = [
 ];
 
 const imageCovers: Partial<Record<number, string>> = {
-  3: "case-mycar-pay.png",
+  1: "case-kartell.png",
+  2: "case-mycar-autoservice.png",
+  3: "case-mycar-pay.jpg",
 };
 
 function ProjectArtwork({
@@ -197,7 +199,7 @@ export function Works() {
   return (
     <section
       id="works"
-      className="theme-surface px-4 pb-24 pt-10 sm:px-8 sm:pb-36 lg:px-10 lg:pt-10"
+      className="theme-surface px-4 pb-24 pt-14 sm:px-8 sm:pb-36 lg:px-10"
     >
       <h2 className="sr-only font-hero">
         {lang === "kk" ? "Жобалар" : "Selected works"}

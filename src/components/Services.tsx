@@ -10,7 +10,7 @@ import { Reveal } from "./Reveal";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const serviceImages = [
-  "case-mycar-pay.png",
+  "case-mycar-pay.jpg",
   "case-bbs.png",
   "case-logofolio.png",
 ];
@@ -37,7 +37,11 @@ export function Services() {
 
       observer = new IntersectionObserver(
         (entries) => {
-          const activeEntry = entries.find((entry) => entry.isIntersecting);
+          const activeEntry = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort(
+              (a, b) => b.boundingClientRect.top - a.boundingClientRect.top,
+            )[0];
           if (!activeEntry) return;
 
           const index = Number(
@@ -46,7 +50,7 @@ export function Services() {
           if (!Number.isNaN(index)) setActiveService(index);
         },
         {
-          rootMargin: "-60% 0px -34% 0px",
+          rootMargin: "-58% 0px -20% 0px",
           threshold: 0,
         },
       );
@@ -66,8 +70,8 @@ export function Services() {
   }, []);
 
   return (
-    <section id="services" className="theme-surface px-4 pb-24 pt-12 sm:px-8 sm:py-32 lg:px-10">
-      <div className="mx-auto min-w-0 max-w-[1200px] border-t border-[var(--line)] pt-5 lg:max-w-none">
+    <section id="services" className="theme-surface px-4 pb-24 pt-16 sm:px-8 sm:py-32 lg:px-10">
+      <div className="mx-auto min-w-0 max-w-[1200px] pt-4 sm:border-t sm:border-[var(--line)] sm:pt-5 lg:max-w-none">
         <Reveal className="min-w-0">
           <h2 className="max-w-[820px] font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[64px]">
             {bindShortWords(t.servicesTitle)}
