@@ -33,7 +33,7 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 bg-[var(--page)] px-4 py-3 transition-colors duration-300 sm:px-6">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 py-3 sm:px-6">
       <div className="mx-auto grid grid-cols-[1fr_auto] items-center gap-3 lg:grid-cols-[1fr_auto_1fr]">
         <nav
           aria-label="Primary navigation"
@@ -71,44 +71,44 @@ export function Nav() {
         </a>
 
         <div className="pointer-events-auto col-start-2 row-start-1 flex items-center justify-self-end gap-2 lg:col-start-3">
-          <div className="flex items-center rounded-[10px] bg-[var(--soft)] p-1 text-[13px] font-medium leading-none text-[var(--ink)]">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              aria-label={
-                theme === "light"
-                  ? "Switch to dark mode"
-                  : "Switch to light mode"
-              }
-              aria-pressed={theme === "dark"}
-              className="flex size-7 items-center justify-center rounded-[7px] text-[var(--ink)] transition-colors"
-            >
-              {theme === "light" ? (
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  className="size-[17px]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path d="M19.2 15.5A8 8 0 0 1 8.5 4.8 8 8 0 1 0 19.2 15.5Z" />
-                </svg>
-              ) : (
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  className="size-[17px]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <circle cx="12" cy="12" r="3.5" />
-                  <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
-                </svg>
-              )}
-            </button>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+            }
+            aria-pressed={theme === "dark"}
+            className="menu-control flex size-9 items-center justify-center bg-[var(--soft)] text-[var(--ink)] transition-colors"
+          >
+            {theme === "light" ? (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="size-[17px]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M19.2 15.5A8 8 0 0 1 8.5 4.8 8 8 0 1 0 19.2 15.5Z" />
+              </svg>
+            ) : (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="size-[17px]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <circle cx="12" cy="12" r="3.5" />
+                <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
+              </svg>
+            )}
+          </button>
 
+          <div className="flex items-center rounded-[10px] bg-[var(--soft)] p-1 text-[13px] font-medium leading-none text-[var(--ink)]">
             {([
               { value: "en", label: "EN" },
               { value: "kk", label: "KZ" },
@@ -117,7 +117,7 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`rounded-[7px] px-2 py-1.5 transition-colors ${
+                className={`language-control px-2 py-1.5 transition-colors ${
                   lang === language.value
                     ? "bg-[var(--ink)] text-[var(--page)]"
                     : "opacity-55 hover:opacity-100"
@@ -141,7 +141,7 @@ export function Nav() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="relative flex size-9 items-center justify-center rounded-[10px] bg-[var(--soft)] text-[var(--ink)] lg:hidden"
+            className="menu-control relative flex size-9 items-center justify-center bg-[var(--soft)] text-[var(--ink)] lg:hidden"
           >
             <span
               aria-hidden="true"

@@ -105,7 +105,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="mt-4 flex items-center gap-[9px] self-start text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-0 lg:right-0 lg:mt-0"
+          className="mt-6 flex items-center gap-[9px] self-start text-[14px] font-medium leading-[1.1] tracking-[-0.02em] lg:absolute lg:bottom-0 lg:right-0 lg:mt-0"
         >
           <LiveClock />
           <span>{t.location}</span>

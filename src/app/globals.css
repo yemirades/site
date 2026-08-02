@@ -64,7 +64,7 @@ main {
 
 .font-display,
 .font-hero {
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.015em !important;
   text-transform: uppercase;
 }
 
@@ -94,6 +94,14 @@ button {
 button {
   cursor: pointer;
   border-radius: var(--radius-soft);
+}
+
+.menu-control {
+  border-radius: 10px;
+}
+
+.language-control {
+  border-radius: 5px;
 }
 
 .soft-radius {
