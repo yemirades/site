@@ -12,33 +12,33 @@ export const projects: Project[] = [
     title: "BBS Visual Identity",
     year: "2024",
     href: "https://www.behance.net/gallery/211315577/BBS-Visual-Identity",
-    tag: { kk: "Брендинг", en: "Branding" },
+    tag: { kk: "Brendiñ", en: "Branding" },
   },
   {
     title: "Kartell E-commerce",
     year: "2024",
     href: "https://www.behance.net/gallery/196883003/KARTELL-E-commerce-redesign",
-    tag: { kk: "Веб", en: "Web" },
+    tag: { kk: "Web", en: "Web" },
   },
   {
     title: "Mycar Autoservice",
     year: "2026",
-    tag: { kk: "Мобильді", en: "Mobile" },
+    tag: { kk: "Mobıldi", en: "Mobile" },
   },
   {
     title: "Mycar Pay Landing",
     year: "2025",
     href: "https://mycarpay.kz/",
-    tag: { kk: "Веб", en: "Web" },
+    tag: { kk: "Web", en: "Web" },
   },
 ];
 
 export const services: Record<Lang, { title: string; desc: string }[]> = {
   kk: [
-    { title: "Веб-дизайн", desc: "Түсінікті әрі функционалды сайттар мен лендингтер." },
-    { title: "Брендинг", desc: "Визуалды айдентика және бренд жүйелері." },
-    { title: "Логотиптер", desc: "Брендтерге арналған логотиптер мен белгілер." },
-    { title: "Маркетингтік дизайн", desc: "Науқандарға арналған креативтер мен коммуникациялар." },
+    { title: "Web Design", desc: "Tüsınıktı äri funktsionaldy saittar men landiñter." },
+    { title: "Brendiñ", desc: "Vizualdy aıdentika jäne brend jüieleri." },
+    { title: "Logotipter", desc: "Brendterge arnalğan logotipter men belgiler." },
+    { title: "Marketingtik Design", desc: "Nauqandarğa arnalğan kreatiivter men kommunikatsiialar." },
   ],
   en: [
     { title: "Web Design", desc: "Clear and functional websites and landings." },
@@ -75,20 +75,20 @@ export const content: Record<
   }
 > = {
   kk: {
-    nav: { about: "Мен туралы", works: "Жобалар", services: "Қызметтер", contacts: "Байланыс" },
-    name: "Мират Ерболатұлы",
-    role: "Мультидисциплинарлы дизайнер",
-    location: "Алматы, Қазақстан",
+    nav: { about: "Men turaly", works: "Jobalar", services: "Qyzmetter", contacts: "Bailanys" },
+    name: "Mirat Erbolatūly",
+    role: "Multidistsiplinarly dizainer",
+    location: "Almaty, Qazaqstan",
     about:
-      "Сәлем! Мен графикалық дизайн тәжірибесі бар өнім дизайнерімін. Қазір Mycar Group компаниясында жұмыс істеймін.",
-    worksTitle: "Жобалар",
-    servicesTitle: "Қалай көмектесе аламын?",
-    contactsTitle: "Байланыс",
-    contactsCta: "Хабарласу",
-    contactsLead: "Жобаңызды талқылап, бірге кофе ішейік пе? Кеттік!",
-    approachTitle: "Тәсіл",
+      "Sälem! Men önim dizainerimin, grafikalyq dizain täjiribem bar. Qazir Mycar Group-ta jūmys isteimin.",
+    worksTitle: "Jobalar",
+    servicesTitle: "Qyzmetter",
+    contactsTitle: "Bailanys",
+    contactsCta: "Habarlasu",
+    contactsLead: "Jobañyzdy talqylap, birge kofe isheik pe? Kettik!",
+    approachTitle: "Täsil",
     approachText:
-      "Мен жұмысты айқындықтан бастаймын: алдымен контексті түсініп, пайдаланушы мен бизнес мақсаттарын сәйкестендіремін, содан кейін күрделі нәрсені түсінікті, пайдалы әрі мәнерлі өнімге айналдырамын.",
+      "Men jūmysty aıqyndyqtan bastaimyn: aldımen kontekstı tüsınıp, paidalanushy men biznes maqsattaryn säıkestendıremin, sodan keıin kürdelı närsenı tüsınıktı, paidaly äri mänerlı önimge aynaldyramyn.",
   },
   en: {
     nav: { about: "About", works: "Works", services: "Services", contacts: "Contacts" },
@@ -98,7 +98,7 @@ export const content: Record<
     about:
       "Sälem! I’m a product designer with a background in graphic design. Currently working at Mycar Group.",
     worksTitle: "Works",
-    servicesTitle: "How can I be helpful?",
+    servicesTitle: "Services",
     contactsTitle: "Contacts",
     contactsCta: "Get in touch",
     contactsLead: "Want to discuss your project or have a coffee? Let’s gooo!",
