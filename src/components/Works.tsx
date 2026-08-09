@@ -15,29 +15,33 @@ import { ArrowIcon } from "./ArrowIcon";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const visualClasses = [
-  "case-bbs",
-  "case-kartell",
-  "case-agro",
-  "case-pay",
-];
-
-const imageCovers: Partial<Record<number, string>> = {
-  1: "case-kartell.png",
-  2: "case-mycar-autoservice.png",
-  3: "case-mycar-pay.jpg",
+const projectVisuals: Record<
+  string,
+  { className: string; image?: string; video?: string; poster?: string }
+> = {
+  "Mycar Autoservice": {
+    className: "case-agro",
+    image: "case-mycar-autoservice.png",
+  },
+  "BBS Visual Identity": {
+    className: "case-bbs",
+    video: "case-bbs.mp4",
+    poster: "case-bbs.png",
+  },
+  "Kartell E-commerce": {
+    className: "case-kartell",
+    image: "case-kartell.png",
+  },
+  "Mycar Pay Landing": {
+    className: "case-pay",
+    image: "case-mycar-pay.jpg",
+  },
 };
 
-function ProjectArtwork({
-  index,
-  title,
-}: {
-  index: number;
-  title: string;
-}) {
-  const imageCover = imageCovers[index];
+function ProjectArtwork({ title }: { title: string }) {
+  const visual = projectVisuals[title];
 
-  if (index === 0) {
+  if (visual?.video) {
     return (
       <video
         aria-label={`${title} animated project cover`}
@@ -46,45 +50,24 @@ function ProjectArtwork({
         loop
         playsInline
         preload="metadata"
-        poster={`${basePath}/case-bbs.png`}
+        poster={`${basePath}/${visual.poster}`}
         className="project-artwork absolute inset-0 h-full w-full object-cover"
       >
-        <source src={`${basePath}/case-bbs.mp4`} type="video/mp4" />
+        <source src={`${basePath}/${visual.video}`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     );
   }
 
-  if (imageCover) {
+  if (visual?.image) {
     return (
       <Image
-        src={`${basePath}/${imageCover}`}
+        src={`${basePath}/${visual.image}`}
         alt={`${title} project cover`}
         fill
         sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1280px) calc(100vw - 228px), 1044px"
         className="project-artwork object-cover"
       />
-    );
-  }
-
-  if (index === 1) {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center text-[#fff8ef]">
-        <div className="absolute left-[12%] top-[15%] size-[32%] rounded-full border border-white/55" />
-        <div className="absolute bottom-[9%] right-[13%] size-[42%] rounded-full bg-black/15" />
-        <p className="relative text-4xl tracking-[-0.06em] sm:text-8xl">Kartell</p>
-      </div>
-    );
-  }
-
-  if (index === 2) {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center text-[#e5ffbd]">
-        <div className="text-center">
-          <p className="font-display text-7xl leading-none sm:text-[150px]">A</p>
-          <p className="text-[8px] tracking-[0.34em] sm:text-xs">Agro logomark</p>
-        </div>
-      </div>
     );
   }
 
@@ -122,9 +105,9 @@ function ProjectCase({
 
   const artwork = (
     <div
-      className={`project-card ${visualClasses[index]} aspect-video`}
+      className={`project-card ${projectVisuals[project.title]?.className ?? ""} aspect-video`}
     >
-      <ProjectArtwork index={index} title={project.title} />
+      <ProjectArtwork title={project.title} />
     </div>
   );
 
