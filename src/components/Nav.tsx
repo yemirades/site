@@ -132,7 +132,7 @@ export function Nav() {
             href="#contacts"
             className="hidden h-10 items-center whitespace-nowrap rounded-[10px] bg-[var(--ink)] px-5 text-[13px] font-medium leading-none text-[var(--page)] lg:inline-flex"
           >
-            {lang === "en" ? "Contact" : "Байланыс"}
+            {lang === "en" ? "Contact" : "Bailanys"}
           </a>
 
           <button
