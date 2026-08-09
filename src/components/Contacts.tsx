@@ -34,13 +34,13 @@ export function Contacts() {
                   <article className={`grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-6 sm:py-6 ${index === 0 ? "sm:pt-0" : ""}`}>
                     <div className="flex items-start gap-4 self-start">
                       <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
-                      <h3 className="text-[17px] font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{item.company}</h3>
+                      <h3 className="text-[17px] !font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{item.company}</h3>
                     </div>
                     <div className="grid gap-3 sm:col-span-2">
                       {item.roles.map((role) => (
                         <div key={role.dates} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 sm:gap-8">
-                          <p className="text-[17px] font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{role[lang]}</p>
-                          <p className="whitespace-nowrap text-[17px] font-normal leading-[1.2] tabular-nums text-[var(--muted)] sm:text-[18px]">{role.dates}</p>
+                          <p className="text-[17px] !font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{role[lang]}</p>
+                          <p className="whitespace-nowrap text-[17px] !font-normal leading-[1.2] tabular-nums text-[var(--muted)] sm:text-[18px]">{role.dates}</p>
                         </div>
                       ))}
                     </div>
