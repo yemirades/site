@@ -8,10 +8,10 @@ import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
 
 const experience = [
-  { company: "Mycar", logo: "mycarrrrr.png", roles: [{ en: "Product designer", kk: "Önim dizaineri", dates: "06/2025 → now" }, { en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "08/2023 → 06/2025" }] },
-  { company: "Kaizen", logo: "kaizennnn.png", roles: [{ en: "Graphic & Web designer", kk: "Grafikalyq jäne Web dizainer", dates: "01/2023 → 08/2023" }] },
-  { company: "Payda", logo: "paydaaaa.png", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
-  { company: "Bugin Holding", logo: "bhhhh.png", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
+  { company: "Mycar", logo: "mycarrrrr.png", roles: [{ en: "Product designer", kk: "Önim dizaineri", dates: "06/2025 - now" }, { en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "08/2023 - 06/2025" }] },
+  { company: "Kaizen", logo: "kaizennnn.png", roles: [{ en: "Graphic & Web designer", kk: "Grafikalyq jäne Web dizainer", dates: "01/2023 - 08/2023" }] },
+  { company: "Payda", logo: "paydaaaa.png", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 - 02/2023" }] },
+  { company: "Bugin Holding", logo: "bhhhh.png", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 - 02/2023" }] },
 ];
 
 export function Contacts() {
@@ -32,15 +32,15 @@ export function Contacts() {
               {experience.map((item, index) => (
                 <Reveal key={item.company} delay={index * .04}>
                   <article className={`grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-6 sm:py-6 ${index === 0 ? "sm:pt-0" : ""}`}>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-start gap-4 self-start">
                       <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
-                      <h3 className="text-[18px] font-medium tracking-[-.025em] sm:text-[20px]">{item.company}</h3>
+                      <h3 className="text-[17px] font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{item.company}</h3>
                     </div>
                     <div className="grid gap-3 sm:col-span-2">
                       {item.roles.map((role) => (
                         <div key={role.dates} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 sm:gap-8">
-                          <p className="text-[18px] font-medium tracking-[-.025em] sm:text-[20px]">{role[lang]}</p>
-                          <p className="whitespace-nowrap text-[18px] font-medium tabular-nums text-[var(--muted)] sm:text-[20px]">{role.dates}</p>
+                          <p className="text-[17px] font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{role[lang]}</p>
+                          <p className="whitespace-nowrap text-[17px] font-normal leading-[1.2] tabular-nums text-[var(--muted)] sm:text-[18px]">{role.dates}</p>
                         </div>
                       ))}
                     </div>
