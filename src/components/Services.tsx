@@ -47,9 +47,9 @@ export function Services() {
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 1023px)");
-    if (!media.matches) return;
 
     const updateActiveService = () => {
+      if (!media.matches) return;
       const focusLine = window.innerHeight * .48;
       let closestIndex = 0;
       let closestDistance = Number.POSITIVE_INFINITY;
