@@ -31,7 +31,7 @@ export function Contacts() {
             <div className="border-t border-[var(--line)] sm:col-span-2">
               {experience.map((item, index) => (
                 <Reveal key={item.company} delay={index * .04}>
-                  <article className="grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-6 sm:py-6">
+                  <article className={`grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-6 sm:py-6 ${index === 0 ? "sm:pt-0" : ""}`}>
                     <div className="flex items-center gap-4">
                       <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
                       <h3 className="text-[18px] font-medium tracking-[-.025em] sm:text-[20px]">{item.company}</h3>
