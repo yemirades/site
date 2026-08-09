@@ -4,7 +4,7 @@
   --font-display: "Stack Sans Headline Variable", Arial, sans-serif;
   --font-hero: "Stack Sans Headline Variable", Arial, sans-serif;
   --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
-  --color-accent: #3e009c;
+  --color-accent: #8ce02b;
 }
 
 :root {
@@ -91,8 +91,8 @@ main {
 }
 
 ::selection {
-  background: #3e009c;
-  color: #ffffff;
+  background: #8ce02b;
+  color: #080808;
 }
 
 a,
@@ -109,7 +109,7 @@ button {
   }
 
   a:hover {
-    color: #3e009c;
+    color: #8ce02b;
   }
 }
 
@@ -154,7 +154,7 @@ button {
   flex-direction: column;
   overflow: hidden;
   padding: 20px;
-  background: #3e009c;
+  background: #8ce02b;
   color: #080808;
   clip-path: inset(0 0 0 0);
   transition: clip-path 720ms cubic-bezier(0.76, 0, 0.24, 1);
@@ -183,6 +183,12 @@ button {
   font-weight: 800;
   line-height: 0.68;
   letter-spacing: 0.04em;
+}
+
+@media (max-width: 639px) {
+  .page-loader__progress {
+    font-size: clamp(112px, 34vw, 156px);
+  }
 }
 
 .page-loader__percent {
