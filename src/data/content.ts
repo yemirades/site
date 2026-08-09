@@ -11,13 +11,13 @@ export const projects: Project[] = [
   {
     title: "BBS Visual Identity",
     year: "2024",
-    href: "https://www.behance.net/gallery/211315577/",
+    href: "https://www.behance.net/gallery/211315577/BBS-Visual-Identity",
     tag: { kk: "Брендинг", en: "Branding" },
   },
   {
     title: "Kartell E-commerce",
     year: "2024",
-    href: "https://www.behance.net/gallery/196883003/",
+    href: "https://www.behance.net/gallery/196883003/KARTELL-E-commerce-redesign",
     tag: { kk: "Веб", en: "Web" },
   },
   {
