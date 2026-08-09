@@ -49,30 +49,47 @@ export function Services() {
     const media = window.matchMedia("(max-width: 1023px)");
     if (!media.matches) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setActive(Number((visible.target as HTMLElement).dataset.serviceIndex));
-    }, { rootMargin: "-30% 0px -45% 0px", threshold: [0, .2, .5, .8] });
+    const updateActiveService = () => {
+      const focusLine = window.innerHeight * .48;
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+      serviceRefs.current.forEach((node, index) => {
+        if (!node) return;
+        const rect = node.getBoundingClientRect();
+        const distance = Math.abs(rect.top + rect.height / 2 - focusLine);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+      setActive(closestIndex);
+    };
 
-    serviceRefs.current.forEach((node) => node && observer.observe(node));
-    return () => observer.disconnect();
+    updateActiveService();
+    window.addEventListener("scroll", updateActiveService, { passive: true });
+    window.addEventListener("resize", updateActiveService);
+    return () => {
+      window.removeEventListener("scroll", updateActiveService);
+      window.removeEventListener("resize", updateActiveService);
+    };
   }, []);
 
   return (
     <section id="services" className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10">
       <div className="mx-auto max-w-[1200px] lg:max-w-none">
-        <Reveal>
-          <div className="mb-10 sm:mb-14">
-            <h2 className="font-hero text-[48px] font-semibold leading-none tracking-[-0.045em] sm:text-[64px]">
-              {bindShortWords(t.servicesTitle)}
-            </h2>
+        <div className="grid gap-10 lg:grid-cols-3 lg:gap-0">
+          <div className="flex min-w-0 flex-col lg:pr-10">
+            <Reveal>
+              <h2 className="font-hero text-[48px] font-semibold leading-none tracking-[-0.045em] sm:text-[64px]">
+                {bindShortWords(t.servicesTitle)}
+              </h2>
+            </Reveal>
+            <Reveal className="mt-auto hidden w-[58%] max-w-[240px] lg:block" delay={0.08}>
+              <ServiceVisual active={active} />
+            </Reveal>
           </div>
-        </Reveal>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(250px,.55fr)] lg:gap-12">
-          <div>
+          <div className="lg:col-span-2">
             <div className="border-t border-[var(--line)]">
               {services[lang].map((service, index) => (
                 <Reveal key={service.title} delay={index * 0.035}>
@@ -93,7 +110,7 @@ export function Services() {
             </div>
           </div>
 
-          <Reveal className="w-[60%] max-w-[220px] justify-self-start lg:sticky lg:top-24 lg:w-full lg:max-w-[320px] lg:justify-self-end" delay={0.08}>
+          <Reveal className="w-[46%] max-w-[170px] justify-self-start lg:hidden" delay={0.08}>
             <ServiceVisual active={active} />
           </Reveal>
         </div>
