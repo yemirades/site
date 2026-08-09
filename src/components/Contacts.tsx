@@ -1,6 +1,5 @@
 "use client";
 
-import type { FormEvent } from "react";
 import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
 import { content, email, socials } from "@/data/content";
@@ -8,109 +7,46 @@ import { bindShortWords } from "@/lib/typography";
 import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
 
+const experience = [
+  { company: "Mycar", mark: "my", color: "#2741da", roles: [{ en: "Product designer", kk: "Önim dizaineri", dates: "06/2025 → now" }, { en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "08/2023 → 06/2025" }] },
+  { company: "Kaizen", mark: "K", color: "#0a0a0a", roles: [{ en: "Graphic & Web designer", kk: "Grafikalyq jäne Web dizainer", dates: "01/2023 → 08/2023" }] },
+  { company: "Payda", mark: "P", color: "#2878ff", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
+  { company: "Bugin Holding", mark: "B", color: "#ffb000", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
+];
+
 export function Contacts() {
   const { lang } = useLang();
   const t = content[lang];
-  const formCopy =
-    lang === "en"
-      ? {
-          title: "Project inquiry",
-          name: "Full name",
-          email: "Your e-mail",
-          budget: "Budget",
-          message: "Your message",
-          submit: "Submit",
-          subject: "New project inquiry from the portfolio",
-        }
-      : {
-          title: "Jobağa ötınım",
-          name: "Aty-jönıñız",
-          email: "Poshta",
-          budget: "Büdjet",
-          message: "Habarlama",
-          submit: "Ötınımdı jıberu",
-          subject: "Portfoliodan jaña jobağa ötınım",
-        };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const body = [
-      `${formCopy.name}: ${data.get("name") ?? ""}`,
-      `${formCopy.email}: ${data.get("email") ?? ""}`,
-      `${formCopy.budget}: ${data.get("budget") ?? ""}`,
-      "",
-      `${formCopy.message}:`,
-      `${data.get("message") ?? ""}`,
-    ].join("\n");
-
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(
-      formCopy.subject,
-    )}&body=${encodeURIComponent(body)}`;
-  };
 
   return (
     <>
-      <section
-        id="contacts"
-        className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10"
-      >
-        <div className="mx-auto grid max-w-[1200px] gap-10 sm:grid-cols-3 sm:gap-6 lg:max-w-none">
-          <Reveal className="sm:col-span-1 sm:self-start">
-            <h2 className="font-hero text-[38px] leading-[0.92] sm:text-[46px]">
-              {bindShortWords(formCopy.title)}
+      <section id="contacts" className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10">
+        <div className="mx-auto max-w-[1200px] lg:max-w-none">
+          <Reveal>
+            <h2 className="mb-12 font-hero text-[48px] font-semibold leading-none tracking-[-.045em] sm:mb-16 sm:text-[72px]">
+              {lang === "en" ? "Experience" : "Täjiribe"}
             </h2>
           </Reveal>
-
-          <Reveal className="sm:col-span-2" delay={0.06}>
-            <form
-              onSubmit={handleSubmit}
-              className="grid gap-3"
-              noValidate={false}
-            >
-              {[
-                { name: "name", label: formCopy.name, type: "text" },
-                { name: "email", label: formCopy.email, type: "email" },
-                { name: "budget", label: formCopy.budget, type: "text" },
-              ].map((field) => (
-                <label key={field.name}>
-                  <span className="sr-only">{field.label}</span>
-                  <input
-                    required
-                    name={field.name}
-                    type={field.type}
-                    placeholder={field.label}
-                    autoComplete={
-                      field.name === "name"
-                        ? "name"
-                        : field.name === "email"
-                          ? "email"
-                          : "off"
-                    }
-                    className="min-h-14 w-full rounded-[14px] border-0 bg-[var(--soft)] px-5 text-[16px] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#97ff27] sm:min-h-16 sm:text-[18px]"
-                  />
-                </label>
-              ))}
-
-              <label>
-                <span className="sr-only">{formCopy.message}</span>
-                <textarea
-                  required
-                  name="message"
-                  rows={6}
-                  placeholder={formCopy.message}
-                  className="min-h-40 w-full resize-y rounded-[14px] border-0 bg-[var(--soft)] px-5 py-5 text-[16px] leading-[1.2] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#97ff27] sm:min-h-48 sm:text-[18px]"
-                />
-              </label>
-
-              <button
-                type="submit"
-                className="inquiry-submit min-h-14 w-full bg-[var(--ink)] px-5 text-[16px] font-semibold text-[var(--page)] transition-colors hover:bg-[#97ff27] hover:text-black sm:min-h-16 sm:text-[18px]"
-              >
-                {formCopy.submit}
-              </button>
-            </form>
-          </Reveal>
+          <div className="border-t border-[var(--line)]">
+            {experience.map((item, index) => (
+              <Reveal key={item.company} delay={index * .04}>
+                <article className="grid gap-5 border-b border-[var(--line)] py-6 sm:grid-cols-[minmax(230px,.8fr)_minmax(0,1.2fr)] sm:gap-10 sm:py-7">
+                  <div className="flex items-center gap-4">
+                    <span style={{ backgroundColor: item.color }} className="flex h-10 w-10 shrink-0 items-center justify-center text-[13px] font-bold text-white">{item.mark}</span>
+                    <h3 className="font-hero text-[28px] font-semibold tracking-[-.035em] sm:text-[34px]">{item.company}</h3>
+                  </div>
+                  <div className="grid gap-4">
+                    {item.roles.map((role) => (
+                      <div key={role.dates} className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8">
+                        <p className="text-[20px] font-semibold tracking-[-.025em] sm:text-[26px]">{role[lang]}</p>
+                        <p className="text-[16px] tabular-nums text-[var(--muted)] sm:text-[20px]">{role.dates}</p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -119,52 +55,17 @@ export function Contacts() {
           <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
             <Reveal className="flex items-start">
               <div className="relative aspect-square w-[132px] overflow-hidden sm:w-[160px]">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/contact-photo.png`}
-                  alt="Mirat Erbolatūly"
-                  fill
-                  sizes="160px"
-                  className="object-cover"
-                />
+                <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/contact-photo.png`} alt="Mirat Erbolatūly" fill sizes="160px" className="object-cover grayscale" />
               </div>
             </Reveal>
-
             <div className="sm:col-span-2">
-              <Reveal>
-                <p className="max-w-[760px] font-display text-[48px] leading-[0.94] sm:text-[76px]">
-                  {bindShortWords(t.contactsLead)}
-                </p>
-              </Reveal>
-
-              <Reveal delay={0.08}>
-                <a
-                  href={`mailto:${email}`}
-                  className="mt-8 inline-flex min-h-11 items-center bg-black px-5 text-[12px] font-semibold text-[#97ff27] transition-colors hover:bg-white hover:text-black"
-                >
-                  {bindShortWords(t.contactsCta)}
-                </a>
-              </Reveal>
+              <Reveal><p className="max-w-[760px] font-display text-[48px] leading-[0.94] sm:text-[76px]">{bindShortWords(t.contactsLead)}</p></Reveal>
+              <Reveal delay={0.08}><a href={`mailto:${email}`} className="mt-8 inline-flex min-h-11 items-center bg-black px-5 text-[12px] font-semibold text-[#97ff27] transition-colors hover:bg-white hover:text-black">{bindShortWords(t.contactsCta)}</a></Reveal>
             </div>
           </div>
-
           <div className="mt-14 grid gap-8 border-t border-black/35 pt-5 text-[14px] sm:mt-20 sm:grid-cols-3 sm:items-end sm:gap-0">
-            <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 transition-opacity hover:opacity-55"
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
-            <div className="flex items-center gap-3 sm:justify-self-end">
-              <LiveClock />
-              <span>{bindShortWords(t.location)}</span>
-            </div>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">{socials.map((s) => <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-55">{s.label}</a>)}</div>
+            <div className="flex items-center gap-3 sm:justify-self-end"><LiveClock /><span>{bindShortWords(t.location)}</span></div>
           </div>
         </div>
       </footer>
