@@ -4,7 +4,7 @@ import path from "path";
 const nextConfig: NextConfig = {
   // Static HTML export so the site can be hosted on GitHub Pages.
   output: "export",
-  // GitHub project pages are served from /site, while local development stays at /.
+  // Keep the optional base path available for local previews; production uses yemirades.com at /.
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   trailingSlash: true,
   // next/image optimization is not available in a static export.
