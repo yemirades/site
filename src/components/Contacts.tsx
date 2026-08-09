@@ -8,10 +8,10 @@ import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
 
 const experience = [
-  { company: "Mycar", mark: "my", color: "#2741da", roles: [{ en: "Product designer", kk: "Önim dizaineri", dates: "06/2025 → now" }, { en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "08/2023 → 06/2025" }] },
-  { company: "Kaizen", mark: "K", color: "#0a0a0a", roles: [{ en: "Graphic & Web designer", kk: "Grafikalyq jäne Web dizainer", dates: "01/2023 → 08/2023" }] },
-  { company: "Payda", mark: "P", color: "#2878ff", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
-  { company: "Bugin Holding", mark: "B", color: "#ffb000", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
+  { company: "Mycar", logo: "mycarrrrr.png", roles: [{ en: "Product designer", kk: "Önim dizaineri", dates: "06/2025 → now" }, { en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "08/2023 → 06/2025" }] },
+  { company: "Kaizen", logo: "kaizennnn.png", roles: [{ en: "Graphic & Web designer", kk: "Grafikalyq jäne Web dizainer", dates: "01/2023 → 08/2023" }] },
+  { company: "Payda", logo: "paydaaaa.png", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
+  { company: "Bugin Holding", logo: "bhhhh.png", roles: [{ en: "Graphic designer", kk: "Grafikalyq dizainer", dates: "11/2021 → 02/2023" }] },
 ];
 
 export function Contacts() {
@@ -23,23 +23,23 @@ export function Contacts() {
       <section id="contacts" className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10">
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <Reveal>
-            <h2 className="mb-12 font-hero text-[48px] font-semibold leading-none tracking-[-.045em] sm:mb-16 sm:text-[72px]">
+            <h2 className="mb-10 font-hero text-[44px] font-semibold leading-none tracking-[-.045em] sm:mb-14 sm:text-[60px]">
               {lang === "en" ? "Experience" : "Täjiribe"}
             </h2>
           </Reveal>
           <div className="border-t border-[var(--line)]">
             {experience.map((item, index) => (
               <Reveal key={item.company} delay={index * .04}>
-                <article className="grid gap-5 border-b border-[var(--line)] py-6 sm:grid-cols-[minmax(230px,.8fr)_minmax(0,1.2fr)] sm:gap-10 sm:py-7">
+                <article className="grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-0 sm:py-6">
                   <div className="flex items-center gap-4">
-                    <span style={{ backgroundColor: item.color }} className="flex h-10 w-10 shrink-0 items-center justify-center text-[13px] font-bold text-white">{item.mark}</span>
-                    <h3 className="font-hero text-[28px] font-semibold tracking-[-.035em] sm:text-[34px]">{item.company}</h3>
+                    <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
+                    <h3 className="font-hero text-[26px] font-semibold tracking-[-.035em] sm:text-[29px]">{item.company}</h3>
                   </div>
-                  <div className="grid gap-4">
+                  <div className="grid gap-3 sm:col-span-2">
                     {item.roles.map((role) => (
                       <div key={role.dates} className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8">
-                        <p className="text-[20px] font-semibold tracking-[-.025em] sm:text-[26px]">{role[lang]}</p>
-                        <p className="text-[16px] tabular-nums text-[var(--muted)] sm:text-[20px]">{role.dates}</p>
+                        <p className="text-[18px] font-semibold tracking-[-.025em] sm:text-[21px]">{role[lang]}</p>
+                        <p className="text-[14px] tabular-nums text-[var(--muted)] sm:text-[17px]">{role.dates}</p>
                       </div>
                     ))}
                   </div>
