@@ -65,7 +65,7 @@ export function Approach() {
           </span>
         </div>
 
-        <p className="mb-auto mt-16 max-w-[1040px] font-hero text-left text-[36px] font-medium leading-[0.94] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,5.2vw,72px)]">
+        <p className="mb-auto mt-14 max-w-[1040px] font-hero text-left text-[32px] font-medium leading-[0.96] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,4.6vw,62px)]">
           {words.map((word, wordIndex) => (
             <span
               key={`${word}-${wordIndex}`}
