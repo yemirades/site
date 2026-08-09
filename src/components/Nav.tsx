@@ -20,7 +20,7 @@ export function Nav() {
     { href: social.Telegram, label: "Telegram", external: true },
     { href: social.Instagram, label: "Instagram", external: true },
     { href: social.LinkedIn, label: "LinkedIn", external: true },
-    { href: "#contacts", label: "CV", arrow: true },
+    { href: "https://drive.google.com/file/d/1l_eRFFkcoUDwDZu8Ee2tsMENqswY1ls1/view?usp=sharing", label: "CV", arrow: true, external: true },
   ];
 
   useEffect(() => {
