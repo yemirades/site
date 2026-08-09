@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { CursorTrail } from "@/components/CursorTrail";
+import { BottomBlur } from "@/components/BottomBlur";
 import { Hero } from "@/components/Hero";
 import { Works } from "@/components/Works";
 import { Approach } from "@/components/Approach";
@@ -20,7 +21,7 @@ export default function Home() {
         <Services />
         <Contacts />
       </main>
-      <div className="bottom-blur backdrop-blur-[14px] max-sm:backdrop-blur-[11px]" aria-hidden="true" />
+      <BottomBlur />
     </>
   );
 }
