@@ -15,6 +15,49 @@ const serviceImages = [
   "case-logofolio.png",
 ];
 
+function ServiceArtwork({ activeService }: { activeService: number }) {
+  return (
+    <div className="aspect-square w-full overflow-hidden bg-[var(--soft)]">
+      <AnimatePresence mode="wait" initial={false}>
+        {activeService === 3 ? (
+          <motion.video
+            key="marketing-video"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.28 }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-cover"
+          >
+            <source src={`${basePath}/case-mycar-samsung.mp4`} type="video/mp4" />
+          </motion.video>
+        ) : (
+          <motion.div
+            key={serviceImages[activeService]}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.28 }}
+            className="relative h-full w-full"
+          >
+            <Image
+              src={`${basePath}/${serviceImages[activeService]}`}
+              alt=""
+              fill
+              sizes="(max-width: 639px) 180px, 240px"
+              className="object-cover"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export function Services() {
   const { lang } = useLang();
   const t = content[lang];
@@ -23,7 +66,7 @@ export function Services() {
   const intro =
     lang === "en"
       ? "Product interfaces, websites and visual systems built through clarity, purpose and close collaboration."
-      : "Айқындыққа, мақсатқа және тығыз ынтымақтастыққа негізделген өнім интерфейстері, сайттар мен визуалды жүйелер.";
+      : "Aıqyndyqqa, maqsatqa jäne tyğyz yntymaqtastyqqa negizdelgen önim interfeisteri, saittar men vizualdy jüieler.";
 
   useEffect(() => {
     const mobile = window.matchMedia("(max-width: 639px)");
@@ -76,20 +119,20 @@ export function Services() {
   }, [lang]);
 
   return (
-    <section id="services" className="theme-surface px-4 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-24 lg:px-10">
-      <div className="mx-auto min-w-0 max-w-[1200px] pt-4 sm:pt-5 lg:max-w-none">
-        <Reveal className="min-w-0">
-          <h2 className="max-w-[820px] font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[64px]">
-            {bindShortWords(t.servicesTitle)}
-          </h2>
-        </Reveal>
-
-        <div className="mt-3 grid min-w-0 gap-3 sm:mt-[30px] sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.7fr)] sm:gap-[30px]">
+    <section id="services" className="theme-surface min-h-[100svh] px-4 py-14 sm:px-8 sm:py-20 lg:px-10">
+      <div className="mx-auto flex min-h-[calc(100svh-112px)] min-w-0 max-w-[1200px] items-center lg:max-w-none">
+        <div className="grid w-full min-w-0 gap-8 sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.7fr)] sm:gap-[30px]">
           <Reveal className="h-full">
-            <div className="sm:max-w-[280px]">
-              <p className="min-w-0 text-[14px] font-medium leading-[1.15] sm:text-[16px]">
+            <div className="flex h-full flex-col items-start sm:max-w-[300px]">
+              <h2 className="font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[56px]">
+                {bindShortWords(t.servicesTitle)}
+              </h2>
+              <p className="mt-5 min-w-0 text-[14px] font-medium leading-[1.15] sm:text-[16px]">
                 {bindShortWords(intro)}
               </p>
+              <div className="mt-auto hidden w-full max-w-[240px] sm:block">
+                <ServiceArtwork activeService={activeService} />
+              </div>
             </div>
           </Reveal>
 
@@ -106,13 +149,13 @@ export function Services() {
                     type="button"
                     aria-expanded={activeService === i}
                     onClick={() => setActiveService(i)}
-                    className={`flex w-full items-baseline gap-4 py-3 text-left transition-[color,opacity] duration-300 sm:gap-6 ${
+                    className={`flex w-full items-baseline gap-2 py-3 text-left transition-[color,opacity] duration-300 sm:gap-6 ${
                       activeService === i
                         ? "text-[var(--ink)] opacity-100"
                         : "text-[var(--muted)] opacity-35 hover:text-[#8ce02b] hover:opacity-100"
                     }`}
                   >
-                    <span className="w-7 shrink-0 text-[10px] tabular-nums">
+                    <span className="w-6 shrink-0 text-[10px] tabular-nums sm:w-7">
                       0{i + 1}
                     </span>
                     <h3 className="min-w-0 font-hero text-[34px] font-medium leading-[0.94] tracking-[-0.035em] sm:text-[clamp(40px,4.8vw,64px)]">
@@ -131,7 +174,7 @@ export function Services() {
                     className="grid"
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-5 pl-11 text-[13px] leading-[1.3] text-[var(--muted)] sm:pl-[52px] sm:text-[15px]">
+                      <p className="pb-5 pl-8 text-[13px] leading-[1.3] text-[var(--muted)] sm:pl-[52px] sm:text-[15px]">
                         {bindShortWords(s.desc)}
                       </p>
                     </div>
@@ -140,47 +183,9 @@ export function Services() {
               </Reveal>
             ))}
 
-            <Reveal delay={0.08} className="mt-5 flex justify-end sm:mt-7">
-              <div className="aspect-square w-[48%] max-w-[180px] shrink-0 overflow-hidden bg-[var(--soft)] sm:w-[38%] sm:max-w-[240px]">
-                <AnimatePresence mode="wait" initial={false}>
-                  {activeService === 3 ? (
-                    <motion.video
-                      key="marketing-video"
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ duration: 0.28 }}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="h-full w-full object-cover"
-                    >
-                      <source
-                        src={`${basePath}/case-mycar-samsung.mp4`}
-                        type="video/mp4"
-                      />
-                    </motion.video>
-                  ) : (
-                    <motion.div
-                      key={serviceImages[activeService]}
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ duration: 0.28 }}
-                      className="relative h-full w-full"
-                    >
-                      <Image
-                        src={`${basePath}/${serviceImages[activeService]}`}
-                        alt=""
-                        fill
-                        sizes="(max-width: 639px) 120px, 240px"
-                        className="object-cover"
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            <Reveal delay={0.08} className="mt-5 flex justify-start sm:hidden">
+              <div className="w-[48%] max-w-[180px]">
+                <ServiceArtwork activeService={activeService} />
               </div>
             </Reveal>
           </div>
