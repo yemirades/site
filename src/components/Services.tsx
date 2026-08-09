@@ -151,7 +151,7 @@ export function Services() {
                     className={`flex w-full items-baseline gap-4 py-3 text-left transition-[color,opacity] duration-300 sm:gap-6 ${
                       activeService === i
                         ? "text-[var(--ink)] opacity-100"
-                        : "text-[var(--muted)] opacity-35 hover:text-[#ff6135] hover:opacity-100"
+                        : "text-[var(--muted)] opacity-35 hover:text-[#3e009c] hover:opacity-100"
                     }`}
                   >
                     <span className="w-7 shrink-0 text-[10px] tabular-nums">
