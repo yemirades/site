@@ -92,11 +92,11 @@ export const content: Record<
   },
   en: {
     nav: { about: "About", works: "Works", services: "Services", contacts: "Contacts" },
-    name: "Mirat Yerbolatuly",
+    name: "Mirat Erbolatūly",
     role: "Multidisciplinary Designer",
     location: "Almaty, Qazaqstan",
     about:
-      "Sälem! I’m a product designer with a background in communication design. Currently working at Mycar Group.",
+      "Sälem! I’m a product designer with a background in graphic design. Currently working at Mycar Group.",
     worksTitle: "Works",
     servicesTitle: "How can I be helpful?",
     contactsTitle: "Contacts",
@@ -104,6 +104,6 @@ export const content: Record<
     contactsLead: "Want to discuss your project and have a coffee? Let’s gooo!",
     approachTitle: "Approach",
     approachText:
-      "I believe great design is a balance of clear logic and strong visual expression — it should be intuitive and purposeful, while also having character and creating an emotional connection. My goal is to create experiences that work seamlessly and feel visually compelling.",
+      "I believe great design balances clear logic with strong visual expression, creating experiences that are intuitive, purposeful, and visually engaging.",
   },
 };
