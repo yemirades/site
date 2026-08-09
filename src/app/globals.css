@@ -265,29 +265,6 @@ button {
     color 300ms ease;
 }
 
-.bottom-blur {
-  position: fixed;
-  z-index: 35;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: clamp(42px, 6vw, 76px);
-  pointer-events: none;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 72%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 72%);
-  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--page) 22%, transparent));
-}
-
-@media (max-width: 639px) {
-  .bottom-blur {
-    height: 52px;
-    backdrop-filter: blur(11px);
-    -webkit-backdrop-filter: blur(11px);
-  }
-}
-
 .hero-video,
 .theme-sensitive-mark,
 .client-logo {
