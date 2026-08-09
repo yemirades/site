@@ -22,30 +22,32 @@ export function Contacts() {
     <>
       <section id="contacts" className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10">
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
-          <Reveal>
-            <h2 className="mb-10 font-hero text-[44px] font-semibold leading-none tracking-[-.045em] sm:mb-14 sm:text-[60px]">
-              {lang === "en" ? "Experience" : "Täjiribe"}
-            </h2>
-          </Reveal>
-          <div className="border-t border-[var(--line)]">
-            {experience.map((item, index) => (
-              <Reveal key={item.company} delay={index * .04}>
-                <article className="grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-0 sm:py-6">
-                  <div className="flex items-center gap-4">
-                    <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
-                    <h3 className="font-hero text-[26px] font-semibold tracking-[-.035em] sm:text-[29px]">{item.company}</h3>
-                  </div>
-                  <div className="grid gap-3 sm:col-span-2">
-                    {item.roles.map((role) => (
-                      <div key={role.dates} className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8">
-                        <p className="text-[18px] font-semibold tracking-[-.025em] sm:text-[21px]">{role[lang]}</p>
-                        <p className="text-[14px] tabular-nums text-[var(--muted)] sm:text-[17px]">{role.dates}</p>
-                      </div>
-                    ))}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+          <div className="grid gap-10 sm:grid-cols-3 sm:gap-0">
+            <Reveal>
+              <h2 className="font-hero text-[44px] font-semibold leading-none tracking-[-.045em] sm:text-[60px]">
+                {lang === "en" ? "Experience" : "Täjiribe"}
+              </h2>
+            </Reveal>
+            <div className="border-t border-[var(--line)] sm:col-span-2">
+              {experience.map((item, index) => (
+                <Reveal key={item.company} delay={index * .04}>
+                  <article className="grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-6 sm:py-6">
+                    <div className="flex items-center gap-4">
+                      <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
+                      <h3 className="text-[18px] font-medium tracking-[-.025em] sm:text-[20px]">{item.company}</h3>
+                    </div>
+                    <div className="grid gap-3 sm:col-span-2">
+                      {item.roles.map((role) => (
+                        <div key={role.dates} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 sm:gap-8">
+                          <p className="text-[18px] font-medium tracking-[-.025em] sm:text-[20px]">{role[lang]}</p>
+                          <p className="whitespace-nowrap text-[18px] font-medium tabular-nums text-[var(--muted)] sm:text-[20px]">{role.dates}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
