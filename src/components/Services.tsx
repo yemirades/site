@@ -149,10 +149,10 @@ export function Services() {
                     type="button"
                     aria-expanded={activeService === i}
                     onClick={() => setActiveService(i)}
-                    className={`flex w-full items-baseline gap-2 py-3 text-left transition-[color,opacity] duration-300 sm:gap-6 ${
+                    className={`flex w-full items-baseline gap-2 py-3 text-left transition-[color,opacity] duration-300 sm:gap-6 sm:py-[18px] ${
                       activeService === i
                         ? "text-[var(--ink)] opacity-100"
-                        : "text-[var(--muted)] opacity-35 hover:text-[#8ce02b] hover:opacity-100"
+                        : "text-[var(--muted)] opacity-35 hover:text-[#97ff27] hover:opacity-100"
                     }`}
                   >
                     <span className="w-6 shrink-0 text-[10px] tabular-nums sm:w-7">
@@ -174,7 +174,7 @@ export function Services() {
                     className="grid"
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-5 pl-8 text-[13px] leading-[1.3] text-[var(--muted)] sm:pl-[52px] sm:text-[15px]">
+                      <p className="pb-5 pl-8 text-[13px] font-normal leading-[1.3] text-[var(--muted)] sm:pl-[52px] sm:text-[15px]">
                         {bindShortWords(s.desc)}
                       </p>
                     </div>
