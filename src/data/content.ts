@@ -9,6 +9,11 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Mycar Autoservice",
+    year: "2026",
+    tag: { kk: "Mobıldi", en: "Mobile" },
+  },
+  {
     title: "BBS Visual Identity",
     year: "2024",
     href: "https://www.behance.net/gallery/211315577/BBS-Visual-Identity",
@@ -19,11 +24,6 @@ export const projects: Project[] = [
     year: "2024",
     href: "https://www.behance.net/gallery/196883003/KARTELL-E-commerce-redesign",
     tag: { kk: "Web", en: "Web" },
-  },
-  {
-    title: "Mycar Autoservice",
-    year: "2026",
-    tag: { kk: "Mobıldi", en: "Mobile" },
   },
   {
     title: "Mycar Pay Landing",
