@@ -101,7 +101,7 @@ export const content: Record<
     servicesTitle: "How can I be helpful?",
     contactsTitle: "Contacts",
     contactsCta: "Get in touch",
-    contactsLead: "Want to discuss your project and have a coffee? Let’s gooo!",
+    contactsLead: "Want to discuss your project or have a coffee? Let’s gooo!",
     approachTitle: "Approach",
     approachText:
       "I believe great design balances clear logic with strong visual expression, creating experiences that are intuitive, purposeful, and visually engaging.",
