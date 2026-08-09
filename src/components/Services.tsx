@@ -19,7 +19,7 @@ const serviceVisuals = [
 function ServiceVisual({ active }: { active: number }) {
   const visual = serviceVisuals[active];
   return (
-    <div className="relative h-full min-h-[260px] w-full overflow-hidden bg-[#111318]">
+    <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#111318]">
       <AnimatePresence mode="wait" initial={false}>
         {visual.type === "video" ? (
           <motion.video key={visual.src} autoPlay muted loop playsInline preload="metadata"
@@ -35,9 +35,6 @@ function ServiceVisual({ active }: { active: number }) {
         )}
       </AnimatePresence>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-      <span className="absolute bottom-4 left-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
-        0{active + 1} / 04
-      </span>
     </div>
   );
 }
@@ -54,15 +51,14 @@ export function Services() {
     <section id="services" className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10">
       <div className="mx-auto max-w-[1200px] lg:max-w-none">
         <Reveal>
-          <div className="mb-10 flex items-end justify-between border-b border-[var(--line)] pb-5 sm:mb-14">
-            <h2 className="font-hero text-[48px] font-semibold leading-none tracking-[-0.045em] sm:text-[72px]">
+          <div className="mb-10 sm:mb-14">
+            <h2 className="font-hero text-[48px] font-semibold leading-none tracking-[-0.045em] sm:text-[64px]">
               {bindShortWords(t.servicesTitle)}
             </h2>
-            <span className="hidden text-[12px] text-[var(--muted)] sm:block">(04)</span>
           </div>
         </Reveal>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,.75fr)] lg:gap-12">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(250px,.55fr)] lg:gap-12">
           <div>
             <p className="mb-9 max-w-[440px] text-[17px] font-normal leading-[1.2] sm:text-[21px]">
               {bindShortWords(intro)}
@@ -72,12 +68,11 @@ export function Services() {
                 <Reveal key={service.title} delay={index * 0.035}>
                   <button type="button" onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)}
                     onClick={() => setActive(index)}
-                    className={`group grid w-full grid-cols-[34px_1fr_auto] items-center gap-3 border-b border-[var(--line)] py-5 text-left transition-colors sm:grid-cols-[46px_1fr_auto] sm:py-7 ${active === index ? "text-[var(--ink)]" : "text-[var(--muted)]"}`}>
+                    className={`group grid w-full grid-cols-[34px_1fr] items-center gap-3 border-b border-[var(--line)] py-5 text-left transition-colors sm:grid-cols-[46px_1fr] sm:py-6 ${active === index ? "text-[var(--ink)]" : "text-[var(--muted)]"}`}>
                     <span className="text-[11px] tabular-nums">0{index + 1}</span>
-                    <span className="font-hero text-[36px] font-medium leading-[.9] tracking-[-.04em] transition-transform duration-300 group-hover:translate-x-2 sm:text-[clamp(48px,5.2vw,76px)]">
+                    <span className="font-hero text-[32px] font-medium leading-[.94] tracking-[-.04em] transition-transform duration-300 group-hover:translate-x-2 sm:text-[clamp(40px,4vw,58px)]">
                       {bindShortWords(service.title)}
                     </span>
-                    <span className={`text-[22px] transition-all duration-300 ${active === index ? "rotate-45 text-[#97ff27]" : "opacity-30"}`}>↗</span>
                     <span className="col-start-2 max-w-[520px] text-[13px] font-normal leading-[1.3] text-[var(--muted)] sm:text-[15px]">
                       {bindShortWords(service.desc)}
                     </span>
@@ -87,7 +82,7 @@ export function Services() {
             </div>
           </div>
 
-          <Reveal className="lg:sticky lg:top-24 lg:h-[min(68vh,620px)]" delay={0.08}>
+          <Reveal className="w-full max-w-[320px] justify-self-end lg:sticky lg:top-24" delay={0.08}>
             <ServiceVisual active={active} />
           </Reveal>
         </div>
