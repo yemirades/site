@@ -24,12 +24,12 @@ function ServiceVisual({ active }: { active: number }) {
         {visual.type === "video" ? (
           <motion.video key={visual.src} autoPlay muted loop playsInline preload="metadata"
             initial={{ opacity: 0, scale: 1.08 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.45 }} className="absolute inset-0 h-full w-full object-cover">
+            transition={{ duration: 0.2 }} className="absolute inset-0 h-full w-full object-cover">
             <source src={`${basePath}/${visual.src}`} type="video/mp4" />
           </motion.video>
         ) : (
           <motion.div key={visual.src} initial={{ opacity: 0, scale: 1.08 }} animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }} transition={{ duration: 0.45 }} className="absolute inset-0">
+            exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="absolute inset-0">
             <Image src={`${basePath}/${visual.src}`} alt="" fill sizes="(max-width: 639px) 100vw, 42vw" className="object-cover" />
           </motion.div>
         )}
