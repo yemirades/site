@@ -77,7 +77,7 @@ export function Services() {
 
   return (
     <section id="services" className="theme-surface px-4 pb-24 pt-16 sm:px-8 sm:py-32 lg:px-10">
-      <div className="mx-auto min-w-0 max-w-[1200px] pt-4 sm:border-t sm:border-[var(--line)] sm:pt-5 lg:max-w-none">
+      <div className="mx-auto min-w-0 max-w-[1200px] pt-4 sm:pt-5 lg:max-w-none">
         <Reveal className="min-w-0">
           <h2 className="max-w-[820px] font-hero text-[42px] font-semibold leading-[0.9] tracking-[-0.045em] sm:text-[64px]">
             {bindShortWords(t.servicesTitle)}
