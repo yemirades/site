@@ -45,7 +45,7 @@ export function Nav() {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--soft)] px-4 py-2.5 text-[var(--ink)] transition-[background-color,color,transform] hover:-translate-y-px"
+              className="inline-flex h-10 items-center gap-1 whitespace-nowrap rounded-[10px] bg-[var(--soft)] px-4 text-[var(--ink)] transition-[background-color,color,transform] hover:-translate-y-px"
             >
               {link.label}
               {link.arrow ? <ArrowIcon /> : null}
@@ -80,7 +80,7 @@ export function Nav() {
                 : "Switch to light mode"
             }
             aria-pressed={theme === "dark"}
-            className="menu-control flex size-10 items-center justify-center bg-[var(--soft)] text-[var(--ink)] transition-colors lg:size-9"
+            className="menu-control flex size-10 items-center justify-center bg-[var(--soft)] text-[var(--ink)] transition-colors"
           >
             {theme === "light" ? (
               <svg
@@ -108,7 +108,7 @@ export function Nav() {
             )}
           </button>
 
-          <div className="flex h-10 items-center rounded-[10px] bg-[var(--soft)] p-1 text-[13px] font-medium leading-none text-[var(--ink)] lg:h-9">
+          <div className="flex h-10 items-center rounded-[10px] bg-[var(--soft)] text-[13px] font-medium leading-none text-[var(--ink)]">
             {([
               { value: "en", label: "EN" },
               { value: "kk", label: "KZ" },
@@ -117,7 +117,7 @@ export function Nav() {
                 key={language.value}
                 onClick={() => setLang(language.value)}
                 aria-pressed={lang === language.value}
-                className={`language-control flex h-8 min-w-11 items-center justify-center px-3 transition-colors lg:h-7 ${
+                className={`language-control flex h-10 min-w-11 items-center justify-center px-3 transition-colors ${
                   lang === language.value
                     ? "bg-[var(--ink)] text-[var(--page)]"
                     : "opacity-55 hover:opacity-100"
@@ -130,7 +130,7 @@ export function Nav() {
 
           <a
             href="#contacts"
-            className="hidden whitespace-nowrap rounded-[10px] bg-[var(--ink)] px-5 py-2.5 text-[13px] font-medium leading-none text-[var(--page)] lg:inline-flex"
+            className="hidden h-10 items-center whitespace-nowrap rounded-[10px] bg-[var(--ink)] px-5 text-[13px] font-medium leading-none text-[var(--page)] lg:inline-flex"
           >
             {lang === "en" ? "Contact" : "Байланыс"}
           </a>
