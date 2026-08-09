@@ -19,10 +19,9 @@ export function Hero() {
           "Currently working at Mycar Group.",
         ]
       : [
-          "Сәлем! Мен мультидисциплинарлы дизайнермін,",
-          "түсінікті әрі функционалды сайттар мен",
-          "визуалды айдентикалар жасаймын. Қазір",
-          "Mycar Group-та жұмыс істеймін.",
+          "Sälem! Men önim dizainerimin,",
+          "grafikalyq dizain täjiribem bar.",
+          "Qazir Mycar Group-ta jūmys isteimin.",
         ];
   const desktopAboutLines =
     lang === "en"
@@ -31,7 +30,7 @@ export function Hero() {
           "with a background in graphic design.",
           "Currently working at Mycar Group.",
         ]
-      : [t.about];
+      : mobileAboutLines;
 
   return (
     <section
@@ -50,7 +49,7 @@ export function Hero() {
             <video
               aria-label={
                 lang === "kk"
-                  ? "Мираттың видео-портреті"
+                  ? "Mirattyñ video-portreti"
                   : "Video portrait of Mirat"
               }
               autoPlay
