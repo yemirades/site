@@ -104,6 +104,6 @@ export const content: Record<
     contactsLead: "Want to discuss your project and have a coffee? Let’s gooo!",
     approachTitle: "Approach",
     approachText:
-      "I work from clarity to craft: first I understand the context, align user and business goals, then turn complexity into a focused, useful and expressive product.",
+      "I believe great design is a balance of clear logic and strong visual expression — it should be intuitive and purposeful, while also having character and creating an emotional connection. My goal is to create experiences that work seamlessly and feel visually compelling.",
   },
 };
