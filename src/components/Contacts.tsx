@@ -23,13 +23,13 @@ export function Contacts() {
           subject: "New project inquiry from the portfolio",
         }
       : {
-          title: "Жобаға өтінім",
-          name: "Аты-жөніңіз",
-          email: "Пошта",
-          budget: "Бюджет",
-          message: "Хабарлама",
-          submit: "Өтінімді жіберу",
-          subject: "Портфолиодан жаңа жобаға өтінім",
+          title: "Jobağa ötınım",
+          name: "Aty-jönıñız",
+          email: "Poshta",
+          budget: "Büdjet",
+          message: "Habarlama",
+          submit: "Ötınımdı jıberu",
+          subject: "Portfoliodan jaña jobağa ötınım",
         };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -53,7 +53,7 @@ export function Contacts() {
     <>
       <section
         id="contacts"
-        className="theme-surface px-4 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-14 lg:px-10"
+        className="theme-surface flex min-h-[100svh] items-center px-4 py-16 sm:px-8 sm:py-20 lg:px-10"
       >
         <div className="mx-auto grid max-w-[1200px] gap-10 sm:grid-cols-3 sm:gap-6 lg:max-w-none">
           <Reveal className="sm:col-span-1 sm:self-start">
@@ -117,9 +117,8 @@ export function Contacts() {
       <footer className="bg-[#8ce02b] px-4 py-12 text-black sm:px-8 sm:py-16 lg:px-10">
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
-            <Reveal className="flex flex-col items-start gap-8">
-              <p className="text-[10px]">{bindShortWords(t.contactsTitle)}</p>
-              <div className="relative aspect-square w-[132px] overflow-hidden sm:mt-auto sm:w-[160px]">
+            <Reveal className="flex items-start">
+              <div className="relative aspect-square w-[132px] overflow-hidden sm:w-[160px]">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/contact-photo.png`}
                   alt="Mirat Erbolatūly"
@@ -148,7 +147,7 @@ export function Contacts() {
             </div>
           </div>
 
-          <div className="mt-14 grid gap-8 border-t border-black/35 pt-5 text-[10px] sm:mt-20 sm:grid-cols-3 sm:items-end sm:gap-0">
+          <div className="mt-14 grid gap-8 border-t border-black/35 pt-5 text-[14px] sm:mt-20 sm:grid-cols-3 sm:items-end sm:gap-0">
             <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
               {socials.map((s) => (
                 <a
