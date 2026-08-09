@@ -202,7 +202,7 @@ export function Works() {
       className="theme-surface px-4 pb-24 pt-14 sm:px-8 sm:pb-36 lg:px-10"
     >
       <h2 className="sr-only font-hero">
-        {lang === "kk" ? "Жобалар" : "Selected works"}
+        {lang === "kk" ? "Jobalar" : "Selected works"}
       </h2>
       <div className="mx-auto max-w-[1200px] space-y-14 sm:space-y-24 lg:w-full lg:max-w-none">
         {projects.map((project, index) => (
