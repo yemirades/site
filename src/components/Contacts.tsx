@@ -53,7 +53,7 @@ export function Contacts() {
     <>
       <section
         id="contacts"
-        className="theme-surface flex min-h-[100svh] items-center px-4 py-16 sm:px-8 sm:py-20 lg:px-10"
+        className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10"
       >
         <div className="mx-auto grid max-w-[1200px] gap-10 sm:grid-cols-3 sm:gap-6 lg:max-w-none">
           <Reveal className="sm:col-span-1 sm:self-start">
@@ -87,7 +87,7 @@ export function Contacts() {
                           ? "email"
                           : "off"
                     }
-                    className="min-h-14 w-full rounded-[14px] border-0 bg-[var(--soft)] px-5 text-[16px] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#8ce02b] sm:min-h-16 sm:text-[18px]"
+                    className="min-h-14 w-full rounded-[14px] border-0 bg-[var(--soft)] px-5 text-[16px] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#97ff27] sm:min-h-16 sm:text-[18px]"
                   />
                 </label>
               ))}
@@ -99,13 +99,13 @@ export function Contacts() {
                   name="message"
                   rows={6}
                   placeholder={formCopy.message}
-                  className="min-h-40 w-full resize-y rounded-[14px] border-0 bg-[var(--soft)] px-5 py-5 text-[16px] leading-[1.2] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#8ce02b] sm:min-h-48 sm:text-[18px]"
+                  className="min-h-40 w-full resize-y rounded-[14px] border-0 bg-[var(--soft)] px-5 py-5 text-[16px] leading-[1.2] outline-none transition-[box-shadow,background-color] placeholder:text-[var(--muted)] focus:shadow-[inset_0_0_0_2px_#97ff27] sm:min-h-48 sm:text-[18px]"
                 />
               </label>
 
               <button
                 type="submit"
-                className="inquiry-submit min-h-14 w-full bg-[var(--ink)] px-5 text-[16px] font-semibold text-[var(--page)] transition-colors hover:bg-[#8ce02b] hover:text-black sm:min-h-16 sm:text-[18px]"
+                className="inquiry-submit min-h-14 w-full bg-[var(--ink)] px-5 text-[16px] font-semibold text-[var(--page)] transition-colors hover:bg-[#97ff27] hover:text-black sm:min-h-16 sm:text-[18px]"
               >
                 {formCopy.submit}
               </button>
@@ -114,7 +114,7 @@ export function Contacts() {
         </div>
       </section>
 
-      <footer className="bg-[#8ce02b] px-4 py-12 text-black sm:px-8 sm:py-16 lg:px-10">
+      <footer className="bg-[#97ff27] px-4 py-12 text-black sm:px-8 sm:py-16 lg:px-10">
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
             <Reveal className="flex items-start">
@@ -131,7 +131,7 @@ export function Contacts() {
 
             <div className="sm:col-span-2">
               <Reveal>
-                <p className="max-w-[760px] font-display text-[48px] leading-[0.88] sm:text-[76px]">
+                <p className="max-w-[760px] font-display text-[48px] leading-[0.94] sm:text-[76px]">
                   {bindShortWords(t.contactsLead)}
                 </p>
               </Reveal>
@@ -139,7 +139,7 @@ export function Contacts() {
               <Reveal delay={0.08}>
                 <a
                   href={`mailto:${email}`}
-                  className="mt-8 inline-flex min-h-11 items-center bg-black px-5 text-[12px] font-semibold text-[#8ce02b] transition-colors hover:bg-white hover:text-black"
+                  className="mt-8 inline-flex min-h-11 items-center bg-black px-5 text-[12px] font-semibold text-[#97ff27] transition-colors hover:bg-white hover:text-black"
                 >
                   {bindShortWords(t.contactsCta)}
                 </a>
