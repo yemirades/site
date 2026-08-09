@@ -15,7 +15,7 @@ export function Hero() {
     lang === "en"
       ? [
           "Sälem! I’m a product designer",
-          "with a background in communication design.",
+          "with a background in graphic design.",
           "Currently working at Mycar Group.",
         ]
       : [
@@ -28,7 +28,7 @@ export function Hero() {
     lang === "en"
       ? [
           "Sälem! I’m a product designer",
-          "with a background in communication design.",
+          "with a background in graphic design.",
           "Currently working at Mycar Group.",
         ]
       : [t.about];
@@ -77,7 +77,7 @@ export function Hero() {
           className="font-hero hero-name pointer-events-none relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-semibold leading-[0.86] tracking-[-0.045em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
         >
           <span>Mirat</span>
-          <span>Yerbolatuly</span>
+          <span>Erbolatūly</span>
         </motion.h1>
 
         <motion.p
