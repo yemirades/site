@@ -20,6 +20,7 @@ export default function Home() {
         <Services />
         <Contacts />
       </main>
+      <div className="bottom-blur" aria-hidden="true" />
     </>
   );
 }
