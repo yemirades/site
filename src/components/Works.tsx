@@ -47,7 +47,7 @@ function ProjectArtwork({
         playsInline
         preload="metadata"
         poster={`${basePath}/case-bbs.png`}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="project-artwork absolute inset-0 h-full w-full object-cover"
       >
         <source src={`${basePath}/case-bbs.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
@@ -62,7 +62,7 @@ function ProjectArtwork({
         alt={`${title} project cover`}
         fill
         sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1280px) calc(100vw - 228px), 1044px"
-        className="object-cover"
+        className="project-artwork object-cover"
       />
     );
   }
@@ -146,7 +146,7 @@ function ProjectCase({
     <div className="mt-3 flex items-center justify-between gap-4 text-[13px] leading-none sm:mt-4 sm:text-[17px]">
       <p className="font-semibold">{project.title}</p>
       <div className="flex shrink-0 items-center gap-3">
-        <span className="rounded-full border border-[var(--line)] px-2 py-1 text-[9px] leading-none lowercase sm:text-[11px]">
+        <span className="tag-pill border border-[var(--line)] px-2 py-1 text-[9px] leading-none lowercase sm:text-[11px]">
           {project.tag[lang]}
         </span>
       </div>
