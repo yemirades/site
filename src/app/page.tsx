@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { CursorTrail } from "@/components/CursorTrail";
-import { BottomBlur } from "@/components/BottomBlur";
 import { Hero } from "@/components/Hero";
 import { Works } from "@/components/Works";
 import { Approach } from "@/components/Approach";
@@ -21,7 +20,6 @@ export default function Home() {
         <Services />
         <Contacts />
       </main>
-      <BottomBlur />
     </>
   );
 }
