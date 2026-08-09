@@ -20,7 +20,7 @@ export default function Home() {
         <Services />
         <Contacts />
       </main>
-      <div className="bottom-blur" aria-hidden="true" />
+      <div className="bottom-blur backdrop-blur-[14px] max-sm:backdrop-blur-[11px]" aria-hidden="true" />
     </>
   );
 }
