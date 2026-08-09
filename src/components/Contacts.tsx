@@ -113,7 +113,7 @@ export function Contacts() {
         </div>
       </section>
 
-      <footer className="bg-[#ff6135] px-4 py-20 text-black sm:px-8 sm:py-28 lg:px-10">
+      <footer className="bg-[#ff6135] px-4 py-12 text-black sm:px-8 sm:py-16 lg:px-10">
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
             <Reveal>
@@ -122,7 +122,7 @@ export function Contacts() {
 
             <div className="sm:col-span-2">
               <Reveal>
-                <p className="max-w-[760px] font-display text-[58px] leading-[0.86] sm:text-[100px]">
+                <p className="max-w-[760px] font-display text-[48px] leading-[0.88] sm:text-[76px]">
                   {bindShortWords(t.contactsLead)}
                 </p>
               </Reveal>
@@ -130,7 +130,7 @@ export function Contacts() {
               <Reveal delay={0.08}>
                 <a
                   href={`mailto:${email}`}
-                  className="mt-10 inline-flex items-center gap-1 border-b border-current pb-1 text-[12px] transition-opacity hover:opacity-60"
+                  className="mt-8 inline-flex min-h-11 items-center bg-black px-5 text-[12px] font-semibold text-white transition-colors hover:bg-white hover:text-black"
                 >
                   {bindShortWords(t.contactsCta)}
                 </a>
@@ -138,7 +138,7 @@ export function Contacts() {
             </div>
           </div>
 
-          <div className="mt-24 grid gap-8 border-t border-black/45 pt-5 text-[10px] sm:mt-32 sm:grid-cols-3 sm:items-end sm:gap-0">
+          <div className="mt-14 grid gap-8 border-t border-black/45 pt-5 text-[10px] sm:mt-20 sm:grid-cols-3 sm:items-end sm:gap-0">
             <div className="flex flex-wrap gap-x-5 gap-y-2 sm:col-span-2">
               {socials.map((s) => (
                 <a
