@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content, services } from "@/data/content";
@@ -19,7 +19,7 @@ const serviceVisuals = [
 function ServiceVisual({ active }: { active: number }) {
   const visual = serviceVisuals[active];
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#111318]">
+    <div className="relative aspect-square w-full overflow-hidden bg-[#111318]">
       <AnimatePresence mode="wait" initial={false}>
         {visual.type === "video" ? (
           <motion.video key={visual.src} autoPlay muted loop playsInline preload="metadata"
@@ -43,9 +43,22 @@ export function Services() {
   const { lang } = useLang();
   const t = content[lang];
   const [active, setActive] = useState(0);
-  const intro = lang === "en"
-    ? "Strategy, identity and digital experiences — shaped into clear visual systems."
-    : "Strategiia, aıdentika jäne tsifrlyq täjiribe — aıqyn vizualdy jüiege aynalady.";
+  const serviceRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 1023px)");
+    if (!media.matches) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(Number((visible.target as HTMLElement).dataset.serviceIndex));
+    }, { rootMargin: "-30% 0px -45% 0px", threshold: [0, .2, .5, .8] });
+
+    serviceRefs.current.forEach((node) => node && observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="services" className="theme-surface px-4 py-20 sm:px-8 sm:py-28 lg:px-10">
@@ -60,13 +73,11 @@ export function Services() {
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(250px,.55fr)] lg:gap-12">
           <div>
-            <p className="mb-9 max-w-[440px] text-[17px] font-normal leading-[1.2] sm:text-[21px]">
-              {bindShortWords(intro)}
-            </p>
             <div className="border-t border-[var(--line)]">
               {services[lang].map((service, index) => (
                 <Reveal key={service.title} delay={index * 0.035}>
-                  <button type="button" onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)}
+                  <button ref={(node) => { serviceRefs.current[index] = node; }} data-service-index={index}
+                    type="button" onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)}
                     onClick={() => setActive(index)}
                     className={`group grid w-full grid-cols-[34px_1fr] items-center gap-3 border-b border-[var(--line)] py-5 text-left transition-colors sm:grid-cols-[46px_1fr] sm:py-6 ${active === index ? "text-[var(--ink)]" : "text-[var(--muted)]"}`}>
                     <span className="text-[11px] tabular-nums">0{index + 1}</span>
@@ -82,7 +93,7 @@ export function Services() {
             </div>
           </div>
 
-          <Reveal className="w-full max-w-[320px] justify-self-end lg:sticky lg:top-24" delay={0.08}>
+          <Reveal className="w-[60%] max-w-[220px] justify-self-start lg:sticky lg:top-24 lg:w-full lg:max-w-[320px] lg:justify-self-end" delay={0.08}>
             <ServiceVisual active={active} />
           </Reveal>
         </div>
