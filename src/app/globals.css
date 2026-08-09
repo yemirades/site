@@ -4,7 +4,7 @@
   --font-display: "Stack Sans Headline Variable", Arial, sans-serif;
   --font-hero: "Stack Sans Headline Variable", Arial, sans-serif;
   --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
-  --color-accent: #ff6135;
+  --color-accent: #3e009c;
 }
 
 :root {
@@ -69,6 +69,8 @@ h2,
 h3,
 h4 {
   text-wrap: pretty;
+  font-weight: 600;
+  letter-spacing: -0.04em;
 }
 
 main {
@@ -78,12 +80,18 @@ main {
 
 .font-display,
 .font-hero {
-  letter-spacing: -0.015em !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.04em !important;
   text-transform: none;
 }
 
+.tag-pill {
+  border-radius: 9999px !important;
+  font-weight: 600;
+}
+
 ::selection {
-  background: #ff6135;
+  background: #3e009c;
   color: #ffffff;
 }
 
@@ -101,7 +109,7 @@ button {
   }
 
   a:hover {
-    color: #ff6135;
+    color: #3e009c;
   }
 }
 
@@ -146,7 +154,7 @@ button {
   flex-direction: column;
   overflow: hidden;
   padding: 20px;
-  background: #ff6135;
+  background: #3e009c;
   color: #080808;
   clip-path: inset(0 0 0 0);
   transition: clip-path 720ms cubic-bezier(0.76, 0, 0.24, 1);
@@ -276,6 +284,15 @@ button {
   overflow: hidden;
   background: #0c0d14;
   border-radius: clamp(12px, 2vw, 24px);
+}
+
+.project-artwork {
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.group:hover .project-artwork {
+  transform: scale(1.045);
 }
 
 .project-motion-stage {
