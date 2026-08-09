@@ -14,13 +14,13 @@ const shortWords = new Set([
   "the",
   "to",
   "with",
-  "бірге",
-  "да",
-  "де",
-  "және",
-  "мен",
-  "пен",
-  "үшін",
+  "birge",
+  "da",
+  "de",
+  "jäne",
+  "men",
+  "pen",
+  "üshin",
 ]);
 
 function normalizedWord(word: string) {
