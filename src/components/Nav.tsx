@@ -32,6 +32,21 @@ export function Nav() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const closeMenu = () => setMenuOpen(false);
+    window.addEventListener("scroll", closeMenu, { passive: true, once: true });
+    window.addEventListener("hashchange", closeMenu);
+    window.addEventListener("resize", closeMenu);
+
+    return () => {
+      window.removeEventListener("scroll", closeMenu);
+      window.removeEventListener("hashchange", closeMenu);
+      window.removeEventListener("resize", closeMenu);
+    };
+  }, [menuOpen]);
+
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 py-3 sm:px-6">
       <div className="mx-auto grid grid-cols-[1fr_auto] items-center gap-3 lg:grid-cols-[1fr_auto_1fr]">
@@ -115,7 +130,10 @@ export function Nav() {
             ] as const).map((language) => (
               <button
                 key={language.value}
-                onClick={() => setLang(language.value)}
+                onClick={() => {
+                  setLang(language.value);
+                  setMenuOpen(false);
+                }}
                 aria-pressed={lang === language.value}
                 className={`language-control flex h-10 min-w-11 items-center justify-center px-3 transition-colors ${
                   lang === language.value
@@ -159,35 +177,31 @@ export function Nav() {
         </div>
       </div>
 
-      <div
-        id="mobile-menu"
-        aria-hidden={!menuOpen}
-        className={`pointer-events-auto absolute inset-x-4 top-[68px] overflow-hidden rounded-[12px] border border-[var(--line)] bg-[var(--page)] text-[var(--ink)] shadow-[0_16px_50px_rgba(0,0,0,.16)] transition-[opacity,transform,visibility] duration-300 lg:hidden ${
-          menuOpen
-            ? "visible translate-y-0 opacity-100"
-            : "invisible -translate-y-2 opacity-0"
-        }`}
-      >
-        <nav aria-label="Mobile navigation" className="px-4 py-3">
-          {links.map((link, index) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              tabIndex={menuOpen ? 0 : -1}
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-between border-b border-current/15 py-3 text-[13px] last:border-b-0"
-            >
-              <span className="inline-flex items-center gap-1">
-                {link.label}
-                {link.arrow ? <ArrowIcon /> : null}
-              </span>
-              <span className="text-[9px] opacity-45">0{index + 1}</span>
-            </a>
-          ))}
-        </nav>
-      </div>
+      {menuOpen ? (
+        <div
+          id="mobile-menu"
+          className="pointer-events-auto absolute inset-x-4 top-[68px] overflow-hidden border border-[var(--line)] bg-[var(--page)] text-[var(--ink)] shadow-[0_16px_50px_rgba(0,0,0,.16)] lg:hidden"
+        >
+          <nav aria-label="Mobile navigation" className="px-4 py-3">
+            {links.map((link, index) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-between border-b border-current/15 py-3 text-[13px] last:border-b-0"
+              >
+                <span className="inline-flex items-center gap-1">
+                  {link.label}
+                  {link.arrow ? <ArrowIcon /> : null}
+                </span>
+                <span className="text-[9px] opacity-45">0{index + 1}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }
