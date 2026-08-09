@@ -168,7 +168,7 @@ button {
   font-size: clamp(180px, 43vw, 620px);
   font-weight: 800;
   line-height: 0.68;
-  letter-spacing: -0.05em;
+  letter-spacing: 0.04em;
 }
 
 .page-loader__percent {
