@@ -22,6 +22,12 @@
   --foreground: var(--ink);
 }
 
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
 [data-theme="dark"] {
   --page: #000000;
   --ink: #f7f7f3;
