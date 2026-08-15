@@ -25,8 +25,8 @@ function ApproachWord({
   progress: MotionValue<number>;
   reduceMotion: boolean | null;
 }) {
-  const start = (index / Math.max(total, 1)) * 0.78;
-  const end = Math.min(start + 0.18, 1);
+  const start = (index / Math.max(total, 1)) * 0.42;
+  const end = Math.min(start + 0.1, 1);
   const y = useTransform(progress, [start, end], ["110%", "0%"]);
 
   return (
