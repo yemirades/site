@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { content, services } from "@/data/content";
 import { bindShortWords } from "@/lib/typography";
@@ -20,21 +19,15 @@ function ServiceVisual({ active }: { active: number }) {
   const visual = serviceVisuals[active];
   return (
     <div className="relative aspect-square w-full overflow-hidden bg-[#111318]">
-      <AnimatePresence mode="wait" initial={false}>
-        {visual.type === "video" ? (
-          <motion.video key={visual.src} autoPlay muted loop playsInline preload="metadata"
-            initial={{ opacity: 0, scale: 1.08 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }} className="absolute inset-0 h-full w-full object-cover">
-            <source src={`${basePath}/${visual.src}`} type="video/mp4" />
-          </motion.video>
-        ) : (
-          <motion.div key={visual.src} initial={{ opacity: 0, scale: 1.08 }} animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="absolute inset-0">
-            <Image src={`${basePath}/${visual.src}`} alt="" fill sizes="(max-width: 639px) 100vw, 42vw" className="object-cover" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+      {visual.type === "video" ? (
+        <video key={visual.src} autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 h-full w-full object-cover">
+          <source src={`${basePath}/${visual.src}`} type="video/mp4" />
+        </video>
+      ) : (
+        <div key={visual.src} className="absolute inset-0">
+          <Image src={`${basePath}/${visual.src}`} alt="" fill sizes="(max-width: 639px) 100vw, 42vw" className="object-cover" />
+        </div>
+      )}
     </div>
   );
 }
