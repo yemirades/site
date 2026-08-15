@@ -28,19 +28,19 @@ export function Contacts() {
                 {lang === "en" ? "Experience" : "Täjiribe"}
               </h2>
             </Reveal>
-            <div className="border-t border-[var(--line)] sm:col-span-2">
+            <div className="sm:col-span-2">
               {experience.map((item, index) => (
                 <Reveal key={item.company} delay={index * .04}>
                   <article className={`grid gap-5 border-b border-[var(--line)] py-5 sm:grid-cols-3 sm:gap-6 sm:py-6 ${index === 0 ? "sm:pt-0" : ""}`}>
                     <div className="flex items-start gap-4 self-start">
                       <span className="relative h-10 w-10 shrink-0 overflow-hidden sm:h-11 sm:w-11"><Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/${item.logo}`} alt="" fill sizes="44px" className="object-cover" /></span>
-                      <h3 className="text-[17px] !font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{item.company}</h3>
+                      <h3 className="text-[15px] !font-medium leading-[1.2] tracking-[-.015em] sm:text-[16px]">{item.company}</h3>
                     </div>
                     <div className="grid gap-3 sm:col-span-2">
                       {item.roles.map((role) => (
                         <div key={role.dates} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 sm:gap-8">
-                          <p className="text-[17px] !font-medium leading-[1.2] tracking-[-.025em] sm:text-[18px]">{role[lang]}</p>
-                          <p className="whitespace-nowrap text-[17px] !font-normal leading-[1.2] tabular-nums text-[var(--muted)] sm:text-[18px]">{role.dates}</p>
+                          <p className="text-[15px] !font-medium leading-[1.2] tracking-[-.015em] sm:text-[16px]">{role[lang]}</p>
+                          <p className="whitespace-nowrap text-[15px] !font-light leading-[1.2] tabular-nums text-[var(--muted)] sm:text-[16px]">{role.dates}</p>
                         </div>
                       ))}
                     </div>
@@ -52,7 +52,7 @@ export function Contacts() {
         </div>
       </section>
 
-      <footer className="bg-[#97ff27] px-4 py-12 text-black sm:px-8 sm:py-16 lg:px-10">
+      <footer className="bg-[#e9e9e9] px-4 py-12 text-black sm:px-8 sm:py-16 lg:px-10">
         <div className="mx-auto max-w-[1200px] lg:max-w-none">
           <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
             <Reveal className="flex items-start">
@@ -62,7 +62,7 @@ export function Contacts() {
             </Reveal>
             <div className="sm:col-span-2">
               <Reveal><p className="max-w-[760px] font-display text-[48px] leading-[0.94] sm:text-[76px]">{bindShortWords(t.contactsLead)}</p></Reveal>
-              <Reveal delay={0.08}><a href={`mailto:${email}`} className="mt-8 inline-flex min-h-11 items-center bg-black px-5 text-[12px] font-semibold text-[#97ff27] transition-colors hover:bg-white hover:text-black">{bindShortWords(t.contactsCta)}</a></Reveal>
+              <Reveal delay={0.08}><a href={`mailto:${email}`} className="mt-8 inline-flex min-h-11 items-center rounded-[6px] bg-black px-5 text-[12px] font-semibold text-white transition-colors hover:bg-white hover:text-black">{bindShortWords(t.contactsCta)}</a></Reveal>
             </div>
           </div>
           <div className="mt-14 grid gap-8 border-t border-black/35 pt-5 text-[14px] sm:mt-20 sm:grid-cols-3 sm:items-end sm:gap-0">
