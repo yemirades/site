@@ -12,29 +12,29 @@ import { useLang } from "@/context/LanguageContext";
 import { content } from "@/data/content";
 import { bindShortWords } from "@/lib/typography";
 
-function ApproachCharacter({
-  character,
+function ApproachWord({
+  word,
   index,
   total,
   progress,
   reduceMotion,
 }: {
-  character: string;
+  word: string;
   index: number;
   total: number;
   progress: MotionValue<number>;
   reduceMotion: boolean | null;
 }) {
-  const start = (index / Math.max(total, 1)) * 0.86;
-  const end = Math.min(start + 0.1, 1);
-  const opacity = useTransform(progress, [start, end], [0.14, 1]);
+  const start = (index / Math.max(total, 1)) * 0.78;
+  const end = Math.min(start + 0.18, 1);
+  const y = useTransform(progress, [start, end], ["110%", "0%"]);
 
   return (
     <motion.span
-      style={reduceMotion ? { opacity: 1 } : { opacity }}
-      className="inline-block"
+      style={reduceMotion ? { y: "0%" } : { y }}
+      className="inline-block will-change-transform"
     >
-      {character}
+      {word}
     </motion.span>
   );
 }
@@ -45,8 +45,6 @@ export function Approach() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const words = t.approachText.split(" ");
-  const totalCharacters = words.reduce((total, word) => total + word.length, 0);
-  let characterIndex = 0;
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start 0.86", "end 0.38"],
@@ -60,32 +58,19 @@ export function Approach() {
     >
       <div className="mx-auto flex min-h-[calc(72svh-80px)] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[calc(100svh-128px)] sm:px-10 sm:py-9 lg:max-w-none">
         <div className="flex justify-start sm:justify-center">
-          <span className="tag-pill border border-[var(--line)] px-3 py-1 text-[11px] leading-none lowercase">
+          <span className="tag-pill border border-[var(--line)] px-3 py-1 text-[11px] leading-none uppercase">
             {bindShortWords(t.approachTitle)}
           </span>
         </div>
 
-        <p className="mb-auto mt-14 max-w-[1040px] font-hero text-left text-[32px] font-medium leading-[0.96] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,4.6vw,62px)]">
+        <p aria-label={t.approachText} className="mb-auto mt-14 max-w-[1040px] font-hero text-left text-[32px] font-medium leading-[0.96] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,4.6vw,62px)]">
           {words.map((word, wordIndex) => (
             <span
               key={`${word}-${wordIndex}`}
-              className="inline-block whitespace-nowrap"
+              aria-hidden="true"
+              className="mb-[-.12em] inline-block overflow-hidden pb-[.12em] whitespace-nowrap"
             >
-              {Array.from(word).map((character, index) => {
-                const currentIndex = characterIndex;
-                characterIndex += 1;
-
-                return (
-                  <ApproachCharacter
-                    key={`${wordIndex}-${index}`}
-                    character={character}
-                    index={currentIndex}
-                    total={totalCharacters}
-                    progress={scrollYProgress}
-                    reduceMotion={reduceMotion}
-                  />
-                );
-              })}
+              <ApproachWord word={word} index={wordIndex} total={words.length} progress={scrollYProgress} reduceMotion={reduceMotion} />
               {wordIndex < words.length - 1 ? "\u00a0" : null}
             </span>
           ))}
