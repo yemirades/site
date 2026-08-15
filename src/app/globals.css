@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
-  --font-hero: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-pitagon), monospace;
+  --font-hero: var(--font-pitagon), monospace;
+  --font-mono: var(--font-pitagon), monospace;
   --color-accent: #080808;
 }
 
@@ -48,7 +48,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-synthesis: none;
-  font-family: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-pitagon), monospace;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   max-width: 100%;
@@ -166,8 +166,8 @@ button {
   display: flex;
   align-items: flex-end;
   margin-top: auto;
-  font-family: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(180px, 43vw, 620px);
+  font-family: var(--font-pitagon), monospace;
+  font-size: clamp(120px, 30vw, 420px);
   font-weight: 800;
   line-height: 0.68;
   letter-spacing: 0.04em;
@@ -175,14 +175,14 @@ button {
 
 @media (max-width: 639px) {
   .page-loader__progress {
-    font-size: clamp(112px, 34vw, 156px);
+    font-size: clamp(72px, 26vw, 112px);
   }
 }
 
 .page-loader__percent {
   margin-bottom: 0.06em;
   margin-left: 0.04em;
-  font-family: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-pitagon), monospace;
   font-size: 0.12em;
   font-weight: 650;
   letter-spacing: -0.02em;
