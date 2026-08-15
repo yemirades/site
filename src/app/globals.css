@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: "Stack Sans Headline Variable", Arial, sans-serif;
-  --font-hero: "Stack Sans Headline Variable", Arial, sans-serif;
-  --font-mono: "Stack Sans Headline Variable", Arial, sans-serif;
-  --color-accent: #97ff27;
+  --font-display: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  --font-hero: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  --color-accent: #080808;
 }
 
 :root {
@@ -17,15 +17,9 @@
   --soft: #efefef;
   --inverse: #080808;
   --inverse-ink: #f7f7f3;
-  --radius-soft: 0px;
+  --radius-soft: 6px;
   --background: var(--page);
   --foreground: var(--ink);
-}
-
-*,
-*::before,
-*::after {
-  border-radius: 0 !important;
 }
 
 [data-theme="dark"] {
@@ -54,7 +48,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-synthesis: none;
-  letter-spacing: -0.02em;
+  font-family: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   max-width: 100%;
   overflow-x: clip;
   overscroll-behavior-x: none;
@@ -82,7 +78,7 @@ main {
 .font-hero {
   font-weight: 600 !important;
   letter-spacing: -0.04em !important;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 .tag-pill {
@@ -91,7 +87,7 @@ main {
 }
 
 ::selection {
-  background: #97ff27;
+  background: #d9d9d9;
   color: #080808;
 }
 
@@ -108,9 +104,7 @@ button {
       transform 180ms ease;
   }
 
-  a:hover {
-    color: #97ff27;
-  }
+  a:hover { opacity: 0.58; }
 }
 
 button {
@@ -118,30 +112,24 @@ button {
   border-radius: var(--radius-soft);
 }
 
-.menu-control {
-  border-radius: 10px;
-}
+.menu-control { border-radius: 6px; }
 
-.language-control {
-  border-radius: 5px;
-}
+.language-control { border-radius: 6px; }
 
-.inquiry-submit {
-  border-radius: 14px;
-}
+.inquiry-submit { border-radius: 6px; }
 
 .soft-radius {
   border-radius: var(--radius-soft);
 }
 
 .hero-frame {
-  border-radius: 16px;
+  border-radius: 0;
   isolation: isolate;
 }
 
 @media (min-width: 640px) {
   .hero-frame {
-    border-radius: 24px;
+    border-radius: 0;
   }
 }
 
@@ -154,7 +142,7 @@ button {
   flex-direction: column;
   overflow: hidden;
   padding: 20px;
-  background: #97ff27;
+  background: #e9e9e9;
   color: #080808;
   clip-path: inset(0 0 0 0);
   transition: clip-path 720ms cubic-bezier(0.76, 0, 0.24, 1);
@@ -178,7 +166,7 @@ button {
   display: flex;
   align-items: flex-end;
   margin-top: auto;
-  font-family: "Stack Sans Headline Variable", Arial, sans-serif;
+  font-family: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(180px, 43vw, 620px);
   font-weight: 800;
   line-height: 0.68;
@@ -194,7 +182,7 @@ button {
 .page-loader__percent {
   margin-bottom: 0.06em;
   margin-left: 0.04em;
-  font-family: "Stack Sans Headline Variable", Arial, sans-serif;
+  font-family: "Favorit", "Favorit Pro", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.12em;
   font-weight: 650;
   letter-spacing: -0.02em;
