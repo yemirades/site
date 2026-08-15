@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
+
+const pitagonSansMono = localFont({
+  src: "./fonts/PitagonSansMono-Medium.ttf",
+  display: "swap",
+  variable: "--font-pitagon",
+  weight: "500",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yemirades.com"),
@@ -19,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" className="h-full antialiased">
+    <html lang="en" data-theme="light" className={`${pitagonSansMono.variable} h-full antialiased`}>
       <body className="min-h-full font-mono">
         <SmoothScroll />
         <ThemeProvider>
