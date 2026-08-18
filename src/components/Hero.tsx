@@ -73,7 +73,7 @@ export function Hero() {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="font-hero hero-name pointer-events-none relative z-10 mt-auto flex w-full flex-col items-start gap-1 text-[64px] font-semibold leading-[0.86] tracking-[-0.045em] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-[64px] lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:text-[80px]"
+          className="type-title font-hero hero-name pointer-events-none relative z-10 mt-auto flex w-full flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-0 lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2"
         >
           <span>Mirat</span>
           <span>Erbolatūly</span>
@@ -83,7 +83,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-[15px] w-full max-w-[378px] text-[14px] font-semibold leading-[1.12] tracking-[-0.02em] sm:mt-5 sm:text-[18px] lg:absolute lg:bottom-[22px] lg:left-0 lg:mt-0 lg:text-[20px]"
+          className="type-text mt-[15px] w-full max-w-[378px] sm:mt-5 lg:absolute lg:bottom-[22px] lg:left-0 lg:mt-0"
         >
           <span className="sm:hidden">
             {mobileAboutLines.map((line) => (
@@ -105,7 +105,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 0.34 }}
-          className="absolute bottom-6 left-0 flex items-center gap-[9px] text-[14px] font-medium leading-[1.1] tracking-[-0.02em] sm:bottom-4 lg:bottom-[22px] lg:left-auto lg:right-0"
+          className="type-text absolute bottom-6 left-0 flex items-center gap-[9px] sm:bottom-4 lg:bottom-[22px] lg:left-auto lg:right-0"
         >
           <LiveClock />
           <span>{bindShortWords(t.location)}</span>
