@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-pitagon), monospace;
-  --font-hero: var(--font-pitagon), monospace;
-  --font-mono: var(--font-pitagon), monospace;
+  --font-display: var(--font-inter-display), Inter, Arial, sans-serif;
+  --font-hero: var(--font-inter-display), Inter, Arial, sans-serif;
+  --font-mono: var(--font-inter-display), Inter, Arial, sans-serif;
   --color-accent: #080808;
 }
 
@@ -18,6 +18,9 @@
   --inverse: #080808;
   --inverse-ink: #f7f7f3;
   --radius-soft: 6px;
+  --type-text: 14px;
+  --type-subtitle: 22.4px;
+  --type-title: 35.84px;
   --background: var(--page);
   --foreground: var(--ink);
 }
@@ -48,8 +51,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-synthesis: none;
-  font-family: var(--font-pitagon), monospace;
-  letter-spacing: -0.01em;
+  font-family: var(--font-inter-display), Inter, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   max-width: 100%;
   overflow-x: clip;
@@ -59,14 +63,19 @@ body {
     color 300ms ease;
 }
 
-p,
+p {
+  text-wrap: pretty;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
 h1,
 h2,
 h3,
 h4 {
   text-wrap: pretty;
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 main {
@@ -76,9 +85,37 @@ main {
 
 .font-display,
 .font-hero {
-  font-weight: 600 !important;
-  letter-spacing: -0.04em !important;
+  font-family: var(--font-inter-display), Inter, Arial, sans-serif;
   text-transform: uppercase;
+}
+
+.type-text {
+  font-size: var(--type-text) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.25 !important;
+}
+
+.type-subtitle {
+  font-size: var(--type-subtitle) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1 !important;
+}
+
+.type-title {
+  font-size: var(--type-title) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 0.96 !important;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --type-text: 16px;
+    --type-subtitle: 25.6px;
+    --type-title: 40.96px;
+  }
 }
 
 .tag-pill {
@@ -166,7 +203,7 @@ button {
   display: flex;
   align-items: flex-end;
   margin-top: auto;
-  font-family: var(--font-pitagon), monospace;
+  font-family: var(--font-inter-display), Inter, Arial, sans-serif;
   font-size: clamp(120px, 30vw, 420px);
   font-weight: 800;
   line-height: 0.68;
@@ -182,7 +219,7 @@ button {
 .page-loader__percent {
   margin-bottom: 0.06em;
   margin-left: 0.04em;
-  font-family: var(--font-pitagon), monospace;
+  font-family: var(--font-inter-display), Inter, Arial, sans-serif;
   font-size: 0.12em;
   font-weight: 650;
   letter-spacing: -0.02em;
