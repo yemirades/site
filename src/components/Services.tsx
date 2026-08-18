@@ -73,7 +73,7 @@ export function Services() {
         <div className="grid gap-10 lg:grid-cols-3 lg:gap-0">
           <div className="flex min-w-0 flex-col lg:pr-10">
             <Reveal>
-              <h2 className="font-hero text-[48px] font-semibold leading-none tracking-[-0.045em] sm:text-[64px]">
+              <h2 className="type-title font-hero">
                 {bindShortWords(t.servicesTitle)}
               </h2>
             </Reveal>
@@ -91,10 +91,10 @@ export function Services() {
                     onClick={() => setActive(index)}
                     className={`group grid w-full grid-cols-[34px_1fr] items-center gap-3 border-b border-[var(--line)] py-5 text-left transition-colors sm:grid-cols-[46px_1fr] sm:py-6 ${active === index ? "text-[var(--ink)]" : "text-[var(--muted)]"}`}>
                     <span className="text-[11px] tabular-nums">0{index + 1}</span>
-                    <span className="font-hero text-[32px] font-medium leading-[.94] tracking-[-.04em] transition-transform duration-300 group-hover:translate-x-2 sm:text-[clamp(40px,4vw,58px)]">
+                    <span className="type-subtitle font-hero transition-transform duration-300 group-hover:translate-x-2">
                       {bindShortWords(service.title)}
                     </span>
-                    <span className="col-start-2 max-w-[520px] text-[13px] font-normal leading-[1.3] text-[var(--muted)] sm:text-[15px]">
+                    <span className="type-text col-start-2 max-w-[520px] text-[var(--muted)]">
                       {bindShortWords(service.desc)}
                     </span>
                   </button>
