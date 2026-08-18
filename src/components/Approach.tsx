@@ -63,7 +63,7 @@ export function Approach() {
           </span>
         </div>
 
-        <p aria-label={t.approachText} className="mb-auto mt-14 max-w-[1040px] font-hero text-left text-[32px] font-medium leading-[0.96] sm:mx-auto sm:my-auto sm:text-center sm:text-[clamp(30px,4.6vw,62px)]">
+        <p aria-label={t.approachText} className="type-title mb-auto mt-14 max-w-[1040px] font-hero text-left sm:mx-auto sm:my-auto sm:text-center">
           {words.map((word, wordIndex) => (
             <span
               key={`${word}-${wordIndex}`}
