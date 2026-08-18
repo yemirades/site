@@ -126,8 +126,8 @@ function ProjectCase({
   );
 
   const caseMeta = (
-    <div className="mt-3 flex items-center justify-between gap-4 text-[13px] leading-none sm:mt-4 sm:text-[17px]">
-      <p className="font-semibold">{project.title}</p>
+    <div className="type-text mt-3 flex items-center justify-between gap-4 sm:mt-4">
+      <p>{project.title}</p>
       <div className="flex shrink-0 items-center gap-3">
         <span className="tag-pill border border-[var(--line)] px-2 py-1 text-[9px] leading-none lowercase sm:text-[11px]">
           {project.tag[lang]}
@@ -141,7 +141,7 @@ function ProjectCase({
       ref={rowRef}
       className="group grid gap-3 sm:grid-cols-[120px_minmax(0,1fr)_120px] sm:items-center sm:gap-5"
     >
-      <div className="flex items-center justify-between text-[9px] leading-none sm:flex sm:justify-end sm:text-[13px]">
+      <div className="type-text flex items-center justify-between sm:flex sm:justify-end">
         <span>({String(index + 1).padStart(2, "0")})</span>
         <span className="ml-1">{project.year}</span>
         <span className="lowercase text-[var(--muted)] sm:hidden">{project.tag[lang]}</span>
@@ -169,7 +169,7 @@ function ProjectCase({
         </motion.div>
       </div>
 
-      <div className="hidden text-[13px] leading-none sm:flex sm:justify-start">
+      <div className="type-text hidden sm:flex sm:justify-start">
         {caseLink}
       </div>
     </div>
