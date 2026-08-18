@@ -6,11 +6,13 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
 
-const pitagonSansMono = localFont({
-  src: "./fonts/PitagonSansMono-Medium.ttf",
+const interDisplay = localFont({
+  src: [
+    { path: "./fonts/InterDisplay-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/InterDisplay-SemiBold.ttf", weight: "600", style: "normal" },
+  ],
   display: "swap",
-  variable: "--font-pitagon",
-  weight: "500",
+  variable: "--font-inter-display",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" className={`${pitagonSansMono.variable} h-full antialiased`}>
+    <html lang="en" data-theme="light" className={`${interDisplay.variable} h-full antialiased`}>
       <body className="min-h-full font-mono">
         <SmoothScroll />
         <ThemeProvider>
