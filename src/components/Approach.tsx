@@ -58,7 +58,7 @@ export function Approach() {
     >
       <div className="mx-auto flex min-h-[calc(72svh-80px)] max-w-[1200px] flex-col px-1 py-6 sm:min-h-[calc(100svh-128px)] sm:px-10 sm:py-9 lg:max-w-none">
         <div className="flex justify-start sm:justify-center">
-          <span className="tag-pill border border-[var(--line)] px-3 py-1 text-[11px] leading-none uppercase">
+          <span className="tag-pill border border-[var(--line)] px-3 py-1 text-[11px] leading-none">
             {bindShortWords(t.approachTitle)}
           </span>
         </div>
