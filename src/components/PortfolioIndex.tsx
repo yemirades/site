@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
-import { content, email, projects, services, socials, type Project } from "@/data/content";
+import { content, email, projects, socials, type Project } from "@/data/content";
 import { bindShortWords } from "@/lib/typography";
 import { LiveClock } from "./LiveClock";
 
@@ -98,10 +98,6 @@ function EditorialSections() {
   return (
     <>
       <section className="index-editorial" id="approach"><p className="index-editorial-label">{t.approachTitle}</p><p className="index-editorial-lead">{t.approachText}</p></section>
-      <section className="index-editorial" id="services">
-        <p className="index-editorial-label">{t.servicesTitle}</p>
-        <div className="index-list">{services[lang].map((service, index) => <div className="index-list-row" key={service.title}><span>0{index + 1}</span><p>{service.title}</p><p>{service.desc}</p></div>)}</div>
-      </section>
       <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Erbolatūly" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href={`mailto:${email}`}>{t.contactsCta}</a></div></section>
     </>
   );
