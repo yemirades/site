@@ -251,6 +251,123 @@ button {
   }
 }
 
+.portfolio-index {
+  --index-gap: clamp(14px, 1.75vw, 24px);
+  min-height: 100svh;
+  background: var(--page);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.18;
+}
+
+.index-profile {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 10;
+  display: flex;
+  width: 25%;
+  min-width: 270px;
+  flex-direction: column;
+  padding: var(--index-gap);
+  background: var(--page);
+  border-right: 1px solid var(--line);
+}
+
+.index-profile-top,
+.index-profile-bottom,
+.index-meta-row,
+.index-role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.index-logo { display: block; width: 34px; height: 34px; }
+.index-logo img { width: 100%; height: 100%; object-fit: contain; }
+.index-controls { display: flex; align-items: center; gap: 5px; }
+.index-controls button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 11px;
+}
+.index-controls button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+.index-intro { margin-top: clamp(52px, 10vh, 110px); max-width: 260px; }
+.index-name { margin-bottom: 16px; font-weight: 600; }
+.index-hero-video { position: relative; width: min(100%, 270px); aspect-ratio: 1; margin-top: 34px; overflow: hidden; background: var(--soft); }
+.index-hero-video video { width: 100%; height: 100%; object-fit: cover; }
+.index-profile-bottom { align-items: flex-end; margin-top: auto; }
+.index-profile-bottom nav { display: flex; max-width: 150px; flex-wrap: wrap; gap: 4px 12px; }
+.index-profile-bottom a { text-decoration: underline; text-underline-offset: 2px; }
+.index-clock { display: grid; gap: 3px; text-align: right; }
+
+.index-feed { width: 75%; margin-left: 25%; padding: var(--index-gap); }
+.index-project { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: var(--index-gap); padding-bottom: clamp(48px, 6vw, 86px); }
+.index-project-thumb,
+.index-project-visual,
+.index-project-visual > img,
+.index-project-visual > video { position: relative; overflow: hidden; }
+.index-project-thumb { width: 100px; height: 72px; background: var(--soft); }
+.index-thumb-media,
+.index-project-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.index-project-content { display: flex; min-width: 0; flex-direction: column; gap: 22px; }
+.index-meta-row { font-weight: 600; }
+.index-meta-row > * { flex: 1; }
+.index-meta-row > :nth-child(2) { text-align: center; text-decoration: underline; text-underline-offset: 2px; }
+.index-meta-row > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.index-description { max-width: 720px; color: var(--muted); }
+.index-project-visual { display: block; width: 100%; aspect-ratio: 16 / 10; background: var(--soft); }
+.index-project-media { transition: transform 220ms ease-out; }
+.index-project-visual:hover .index-project-media { transform: scale(1.025); }
+
+.index-editorial { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: var(--index-gap); padding: clamp(50px, 7vw, 100px) 0; border-top: 1px solid var(--line); }
+.index-editorial-label { font-weight: 600; }
+.index-editorial-lead { max-width: 850px; font-size: clamp(28px, 4.2vw, 64px); font-weight: 600; line-height: .98; letter-spacing: -.03em; }
+.index-list { border-top: 1px solid var(--line); }
+.index-list-row { display: grid; grid-template-columns: 42px minmax(160px,.7fr) 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.index-list-row > :last-child { color: var(--muted); }
+.index-experience-row { display: grid; grid-template-columns: 40px minmax(130px,.6fr) 1fr; align-items: start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.index-company-logo { position: relative; display: block; width: 40px; height: 40px; overflow: hidden; }
+.index-experience-row > p { padding-top: 3px; font-weight: 600; }
+.index-role + .index-role { margin-top: 10px; }
+.index-role > :last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.index-contact { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: var(--index-gap); padding: clamp(60px, 9vw, 130px) 0 48px; border-top: 1px solid var(--line); }
+.index-contact-photo { position: relative; width: 100px; aspect-ratio: 1; overflow: hidden; }
+.index-contact-lead { max-width: 800px; font-size: clamp(30px, 4.4vw, 68px); font-weight: 600; line-height: .96; letter-spacing: -.03em; }
+.index-contact a { display: inline-block; margin-top: 28px; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .portfolio-index { font-size: 12px; }
+  .index-profile { position: relative; inset: auto; width: 100%; min-width: 0; min-height: 100svh; padding: 15px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .index-intro { margin-top: 54px; max-width: 230px; }
+  .index-hero-video { width: min(58vw, 220px); margin: 34px 0; }
+  .index-profile-bottom { width: 100%; }
+  .index-feed { width: 100%; margin-left: 0; padding: 15px; }
+  .index-project { grid-template-columns: 72px minmax(0,1fr); gap: 12px; padding-bottom: 50px; }
+  .index-project-thumb { width: 72px; height: 52px; }
+  .index-project-content { gap: 13px; }
+  .index-meta-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 10px; }
+  .index-meta-row > :nth-child(2) { grid-column: 1; grid-row: 2; text-align: left; }
+  .index-meta-row > :last-child { grid-column: 2; grid-row: 1; }
+  .index-description { line-height: 1.2; }
+  .index-project-visual { aspect-ratio: 4 / 3; }
+  .index-editorial { grid-template-columns: 72px minmax(0,1fr); gap: 12px; padding: 50px 0; }
+  .index-editorial-lead { font-size: clamp(24px, 8.5vw, 42px); }
+  .index-list-row { grid-template-columns: 28px 1fr; gap: 8px 10px; padding: 16px 0; }
+  .index-list-row > :last-child { grid-column: 2; }
+  .index-experience-row { grid-template-columns: 34px 1fr; gap: 10px; }
+  .index-company-logo { width: 34px; height: 34px; }
+  .index-experience-row > div:last-child { grid-column: 2; }
+  .index-role { display: grid; grid-template-columns: minmax(0,1fr) auto; }
+  .index-contact { grid-template-columns: 72px minmax(0,1fr); gap: 12px; }
+  .index-contact-photo { width: 72px; }
+  .index-contact-lead { font-size: clamp(26px, 9vw, 42px); }
+}
+
 @media (min-width: 640px) {
   .page-loader {
     padding: 32px 40px;
