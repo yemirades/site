@@ -285,23 +285,24 @@ button {
 
 .index-logo { display: block; width: 34px; height: 34px; }
 .index-logo img { width: 100%; height: 100%; object-fit: contain; }
-.index-controls { display: flex; align-items: center; gap: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; }
+.index-controls { display: flex; align-items: center; gap: 8px; }
+.index-language-switch { display: flex; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; }
 .index-controls button {
   min-width: 34px;
   height: 34px;
   padding: 0 9px;
-  border: 0;
-  border-left: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
   font-size: 11px;
 }
-.index-controls button:first-child { border-left: 0; }
+.index-theme-toggle { border: 1px solid var(--line); border-radius: 10px; }
+.index-language-switch button { border: 0; border-left: 1px solid var(--line); }
+.index-language-switch button:first-child { border-left: 0; }
 .index-controls button[aria-pressed="true"] { background: var(--ink); color: var(--page); }
 .index-intro { margin-top: clamp(52px, 10vh, 110px); max-width: 260px; }
 .index-name { margin-bottom: 16px; font-size: clamp(32px, 3vw, 44px); font-weight: 600; line-height: .95; letter-spacing: -.03em; }
-.index-intro > p:not(.index-name) { font-weight: 500; }
-.index-hero-video { position: relative; width: min(56%, 220px); aspect-ratio: 1; margin-top: 34px; overflow: hidden; background: var(--soft); }
+.index-intro > p:not(.index-name) { font-weight: 500 !important; }
+.index-hero-video { position: relative; width: min(28%, 110px); aspect-ratio: 1; margin-top: 34px; overflow: hidden; background: var(--soft); }
 .index-hero-video video { width: 100%; height: 100%; object-fit: cover; }
 .index-profile-bottom { align-items: flex-end; margin-top: auto; }
 .index-profile-bottom nav { display: flex; max-width: 150px; flex-wrap: wrap; gap: 4px 12px; }
@@ -342,7 +343,7 @@ button {
 .index-experience-row > p { padding-top: 3px; font-weight: 600; }
 .index-role + .index-role { margin-top: 10px; }
 .index-role > :last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.index-contact { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: var(--index-gap); padding: clamp(60px, 9vw, 130px) 0 48px; border-top: 1px solid var(--line); }
+.index-contact { display: grid; grid-template-columns: minmax(0,1fr); gap: 18px; padding: clamp(60px, 9vw, 130px) 0 48px; border-top: 1px solid var(--line); }
 .index-contact-photo { position: relative; width: 100px; aspect-ratio: 1; overflow: hidden; }
 .index-contact-lead { max-width: 800px; font-size: clamp(30px, 4.4vw, 68px); font-weight: 600; line-height: .96; letter-spacing: -.03em; }
 .index-contact a { display: inline-block; margin-top: 28px; text-decoration: underline; text-underline-offset: 3px; }
@@ -353,7 +354,7 @@ button {
   .index-intro { margin: 54px auto 0; max-width: 300px; text-align: center; text-wrap: balance; }
   .index-name { font-size: 32px; }
   .index-intro > p:not(.index-name) { font-size: 17px; line-height: 1.25; }
-  .index-hero-video { width: min(58vw, 220px); margin: 34px auto; }
+  .index-hero-video { width: min(29vw, 110px); margin: 34px auto; }
   .index-profile-bottom { width: 100%; }
   .index-feed { width: 100%; margin-left: 0; padding: 15px; }
   .index-project { grid-template-columns: minmax(0,1fr); gap: 0; padding-bottom: 50px; }
