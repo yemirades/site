@@ -97,7 +97,7 @@ function EditorialSections() {
   const t = content[lang];
   return (
     <>
-      <section className="index-editorial" id="approach"><p className="index-editorial-label">{t.approachTitle}</p><p className="index-editorial-lead">{t.approachText}</p></section>
+      <section className="index-editorial" id="approach"><p className="index-editorial-lead">{t.approachText}</p></section>
       <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Erbolatūly" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href={`mailto:${email}`}>{t.contactsCta}</a></div></section>
     </>
   );
