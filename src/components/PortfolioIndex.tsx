@@ -51,12 +51,18 @@ function Controls() {
         aria-pressed={theme === "dark"}
       >
         <span className="index-theme-thumb" aria-hidden="true" />
-        <span className="index-theme-symbol" aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+        <span className="index-theme-symbol" aria-hidden="true">
+          <Image src={`${basePath}/${theme === "dark" ? "light.svg" : "dark.svg"}`} alt="" width={18} height={18} />
+        </span>
       </button>
-      <div className="index-language-switch" aria-label="Language switcher">
-        <button type="button" onClick={() => setLang("en")} aria-pressed={lang === "en"}>EN</button>
-        <button type="button" onClick={() => setLang("kk")} aria-pressed={lang === "kk"}>KZ</button>
-      </div>
+      <button
+        className="index-language-toggle"
+        type="button"
+        onClick={() => setLang(lang === "en" ? "kk" : "en")}
+        aria-label={lang === "en" ? "Qazaqşa nusqağa auysu" : "Switch to English"}
+      >
+        {lang === "en" ? "KZ" : "EN"}
+      </button>
     </div>
   );
 }
