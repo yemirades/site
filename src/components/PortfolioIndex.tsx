@@ -43,7 +43,16 @@ function Controls() {
   const { theme, toggleTheme } = useTheme();
   return (
     <div className="index-controls" aria-label="Display controls">
-      <button className="index-theme-toggle" type="button" onClick={toggleTheme} aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}><span aria-hidden="true">{theme === "dark" ? "☀" : "◐"}</span></button>
+      <button
+        className="index-theme-toggle"
+        type="button"
+        onClick={toggleTheme}
+        aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+        aria-pressed={theme === "dark"}
+      >
+        <span className="index-theme-thumb" aria-hidden="true" />
+        <span className="index-theme-symbol" aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+      </button>
       <div className="index-language-switch" aria-label="Language switcher">
         <button type="button" onClick={() => setLang("en")} aria-pressed={lang === "en"}>EN</button>
         <button type="button" onClick={() => setLang("kk")} aria-pressed={lang === "kk"}>KZ</button>
