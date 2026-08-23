@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
 import { content, email, projects, socials, type Project } from "@/data/content";
-import { bindShortWords } from "@/lib/typography";
 import { LiveClock } from "./LiveClock";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -30,13 +29,6 @@ const descriptions = {
     "Mycar Pay Landing": "Kürdelı tölem önımın tüsınıktı jäne senımdı tsifrly oqiğağa aynaldyratyn landiñ.",
   },
 } as const;
-
-const projectCompanies: Record<string, { label: string; image?: string }> = {
-  "Mycar Autoservice": { label: "Mycar", image: "client-mycar.svg" },
-  "BBS Visual Identity": { label: "BBS" },
-  "Kartell E-commerce": { label: "Kartell" },
-  "Mycar Pay Landing": { label: "Mycar Pay", image: "client-mycar.svg" },
-};
 
 function Controls() {
   const { lang, setLang } = useLang();
@@ -67,27 +59,12 @@ function Controls() {
   );
 }
 
-function ProjectMedia({ project, thumb = false }: { project: Project; thumb?: boolean }) {
+function ProjectMedia({ project }: { project: Project }) {
   const visual = projectVisuals[project.title];
-  const className = thumb ? "index-thumb-media" : "index-project-media";
   if (visual?.video) {
-    return <video autoPlay muted loop playsInline preload={thumb ? "metadata" : "auto"} poster={`${basePath}/${visual.poster}`} className={className} aria-label={`${project.title} project video`}><source src={`${basePath}/${visual.video}`} type="video/mp4" /></video>;
+    return <video autoPlay muted loop playsInline preload="auto" poster={`${basePath}/${visual.poster}`} className="index-project-media" aria-label={`${project.title} project video`}><source src={`${basePath}/${visual.video}`} type="video/mp4" /></video>;
   }
-  return <Image src={`${basePath}/${visual?.image ?? "case-bbs.png"}`} alt={thumb ? "" : `${project.title} project image`} fill sizes={thumb ? "100px" : "(max-width: 720px) 66vw, 64vw"} className={className} />;
-}
-
-function ProjectCompanyLogo({ project }: { project: Project }) {
-  const company = projectCompanies[project.title] ?? { label: project.title };
-  return (
-    <div className="index-company-mark" aria-label={company.label}>
-      {company.image ? (
-        <Image src={`${basePath}/${company.image}`} alt={company.label} width={136} height={49} className="client-logo" />
-      ) : (
-        <span>{company.label}</span>
-      )}
-      {project.title === "Mycar Pay Landing" ? <small>Pay</small> : null}
-    </div>
-  );
+  return <Image src={`${basePath}/${visual?.image ?? "case-bbs.png"}`} alt={`${project.title} project image`} fill sizes="(max-width: 720px) 100vw, 60vw" className="index-project-media" />;
 }
 
 function ProjectEntry({ project }: { project: Project }) {
@@ -95,7 +72,6 @@ function ProjectEntry({ project }: { project: Project }) {
   const description = descriptions[lang][project.title as keyof (typeof descriptions)[typeof lang]];
   return (
     <article className="index-project">
-      <div className="index-project-thumb"><ProjectCompanyLogo project={project} /></div>
       <div className="index-project-content">
         <div className="index-meta-row">
           <p>{project.title}</p>
@@ -115,7 +91,7 @@ function EditorialSections() {
   return (
     <>
       <section className="index-editorial" id="approach"><p className="index-editorial-lead">{t.approachText}</p></section>
-      <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Erbolatūly" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href={`mailto:${email}`}>{t.contactsCta}</a></div></section>
+      <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Yerbolatov" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href={`mailto:${email}`}>{t.contactsCta}</a></div></section>
     </>
   );
 }
@@ -126,8 +102,8 @@ export function PortfolioIndex() {
   return (
     <main className="portfolio-index">
       <aside className="index-profile">
-        <div className="index-profile-top"><a href="#top" aria-label="Mirat — home" className="index-logo"><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></a><Controls /></div>
-        <div className="index-intro" id="top"><p className="index-name">{t.name}</p><p>{bindShortWords(t.about)}</p></div>
+        <div className="index-profile-top"><a href="#top" aria-label="Mirat Yerbolatov — home" className="index-logo"><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></a><Controls /></div>
+        <div className="index-intro" id="top"><p className="index-name">{t.name}</p><p className="index-bio">{lang === "en" ? <><span>Sälem! I’m a product designer</span><span>with a background in graphic design.</span><span>Currently working at Mycar Group.</span></> : <><span>Sälem! Men önim dizainerimin,</span><span>grafikalyq dizain täjiribem bar.</span><span>Qazir Mycar Group-ta jūmys isteimin.</span></>}</p></div>
         <div className="index-hero-video"><video autoPlay muted loop playsInline preload="auto" className="hero-video" aria-label={lang === "en" ? "Video portrait of Mirat" : "Mirattyñ video-portreti"}><source src={`${basePath}/hero-video.mp4`} type="video/mp4" /></video></div>
         <div className="index-profile-bottom"><nav aria-label="Social links">{socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">{social.label.toLowerCase()}</a>)}<a href="https://drive.google.com/file/d/1l_eRFFkcoUDwDZu8Ee2tsMENqswY1ls1/view?usp=sharing" target="_blank" rel="noopener noreferrer">cv</a></nav><div className="index-clock"><LiveClock /><span>{t.location}</span></div></div>
       </aside>
