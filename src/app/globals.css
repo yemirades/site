@@ -346,7 +346,7 @@ button {
 .index-intro > p:not(.index-name) { font-weight: 500 !important; }
 .index-bio { width: max-content; font-size: 16px; font-synthesis: weight; line-height: 1.2; }
 .index-bio span { display: block; white-space: nowrap; }
-.index-hero-video { position: absolute; top: calc(var(--index-gap) + 160px); right: var(--index-gap); width: min(28%, 110px); aspect-ratio: 1; overflow: hidden; background: var(--soft); }
+.index-hero-video { position: absolute; top: calc(var(--index-gap) + 160px); left: 50%; width: min(28%, 110px); aspect-ratio: 1; overflow: hidden; translate: -50% 0; background: var(--soft); }
 .index-hero-video video { width: 100%; height: 100%; object-fit: cover; }
 .index-clock { position: absolute; right: var(--index-gap); bottom: var(--index-gap); display: grid; gap: 3px; text-align: right; }
 
@@ -424,7 +424,7 @@ button {
   .index-name span { display: block; }
   .index-name span + span::before { content: none; }
   .index-intro > p:not(.index-name) { font-size: 15px; line-height: 1.22; }
-  .index-hero-video { position: relative; inset: auto; align-self: center; width: min(29vw, 110px); margin: 201px auto 34px; }
+  .index-hero-video { position: relative; inset: auto; align-self: center; width: min(29vw, 110px); margin: 201px auto 34px; translate: none; }
   .index-clock { right: 15px; bottom: 15px; }
   .index-rail { display: none; }
   .index-feed { width: 100%; margin-left: 0; padding: 15px; }
