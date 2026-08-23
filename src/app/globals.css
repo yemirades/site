@@ -11,7 +11,7 @@
   --page: #ffffff;
   --ink: #080808;
   --muted: rgba(8, 8, 8, 0.54);
-  --line: rgba(8, 8, 8, 0.2);
+  --line: rgba(8, 8, 8, 0.14);
   --pill: #080808;
   --pill-ink: #f7f7f3;
   --soft: #efefef;
@@ -29,7 +29,7 @@
   --page: #000000;
   --ink: #f7f7f3;
   --muted: rgba(247, 247, 243, 0.54);
-  --line: rgba(247, 247, 243, 0.2);
+  --line: rgba(247, 247, 243, 0.14);
   --pill: #f7f7f3;
   --pill-ink: #080808;
   --soft: #101010;
@@ -262,10 +262,10 @@ button {
 
 .index-profile {
   position: fixed;
-  inset: 0 auto 0 0;
+  inset: 0 auto 0 48px;
   z-index: 10;
   display: flex;
-  width: 40%;
+  width: calc(40% - 48px);
   min-width: 0;
   flex-direction: column;
   padding: var(--index-gap);
@@ -352,7 +352,7 @@ button {
 
 .index-rail {
   position: fixed;
-  inset: 0 auto 0 40%;
+  inset: 0 auto 0 0;
   z-index: 20;
   display: flex;
   width: 48px;
@@ -367,26 +367,37 @@ button {
 .index-rail-links { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 42px; }
 .index-rail-links a { writing-mode: vertical-rl; rotate: 180deg; text-decoration: none; }
 .index-rail-links a:hover { opacity: .55; }
+.index-rail-release {
+  max-height: 150px;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  color: var(--ink);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  opacity: .5;
+  white-space: nowrap;
+}
 
-.index-feed { width: calc(60% - 48px); margin-left: calc(40% + 48px); padding: var(--index-gap); }
+.index-feed { width: 60%; margin-left: 40%; padding: var(--index-gap); }
 .index-project { padding-bottom: clamp(48px, 6vw, 86px); }
 .index-project-visual,
 .index-project-visual > img,
 .index-project-visual > video { position: relative; overflow: hidden; }
 .index-project-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .index-project-content { display: flex; min-width: 0; flex-direction: column; gap: 12px; }
-.index-meta-row { font-weight: 600; }
+.index-meta-row { font-size: inherit; font-weight: 400; line-height: 1.18; }
 .index-meta-row > * { flex: 1; }
-.index-meta-row > p:first-child { font-weight: 600; }
+.index-meta-row > p:first-child { font-weight: 400; }
 .index-meta-row > :nth-child(2) { text-align: center; text-decoration: underline; text-underline-offset: 2px; }
 .index-meta-row > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
-.index-description { max-width: 720px; color: var(--muted); }
+.index-description { max-width: 720px; color: var(--muted); font-size: inherit; font-weight: 400; line-height: 1.18; }
 .index-project-visual { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--soft); }
 .index-project-media { transition: transform 220ms ease-out; }
 .index-project-visual:hover { opacity: 1; box-shadow: none; filter: none; }
 .index-project-visual:hover .index-project-media { transform: scale(1.025); filter: none; }
 
-.index-editorial { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: var(--index-gap); padding: clamp(50px, 7vw, 100px) 0; border-top: 1px solid var(--line); }
+.index-editorial { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: var(--index-gap); margin-inline: calc(-1 * var(--index-gap)); padding: clamp(50px, 7vw, 100px) var(--index-gap); border-top: 1px solid var(--line); }
 .index-editorial#about { grid-template-columns: minmax(0, 1fr); }
 .index-editorial-label { font-weight: 600; }
 .index-editorial-lead { max-width: 850px; font-size: clamp(28px, 4.2vw, 64px); font-weight: 600; line-height: .98; letter-spacing: -.03em; }
@@ -398,7 +409,7 @@ button {
 .index-experience-row > p { padding-top: 3px; font-weight: 600; }
 .index-role + .index-role { margin-top: 10px; }
 .index-role > :last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.index-contact { display: grid; grid-template-columns: minmax(0,1fr); gap: 18px; padding: clamp(60px, 9vw, 130px) 0 48px; border-top: 1px solid var(--line); }
+.index-contact { display: grid; grid-template-columns: minmax(0,1fr); gap: 18px; margin-inline: calc(-1 * var(--index-gap)); padding: clamp(60px, 9vw, 130px) var(--index-gap) 48px; border-top: 1px solid var(--line); }
 .index-contact-photo { position: relative; width: 100px; aspect-ratio: 1; overflow: hidden; }
 .index-contact-lead { max-width: 800px; font-size: clamp(30px, 4.4vw, 68px); font-weight: 600; line-height: .96; letter-spacing: -.03em; }
 .index-contact a { display: inline-block; margin-top: 28px; text-decoration: underline; text-underline-offset: 3px; }
