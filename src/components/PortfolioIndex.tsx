@@ -73,13 +73,13 @@ function ProjectEntry({ project }: { project: Project }) {
   return (
     <article className="index-project">
       <div className="index-project-content">
+        <a href={project.href || "#contacts"} target={project.href ? "_blank" : undefined} rel={project.href ? "noopener noreferrer" : undefined} className="index-project-visual"><ProjectMedia project={project} /></a>
         <div className="index-meta-row">
           <p>{project.title}</p>
           {project.href ? <a href={project.href} target="_blank" rel="noopener noreferrer">{lang === "en" ? "full case" : "tolıq keis"}</a> : <span>{lang === "en" ? "case soon" : "jaqynda"}</span>}
           <p>{project.year}</p>
         </div>
         <p className="index-description">{description}</p>
-        <a href={project.href || "#contacts"} target={project.href ? "_blank" : undefined} rel={project.href ? "noopener noreferrer" : undefined} className="index-project-visual"><ProjectMedia project={project} /></a>
       </div>
     </article>
   );
@@ -90,7 +90,7 @@ function EditorialSections() {
   const t = content[lang];
   return (
     <>
-      <section className="index-editorial" id="approach"><p className="index-editorial-lead">{t.approachText}</p></section>
+      <section className="index-editorial" id="about"><p className="index-editorial-lead">{t.approachText}</p></section>
       <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Yerbolatov" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href={`mailto:${email}`}>{t.contactsCta}</a></div></section>
     </>
   );
@@ -102,12 +102,17 @@ export function PortfolioIndex() {
   return (
     <main className="portfolio-index">
       <aside className="index-profile">
-        <div className="index-profile-top"><a href="#top" aria-label="Mirat Yerbolatov — home" className="index-logo"><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></a><Controls /></div>
+        <div className="index-profile-top"><Controls /></div>
+        <nav className="index-social-nav" aria-label="Social links">{socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">{social.label.toLowerCase()}</a>)}<a href="https://drive.google.com/file/d/1l_eRFFkcoUDwDZu8Ee2tsMENqswY1ls1/view?usp=sharing" target="_blank" rel="noopener noreferrer">cv</a></nav>
         <div className="index-intro" id="top"><p className="index-name"><span>Mirat</span><span>Yerbolatov</span></p><p className="index-bio">{lang === "en" ? <><span>Sälem! I’m a product designer</span><span>with a background in graphic design.</span><span>Currently working at Mycar Group.</span></> : <><span>Sälem! Men önim dizainerimin,</span><span>grafikalyq dizain täjiribem bar.</span><span>Qazir Mycar Group-ta jūmys isteimin.</span></>}</p></div>
         <div className="index-hero-video"><video autoPlay muted loop playsInline preload="auto" className="hero-video" aria-label={lang === "en" ? "Video portrait of Mirat" : "Mirattyñ video-portreti"}><source src={`${basePath}/hero-video.mp4`} type="video/mp4" /></video></div>
-        <div className="index-profile-bottom"><nav aria-label="Social links">{socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">{social.label.toLowerCase()}</a>)}<a href="https://drive.google.com/file/d/1l_eRFFkcoUDwDZu8Ee2tsMENqswY1ls1/view?usp=sharing" target="_blank" rel="noopener noreferrer">cv</a></nav><div className="index-clock"><LiveClock /><span>{t.location}</span></div></div>
+        <div className="index-clock"><LiveClock /><span>{t.location}</span></div>
       </aside>
-      <section className="index-feed" aria-label={lang === "en" ? "Projects" : "Jobalar"}>{projects.map((project) => <ProjectEntry key={project.title} project={project} />)}<EditorialSections /></section>
+      <nav className="index-rail" aria-label={lang === "en" ? "Portfolio sections" : "Portfolio bölimderi"}>
+        <a href="#cases" className="index-rail-logo" aria-label={lang === "en" ? "Cases" : "Keister"}><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></a>
+        <div className="index-rail-links"><a href="#cases">Cases</a><a href="#about">About me</a></div>
+      </nav>
+      <section className="index-feed" id="cases" aria-label={lang === "en" ? "Projects" : "Jobalar"}>{projects.map((project) => <ProjectEntry key={project.title} project={project} />)}<EditorialSections /></section>
     </main>
   );
 }
