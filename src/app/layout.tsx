@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import "@fontsource-variable/stack-sans-headline";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -17,9 +18,9 @@ const interDisplay = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yemirades.com"),
-  title: "Mirat Erbolatūly — Multidisciplinary Designer",
+  title: "Mirat Yerbolatov — Multidisciplinary Designer",
   description:
-    "Portfolio of Mirat Erbolatūly — multidisciplinary designer focused on websites and brand identities.",
+    "Portfolio of Mirat Yerbolatov — multidisciplinary designer focused on websites and brand identities.",
   alternates: { canonical: "/" },
 };
 
