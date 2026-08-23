@@ -76,7 +76,7 @@ export const content: Record<
 > = {
   kk: {
     nav: { about: "Men turaly", works: "Jobalar", services: "Qyzmetter", contacts: "Bailanys" },
-    name: "Mirat Erbolatūly",
+    name: "Mirat Yerbolatov",
     role: "Multidistsiplinarly dizainer",
     location: "Almaty, Qazaqstan",
     about:
@@ -92,7 +92,7 @@ export const content: Record<
   },
   en: {
     nav: { about: "About", works: "Works", services: "Services", contacts: "Contacts" },
-    name: "Mirat Erbolatūly",
+    name: "Mirat Yerbolatov",
     role: "Multidisciplinary Designer",
     location: "Almaty, Qazaqstan",
     about:
