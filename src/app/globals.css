@@ -340,13 +340,13 @@ button {
 [data-theme="dark"] .index-controls .index-theme-toggle { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 22%); }
 .index-social-nav { position: absolute; bottom: var(--index-gap); left: var(--index-gap); display: flex; max-width: 150px; flex-wrap: wrap; gap: 4px 12px; }
 .index-social-nav a { font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-.index-intro { position: absolute; top: var(--index-gap); left: var(--index-gap); max-width: calc(100% - 180px); }
+.index-intro { position: absolute; top: calc(var(--index-gap) - 6px); left: var(--index-gap); max-width: calc(100% - 180px); }
 .index-name { margin-bottom: 16px; font-family: "Stack Sans Headline Variable", var(--font-inter-display), Inter, Arial, sans-serif; font-size: clamp(36px, 3.4vw, 48px); font-weight: 600; line-height: .95; letter-spacing: -2px; }
 .index-name span { display: block; }
 .index-intro > p:not(.index-name) { font-weight: 500 !important; }
-.index-bio { font-size: 16px; font-synthesis: weight; line-height: 1.2; }
-.index-bio span { display: block; }
-.index-hero-video { position: absolute; top: calc(var(--index-gap) + 50px); right: var(--index-gap); width: min(28%, 110px); aspect-ratio: 1; overflow: hidden; background: var(--soft); }
+.index-bio { width: max-content; font-size: 16px; font-synthesis: weight; line-height: 1.2; }
+.index-bio span { display: block; white-space: nowrap; }
+.index-hero-video { position: absolute; top: calc(var(--index-gap) + 160px); right: var(--index-gap); width: min(28%, 110px); aspect-ratio: 1; overflow: hidden; background: var(--soft); }
 .index-hero-video video { width: 100%; height: 100%; object-fit: cover; }
 .index-clock { position: absolute; right: var(--index-gap); bottom: var(--index-gap); display: grid; gap: 3px; text-align: right; }
 
@@ -362,7 +362,7 @@ button {
   background: var(--page);
   border-right: 1px solid var(--line);
 }
-.index-rail-logo { display: block; width: 32px; height: 32px; }
+.index-rail-logo { display: block; width: 32px; height: 32px; margin-top: -10px; }
 .index-rail-logo img { width: 100%; height: 100%; object-fit: contain; }
 .index-rail-links { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 42px; }
 .index-rail-links a { writing-mode: vertical-rl; rotate: 180deg; font-weight: 600; text-decoration: none; }
@@ -420,7 +420,7 @@ button {
   .index-profile-top { justify-content: flex-end; }
   .index-social-nav { top: auto; right: auto; bottom: 15px; left: 15px; }
   .index-intro { position: absolute; top: 15px; left: 15px; margin: 0; max-width: 200px; text-align: left; text-wrap: balance; }
-  .index-name { font-size: 40px; }
+  .index-name { font-size: 36px; }
   .index-name span { display: block; }
   .index-name span + span::before { content: none; }
   .index-intro > p:not(.index-name) { font-size: 15px; line-height: 1.22; }
