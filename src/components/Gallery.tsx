@@ -155,7 +155,7 @@ export function Gallery() {
         <header className="gallery-header">
           <div className="gallery-mobile-nav">
             <Link href="/">Mirat Yerbolatov</Link>
-            <Link href="/#cases">Cases</Link>
+            <span>Visual archive</span>
           </div>
           <div className="gallery-heading-row">
             <h1>Gallery</h1>

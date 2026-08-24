@@ -112,7 +112,7 @@ export function PortfolioIndex() {
       </aside>
       <nav className="index-rail" aria-label={lang === "en" ? "Portfolio sections" : "Portfolio bölimderi"}>
         <Link href="/#cases" className="index-rail-logo" aria-label={lang === "en" ? "Cases" : "Keister"}><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></Link>
-        <div className="index-rail-links"><Link href="/#cases">cases</Link><Link href="/gallery">gallery</Link><Link href="/#about">about me</Link></div>
+        <div className="index-rail-links"><Link href="/#cases" aria-current="page">cases</Link><Link href="/gallery">gallery</Link><Link href="/#about">about me</Link></div>
         <time className="index-rail-release" dateTime="2026-08-23T19:40:00+05:00">release {releaseLabel}</time>
       </nav>
       <section className="index-feed" id="cases" aria-label={lang === "en" ? "Projects" : "Jobalar"}>{projects.map((project) => <ProjectEntry key={project.title} project={project} />)}<EditorialSections /></section>
