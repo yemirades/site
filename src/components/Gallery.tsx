@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
+import { PortfolioRail } from "./PortfolioRail";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -119,43 +120,22 @@ export function Gallery() {
         count: `${galleryItems.length} works`,
         open: "Open",
         close: "Close preview",
-        nav: "Portfolio sections",
       }
     : {
         eyebrow: "Tañdauly grafikalyq täjiribeler, posterler jäne vizualdy jazbalar",
         count: `${galleryItems.length} jūmys`,
         open: "Aşu",
         close: "Qaralymdy jabu",
-        nav: "Portfolio bölimderi",
       };
 
   return (
     <main className="gallery-page">
-      <nav className="index-rail" aria-label={copy.nav}>
-        <Link href="/#cases" className="index-rail-logo" aria-label="Mirat Yerbolatov — home">
-          <Image
-            src={`${basePath}/hero-logo.gif`}
-            alt=""
-            width={80}
-            height={80}
-            unoptimized
-            priority
-            className="theme-sensitive-mark"
-          />
-        </Link>
-        <div className="index-rail-links">
-          <Link href="/#cases">cases</Link>
-          <Link href="/gallery" aria-current="page">gallery</Link>
-          <Link href="/#about">about me</Link>
-        </div>
-        <span className="index-rail-release">visual archive · 2024—2026</span>
-      </nav>
+      <PortfolioRail active="gallery" />
 
       <div className="gallery-shell">
         <header className="gallery-header">
           <div className="gallery-mobile-nav">
             <Link href="/">Mirat Yerbolatov</Link>
-            <span>Visual archive</span>
           </div>
           <div className="gallery-heading-row">
             <h1>Gallery</h1>

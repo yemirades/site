@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
 import { content, email, projects, socials, type Project } from "@/data/content";
 import { LiveClock } from "./LiveClock";
+import { PortfolioRail } from "./PortfolioRail";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const releaseLabel = "23.08.2026 · 19:40";
 
 const projectVisuals: Record<string, { image?: string; video?: string; poster?: string }> = {
   "Mycar Autoservice": { image: "case-mycar-autoservice.png" },
@@ -110,11 +109,7 @@ export function PortfolioIndex() {
         <div className="index-hero-video"><video autoPlay muted loop playsInline preload="auto" className="hero-video" aria-label={lang === "en" ? "Video portrait of Mirat" : "Mirattyñ video-portreti"}><source src={`${basePath}/hero-video.mp4`} type="video/mp4" /></video></div>
         <div className="index-clock"><LiveClock /><span>{t.location}</span></div>
       </aside>
-      <nav className="index-rail" aria-label={lang === "en" ? "Portfolio sections" : "Portfolio bölimderi"}>
-        <Link href="/#cases" className="index-rail-logo" aria-label={lang === "en" ? "Cases" : "Keister"}><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></Link>
-        <div className="index-rail-links"><Link href="/#cases" aria-current="page">cases</Link><Link href="/gallery">gallery</Link><Link href="/#about">about me</Link></div>
-        <time className="index-rail-release" dateTime="2026-08-23T19:40:00+05:00">release {releaseLabel}</time>
-      </nav>
+      <PortfolioRail active="cases" />
       <section className="index-feed" id="cases" aria-label={lang === "en" ? "Projects" : "Jobalar"}>{projects.map((project) => <ProjectEntry key={project.title} project={project} />)}<EditorialSections /></section>
     </main>
   );
