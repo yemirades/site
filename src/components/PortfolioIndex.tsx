@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
 import { content, email, projects, socials, type Project } from "@/data/content";
@@ -110,8 +111,8 @@ export function PortfolioIndex() {
         <div className="index-clock"><LiveClock /><span>{t.location}</span></div>
       </aside>
       <nav className="index-rail" aria-label={lang === "en" ? "Portfolio sections" : "Portfolio bölimderi"}>
-        <a href="#cases" className="index-rail-logo" aria-label={lang === "en" ? "Cases" : "Keister"}><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></a>
-        <div className="index-rail-links"><a href="#cases">cases</a><a href="#cases">gallery</a><a href="#about">about me</a></div>
+        <Link href="/#cases" className="index-rail-logo" aria-label={lang === "en" ? "Cases" : "Keister"}><Image src={`${basePath}/hero-logo.gif`} alt="" width={80} height={80} unoptimized priority className="theme-sensitive-mark" /></Link>
+        <div className="index-rail-links"><Link href="/#cases">cases</Link><Link href="/gallery">gallery</Link><Link href="/#about">about me</Link></div>
         <time className="index-rail-release" dateTime="2026-08-23T19:40:00+05:00">release {releaseLabel}</time>
       </nav>
       <section className="index-feed" id="cases" aria-label={lang === "en" ? "Projects" : "Jobalar"}>{projects.map((project) => <ProjectEntry key={project.title} project={project} />)}<EditorialSections /></section>
