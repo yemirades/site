@@ -13,24 +13,77 @@ type GalleryItem = {
   id: string;
   title: string;
   year: string;
-  image?: string;
-  composition: number;
+  src: string;
+  media: "image" | "video";
+  poster?: string;
 };
 
-// Add an image filename from /public to an item when the final artwork is ready.
 const galleryItems: GalleryItem[] = [
-  { id: "01", title: "Untitled Poster", year: "2026", composition: 1 },
-  { id: "02", title: "Sound in Motion", year: "2026", composition: 2 },
-  { id: "03", title: "Interface Studies", year: "2026", composition: 3 },
-  { id: "04", title: "Afterimage", year: "2026", composition: 4 },
-  { id: "05", title: "Form / Function", year: "2025", composition: 5 },
-  { id: "06", title: "New Symbols", year: "2025", composition: 6 },
-  { id: "07", title: "Everyday Systems", year: "2025", composition: 7 },
-  { id: "08", title: "Moving Type", year: "2025", composition: 8 },
-  { id: "09", title: "Visual Notes", year: "2024", composition: 9 },
-  { id: "10", title: "Printed Matter", year: "2024", composition: 10 },
-  { id: "11", title: "Archive Study", year: "2024", composition: 11 },
-  { id: "12", title: "Open Edition", year: "2024", composition: 12 },
+  {
+    id: "01",
+    title: "Don’t quit",
+    year: "2026",
+    src: "gallery/dont-quit-2026.mp4",
+    media: "video",
+    poster: "gallery/dont-quit-2026-poster.png",
+  },
+  {
+    id: "02",
+    title: "Confucius",
+    year: "2025",
+    src: "gallery/confucius-2025.mp4",
+    media: "video",
+    poster: "gallery/confucius-2025-poster.png",
+  },
+  {
+    id: "03",
+    title: "Kyrgyz proverb",
+    year: "2025",
+    src: "gallery/kyrgyz-proverb-2025.webp",
+    media: "image",
+  },
+  {
+    id: "04",
+    title: "Mustafa Öztürk",
+    year: "2025",
+    src: "gallery/mustafa-ozturk-2025.webp",
+    media: "image",
+  },
+  {
+    id: "05",
+    title: "Ted Lasso (fan poster)",
+    year: "2025",
+    src: "gallery/ted-lasso-2025.webp",
+    media: "image",
+  },
+  {
+    id: "06",
+    title: "Oppenheimer",
+    year: "2023",
+    src: "gallery/oppenheimer-2023.webp",
+    media: "image",
+  },
+  {
+    id: "07",
+    title: "Don’t worry",
+    year: "2022",
+    src: "gallery/dont-worry-2022.webp",
+    media: "image",
+  },
+  {
+    id: "08",
+    title: "Leo Tolstoy",
+    year: "2022",
+    src: "gallery/leo-tolstoy-2022.webp",
+    media: "image",
+  },
+  {
+    id: "09",
+    title: "Menimen Bol (music poster)",
+    year: "2022",
+    src: "gallery/menimen-bol-2022.webp",
+    media: "image",
+  },
 ];
 
 function DisplayControls() {
@@ -70,22 +123,29 @@ function DisplayControls() {
 
 function Poster({ item, enlarged = false }: { item: GalleryItem; enlarged?: boolean }) {
   return (
-    <div
-      className={`gallery-poster gallery-poster--${item.composition}${enlarged ? " gallery-poster--enlarged" : ""}`}
-    >
-      {item.image ? (
+    <div className={`gallery-poster${enlarged ? " gallery-poster--enlarged" : ""}`}>
+      {item.media === "video" ? (
+        <video
+          className="gallery-poster-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls={enlarged}
+          preload={enlarged ? "auto" : "metadata"}
+          poster={item.poster ? `${basePath}/${item.poster}` : undefined}
+          aria-label={item.title}
+        >
+          <source src={`${basePath}/${item.src}`} type="video/mp4" />
+        </video>
+      ) : (
         <Image
-          src={`${basePath}/${item.image}`}
+          src={`${basePath}/${item.src}`}
           alt={item.title}
           fill
           sizes={enlarged ? "90vw" : "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw"}
           className="gallery-poster-image"
         />
-      ) : (
-        <>
-          <span className="gallery-placeholder-mark" aria-hidden="true" />
-          <span className="gallery-placeholder-label">IMAGE {item.id}</span>
-        </>
       )}
     </div>
   );
