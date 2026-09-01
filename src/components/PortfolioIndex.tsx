@@ -10,7 +10,10 @@ import { PortfolioRail } from "./PortfolioRail";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const projectVisuals: Record<string, { image?: string; video?: string; poster?: string }> = {
-  "Mycar Autoservice": { image: "case-mycar-autoservice.png" },
+  "Mycar Autoservice": {
+    video: "case-mycar-autoservice.mp4",
+    poster: "case-mycar-autoservice.png",
+  },
   "BBS Visual Identity": { video: "case-bbs.mp4", poster: "case-bbs.png" },
   "Kartell E-commerce": { image: "case-kartell.png" },
   "Mycar Pay Landing": { image: "case-mycar-pay.jpg" },

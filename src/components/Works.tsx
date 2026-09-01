@@ -21,7 +21,8 @@ const projectVisuals: Record<
 > = {
   "Mycar Autoservice": {
     className: "case-agro",
-    image: "case-mycar-autoservice.png",
+    video: "case-mycar-autoservice.mp4",
+    poster: "case-mycar-autoservice.png",
   },
   "BBS Visual Identity": {
     className: "case-bbs",
