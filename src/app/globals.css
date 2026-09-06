@@ -151,8 +151,6 @@ button {
 
 .menu-control { border-radius: 6px; }
 
-.language-control { border-radius: 6px; }
-
 .inquiry-submit { border-radius: 6px; }
 
 .soft-radius {
@@ -608,14 +606,6 @@ video.about-card-media { display: block; }
   color: var(--ink);
   font-size: 11px;
 }
-.index-controls .index-language-toggle {
-  min-width: 42px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--page);
-  font-weight: 600;
-}
 .index-controls .index-theme-toggle {
   position: relative;
   width: 62px;
@@ -800,10 +790,6 @@ video.about-card-media { display: block; }
   .page-loader__topline {
     font-size: 14px;
   }
-}
-
-.language-option {
-  border-radius: 0;
 }
 
 .clock-colon {

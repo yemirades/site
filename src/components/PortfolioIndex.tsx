@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
-import { content, email, projects, socials, type Project } from "@/data/content";
+import { content, projects, socials, type Project } from "@/data/content";
 import { LiveClock } from "./LiveClock";
 import { PortfolioRail } from "./PortfolioRail";
 
@@ -35,7 +35,6 @@ const descriptions = {
 } as const;
 
 function Controls() {
-  const { lang, setLang } = useLang();
   const { theme, toggleTheme } = useTheme();
   return (
     <div className="index-controls" aria-label="Display controls">
@@ -50,14 +49,6 @@ function Controls() {
         <span className="index-theme-symbol" aria-hidden="true">
           <Image src={`${basePath}/${theme === "dark" ? "light.svg" : "dark.svg"}`} alt="" width={18} height={18} />
         </span>
-      </button>
-      <button
-        className="index-language-toggle"
-        type="button"
-        onClick={() => setLang(lang === "en" ? "kk" : "en")}
-        aria-label={lang === "en" ? "Qazaqşa nusqağa auysu" : "Switch to English"}
-      >
-        {lang === "en" ? "KZ" : "EN"}
       </button>
     </div>
   );
@@ -95,7 +86,7 @@ function EditorialSections() {
   return (
     <>
       <section className="index-editorial" id="about"><p className="index-editorial-lead">{t.approachText}</p></section>
-      <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Yerbolatov" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href={`mailto:${email}`}>{t.contactsCta}</a></div></section>
+      <section className="index-contact" id="contacts"><div className="index-contact-photo"><Image src={`${basePath}/contact-photo.png`} alt="Mirat Yerbolatov" fill sizes="160px" className="object-cover grayscale" /></div><div><p className="index-contact-lead">{t.contactsLead}</p><a href="https://t.me/yemirades" target="_blank" rel="noopener noreferrer">{t.contactsCta}</a></div></section>
     </>
   );
 }

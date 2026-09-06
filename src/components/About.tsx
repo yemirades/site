@@ -32,7 +32,6 @@ const mediaCards = [
 ] as const;
 
 function DisplayControls() {
-  const { lang, setLang } = useLang();
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -53,14 +52,6 @@ function DisplayControls() {
             height={18}
           />
         </span>
-      </button>
-      <button
-        className="index-language-toggle"
-        type="button"
-        onClick={() => setLang(lang === "en" ? "kk" : "en")}
-        aria-label={lang === "en" ? "Qazaqşa nusqağa auysu" : "Switch to English"}
-      >
-        {lang === "en" ? "KZ" : "EN"}
       </button>
     </div>
   );

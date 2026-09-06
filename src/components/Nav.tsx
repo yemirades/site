@@ -10,7 +10,7 @@ import { ArrowIcon } from "./ArrowIcon";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function Nav() {
-  const { lang, setLang } = useLang();
+  const { lang } = useLang();
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const social = Object.fromEntries(socials.map((item) => [item.label, item.href]));
@@ -122,29 +122,6 @@ export function Nav() {
               </svg>
             )}
           </button>
-
-          <div className="flex h-10 items-center rounded-[10px] bg-[var(--soft)] text-[13px] font-medium leading-none text-[var(--ink)]">
-            {([
-              { value: "en", label: "EN" },
-              { value: "kk", label: "KZ" },
-            ] as const).map((language) => (
-              <button
-                key={language.value}
-                onClick={() => {
-                  setLang(language.value);
-                  setMenuOpen(false);
-                }}
-                aria-pressed={lang === language.value}
-                className={`language-control flex h-10 min-w-11 items-center justify-center px-3 transition-colors ${
-                  lang === language.value
-                    ? "bg-[var(--ink)] text-[var(--page)]"
-                    : "opacity-55 hover:opacity-100"
-                }`}
-              >
-                {language.label}
-              </button>
-            ))}
-          </div>
 
           <a
             href="#contacts"

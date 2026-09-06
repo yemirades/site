@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
-import { content, email, socials } from "@/data/content";
+import { content, socials } from "@/data/content";
 import { bindShortWords } from "@/lib/typography";
 import { Reveal } from "./Reveal";
 import { LiveClock } from "./LiveClock";
@@ -62,7 +62,7 @@ export function Contacts() {
             </Reveal>
             <div className="sm:col-span-2">
               <Reveal><p className="type-title max-w-[760px] font-display">{bindShortWords(t.contactsLead)}</p></Reveal>
-              <Reveal delay={0.08}><a href={`mailto:${email}`} className="mt-8 inline-flex min-h-11 items-center rounded-[6px] bg-black px-5 text-[12px] font-semibold text-white transition-colors hover:bg-white hover:text-black">{bindShortWords(t.contactsCta)}</a></Reveal>
+              <Reveal delay={0.08}><a href="https://t.me/yemirades" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-11 items-center rounded-[6px] bg-black px-5 text-[12px] font-semibold text-white transition-colors hover:bg-white hover:text-black">{bindShortWords(t.contactsCta)}</a></Reveal>
             </div>
           </div>
           <div className="type-text mt-14 grid gap-8 border-t border-black/35 pt-5 sm:mt-20 sm:grid-cols-3 sm:items-end sm:gap-0">
