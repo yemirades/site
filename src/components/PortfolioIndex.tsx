@@ -16,7 +16,7 @@ const projectVisuals: Record<string, { image?: string; video?: string; poster?: 
   },
   "BBS Visual Identity": { video: "case-bbs.mp4", poster: "case-bbs.png" },
   "Kartell E-commerce": { image: "case-kartell.png" },
-  "Mycar Pay Landing": { image: "case-mycar-pay.jpg" },
+  "Collection of logos": { image: "case-logo-collection.png" },
 };
 
 const descriptions = {
@@ -24,13 +24,13 @@ const descriptions = {
     "Mycar Autoservice": "A mobile service experience designed around fast booking, clear status updates and confident everyday car care.",
     "BBS Visual Identity": "A visual identity built as a precise modular system for a contemporary business platform.",
     "Kartell E-commerce": "An e-commerce redesign focused on product clarity, editorial rhythm and effortless discovery.",
-    "Mycar Pay Landing": "A landing page that translates a complex payment product into a clear and trustworthy digital story.",
+    "Collection of logos": "A curated collection of selected logotypes and marks created for brands across different industries.",
   },
   kk: {
     "Mycar Autoservice": "Jıldam jazylu, tüsınıktı märtebe jäne senımdı kölık kütımine qurylğan mobıldi servis täjirıbesı.",
     "BBS Visual Identity": "Zamanaūi biznes platformağa arnalğan däl jäne moduldık vizualdy jüie.",
     "Kartell E-commerce": "Önım aıqyndyğyna, redaktsıialyq ritmge jäne oñai tañdauğa bağıttalğan e-commerce redizain.",
-    "Mycar Pay Landing": "Kürdelı tölem önımın tüsınıktı jäne senımdı tsifrly oqiğağa aynaldyratyn landiñ.",
+    "Collection of logos": "Ärtürlı saladağy brendter üşın jasalğan tañdauly logotipter men belgıler jinağy.",
   },
 } as const;
 

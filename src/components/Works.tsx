@@ -33,9 +33,9 @@ const projectVisuals: Record<
     className: "case-kartell",
     image: "case-kartell.png",
   },
-  "Mycar Pay Landing": {
+  "Collection of logos": {
     className: "case-pay",
-    image: "case-mycar-pay.jpg",
+    image: "case-logo-collection.png",
   },
 };
 

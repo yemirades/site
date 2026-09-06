@@ -26,10 +26,10 @@ export const projects: Project[] = [
     tag: { kk: "Web", en: "Web" },
   },
   {
-    title: "Mycar Pay Landing",
+    title: "Collection of logos",
     year: "2025",
-    href: "https://mycarpay.kz/",
-    tag: { kk: "Web", en: "Web" },
+    href: "https://www.behance.net/gallery/235337833/COLLECTION-OF-LOGOS",
+    tag: { kk: "Logotipter", en: "Logos" },
   },
 ];
 
