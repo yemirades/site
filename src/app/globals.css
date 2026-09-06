@@ -447,54 +447,98 @@ button {
 
 .about-shell { padding: var(--index-gap); }
 
-.about-header {
-  min-height: clamp(280px, 38vh, 470px);
-  padding-bottom: clamp(48px, 7vw, 96px);
-}
-
-.about-mobile-nav { display: none; }
-
-.about-heading-row {
+.about-topbar {
   display: flex;
-  align-items: flex-start;
+  min-height: 46px;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
-}
-
-.about-heading-row h1 {
-  margin: 0;
-  font-family: "Stack Sans Headline Variable", var(--font-inter-display), Inter, Arial, sans-serif;
-  font-size: clamp(72px, 11vw, 190px);
   font-weight: 600;
-  line-height: .8;
-  letter-spacing: -.04em;
 }
 
 .about-controls { flex: none; }
 
+.about-playground {
+  position: relative;
+  height: clamp(560px, 61vw, 820px);
+  margin-top: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background-color: var(--soft);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) .7px, transparent .8px);
+  background-size: 12px 12px;
+  isolation: isolate;
+}
+
+.about-card {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  background: #111;
+  box-shadow: 0 18px 45px rgb(0 0 0 / 20%);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.about-card:active { cursor: grabbing; }
+.about-card:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.about-card-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+video.about-card-media { display: block; }
+
+.about-card--run-video {
+  top: 10%;
+  left: 5%;
+  width: clamp(280px, 35vw, 520px);
+  aspect-ratio: 4 / 3;
+  rotate: -3deg;
+}
+
+.about-card--istanbul {
+  top: 7%;
+  right: 4%;
+  width: clamp(250px, 31vw, 460px);
+  aspect-ratio: 4 / 3;
+  rotate: 3deg;
+}
+
+.about-card--marathon {
+  top: 31%;
+  left: 38%;
+  width: clamp(180px, 22vw, 330px);
+  aspect-ratio: 1483 / 1856;
+  rotate: 1.5deg;
+}
+
+.about-card--inter {
+  right: 16%;
+  bottom: 4%;
+  width: clamp(190px, 24vw, 360px);
+  aspect-ratio: 3 / 4;
+  rotate: -2.5deg;
+}
+
 .about-story {
-  display: grid;
-  grid-template-columns: minmax(150px, .24fr) minmax(0, 1fr);
-  gap: clamp(32px, 6vw, 120px);
-  padding: 14px 0 clamp(90px, 12vw, 190px);
+  padding: clamp(48px, 7vw, 100px) 0 clamp(80px, 11vw, 160px);
   border-top: 1px solid var(--line);
 }
 
-.about-kicker {
-  max-width: 170px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
 .about-copy {
-  max-width: 1450px;
+  max-width: 1180px;
   font-family: "Stack Sans Headline Variable", var(--font-inter-display), Inter, Arial, sans-serif;
-  font-size: clamp(40px, 5.6vw, 92px);
+  font-size: clamp(28px, 3.6vw, 58px);
   font-weight: 600;
-  line-height: .98;
-  letter-spacing: -.035em;
+  line-height: 1.02;
+  letter-spacing: -.025em;
   text-wrap: pretty;
 }
 
@@ -507,29 +551,21 @@ button {
   border-top: 1px solid var(--line);
 }
 
-.about-footer > a {
-  font-size: clamp(28px, 4vw, 64px);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -.03em;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-
 .about-footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 18px; }
 .about-footer nav a { font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
 @media (max-width: 860px) {
   .about-page { padding-bottom: calc(74px + env(safe-area-inset-bottom)); padding-left: 0; }
   .about-shell { padding: 15px; }
-  .about-header { min-height: 360px; }
-  .about-mobile-nav { display: flex; margin-bottom: 72px; font-weight: 600; }
-  .about-heading-row { align-items: flex-end; }
-  .about-heading-row h1 { font-size: clamp(62px, 18vw, 96px); line-height: .84; letter-spacing: -.035em; }
-  .about-heading-row .about-controls { position: absolute; top: 15px; right: 15px; }
-  .about-story { grid-template-columns: minmax(0, 1fr); gap: 36px; padding-bottom: 90px; }
-  .about-copy { font-size: clamp(34px, 9.5vw, 54px); line-height: .98; }
-  .about-footer { align-items: flex-start; flex-direction: column; padding-bottom: 28px; }
+  .about-topbar { min-height: 46px; }
+  .about-playground { height: min(132vw, 620px); min-height: 470px; margin-top: 10px; }
+  .about-card--run-video { top: 7%; left: 1%; width: 58%; }
+  .about-card--istanbul { top: 5%; right: 1%; width: 51%; }
+  .about-card--marathon { top: 36%; left: 17%; width: 43%; }
+  .about-card--inter { right: 6%; bottom: 3%; width: 45%; }
+  .about-story { padding: 48px 0 84px; }
+  .about-copy { font-size: clamp(24px, 6.4vw, 34px); line-height: 1.03; }
+  .about-footer { align-items: flex-start; padding-bottom: 28px; }
   .about-footer nav { justify-content: flex-start; }
 }
 
