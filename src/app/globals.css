@@ -460,20 +460,17 @@ button {
 
 .about-playground {
   position: relative;
-  height: clamp(560px, 61vw, 820px);
-  margin-top: 8px;
+  height: clamp(480px, 50vw, 680px);
   overflow: hidden;
-  border: 1px solid var(--line);
-  background-color: var(--soft);
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) .7px, transparent .8px);
-  background-size: 12px 12px;
+  border: 0;
+  background: transparent;
   isolation: isolate;
 }
 
 .about-card {
   position: absolute;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  border: 0;
   background: #111;
   box-shadow: 0 18px 45px rgb(0 0 0 / 20%);
   cursor: grab;
@@ -496,39 +493,39 @@ button {
 video.about-card-media { display: block; }
 
 .about-card--run-video {
-  top: 10%;
-  left: 5%;
-  width: clamp(280px, 35vw, 520px);
+  top: 8%;
+  left: 6%;
+  width: clamp(250px, 30vw, 440px);
   aspect-ratio: 4 / 3;
   rotate: -3deg;
 }
 
 .about-card--istanbul {
-  top: 7%;
-  right: 4%;
-  width: clamp(250px, 31vw, 460px);
+  top: 5%;
+  right: 5%;
+  width: clamp(230px, 27vw, 400px);
   aspect-ratio: 4 / 3;
   rotate: 3deg;
 }
 
 .about-card--marathon {
-  top: 31%;
-  left: 38%;
-  width: clamp(180px, 22vw, 330px);
+  top: 28%;
+  left: 39%;
+  width: clamp(165px, 19vw, 280px);
   aspect-ratio: 1483 / 1856;
   rotate: 1.5deg;
 }
 
 .about-card--inter {
-  right: 16%;
+  right: 18%;
   bottom: 4%;
-  width: clamp(190px, 24vw, 360px);
+  width: clamp(175px, 20vw, 310px);
   aspect-ratio: 3 / 4;
   rotate: -2.5deg;
 }
 
 .about-story {
-  padding: clamp(48px, 7vw, 100px) 0 clamp(80px, 11vw, 160px);
+  padding: clamp(52px, 7vw, 100px) 0 clamp(64px, 8vw, 120px);
   border-top: 1px solid var(--line);
 }
 
@@ -547,6 +544,7 @@ video.about-card-media { display: block; }
   align-items: flex-end;
   justify-content: space-between;
   gap: 32px;
+  margin-top: clamp(64px, 8vw, 120px);
   padding: 20px 0 40px;
   border-top: 1px solid var(--line);
 }
@@ -558,14 +556,14 @@ video.about-card-media { display: block; }
   .about-page { padding-bottom: calc(74px + env(safe-area-inset-bottom)); padding-left: 0; }
   .about-shell { padding: 15px; }
   .about-topbar { min-height: 46px; }
-  .about-playground { height: min(132vw, 620px); min-height: 470px; margin-top: 10px; }
+  .about-playground { height: min(108vw, 520px); min-height: 430px; }
   .about-card--run-video { top: 7%; left: 1%; width: 58%; }
   .about-card--istanbul { top: 5%; right: 1%; width: 51%; }
   .about-card--marathon { top: 36%; left: 17%; width: 43%; }
   .about-card--inter { right: 6%; bottom: 3%; width: 45%; }
-  .about-story { padding: 48px 0 84px; }
+  .about-story { padding: 44px 0 58px; }
   .about-copy { font-size: clamp(24px, 6.4vw, 34px); line-height: 1.03; }
-  .about-footer { align-items: flex-start; padding-bottom: 28px; }
+  .about-footer { align-items: flex-start; margin-top: 54px; padding-bottom: 28px; }
   .about-footer nav { justify-content: flex-start; }
 }
 

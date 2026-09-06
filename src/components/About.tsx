@@ -90,6 +90,10 @@ export function About() {
           <DisplayControls />
         </header>
 
+        <section className="about-story" aria-label={text.title}>
+          <p className="about-copy">{text.story}</p>
+        </section>
+
         <section className="about-playground" ref={playgroundRef} aria-label="Personal photo playground">
           {mediaCards.map((card) => (
             <motion.div
@@ -138,10 +142,6 @@ export function About() {
               )}
             </motion.div>
           ))}
-        </section>
-
-        <section className="about-story" aria-label={text.title}>
-          <p className="about-copy">{text.story}</p>
         </section>
 
         <footer className="about-footer">
