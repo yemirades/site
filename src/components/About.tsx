@@ -29,6 +29,9 @@ const mediaCards = [
   { id: "istanbul", kind: "image", src: "about-istanbul.jpg", alt: "Mirat in Istanbul" },
   { id: "marathon", kind: "image", src: "about-marathon.jpg", alt: "Mirat running the Almaty Half Marathon" },
   { id: "inter", kind: "image", src: "about-inter.jpg", alt: "FC Internazionale Milano at Mirat’s workspace" },
+  { id: "coffee", kind: "image", src: "about-coffee.jpg", alt: "Turkish coffee and water" },
+  { id: "bread", kind: "image", src: "about-bread.jpg", alt: "Fresh bread in Almaty" },
+  { id: "pixel-portrait", kind: "image", src: "about-pixel-portrait.png", alt: "Pixel portrait of Mirat" },
 ] as const;
 
 function DisplayControls() {

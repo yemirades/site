@@ -522,6 +522,30 @@ video.about-card-media { display: block; }
   rotate: -2.5deg;
 }
 
+.about-card--coffee {
+  bottom: 6%;
+  left: 2%;
+  width: clamp(130px, 15vw, 220px);
+  aspect-ratio: 3 / 4;
+  rotate: 2deg;
+}
+
+.about-card--bread {
+  top: 35%;
+  right: 2%;
+  width: clamp(130px, 14vw, 205px);
+  aspect-ratio: 3 / 4;
+  rotate: -2deg;
+}
+
+.about-card--pixel-portrait {
+  bottom: 1%;
+  left: 29%;
+  width: clamp(160px, 18vw, 270px);
+  aspect-ratio: 1;
+  rotate: 1deg;
+}
+
 .about-story {
   padding: clamp(52px, 7vw, 100px) 0 clamp(64px, 8vw, 120px);
   border-top: 1px solid var(--line);
@@ -559,6 +583,9 @@ video.about-card-media { display: block; }
   .about-card--istanbul { top: 5%; right: 1%; width: 51%; }
   .about-card--marathon { top: 36%; left: 17%; width: 43%; }
   .about-card--inter { right: 6%; bottom: 3%; width: 45%; }
+  .about-card--coffee { bottom: 2%; left: 0; width: 25%; }
+  .about-card--bread { top: 39%; right: 0; width: 25%; }
+  .about-card--pixel-portrait { bottom: 4%; left: 27%; width: 36%; }
   .about-story { padding: 44px 0 58px; }
   .about-copy { font-size: clamp(24px, 6.4vw, 34px); line-height: 1.03; }
   .about-footer { align-items: flex-start; margin-top: 54px; padding-bottom: 28px; }
