@@ -788,6 +788,7 @@ video.about-card-media { display: block; }
     rotate: none;
   }
   .index-rail-links a[aria-current="page"] { background: var(--ink); color: var(--page); }
+  .index-rail-links .index-rail-fonts-link { display: none; }
   .index-feed { width: 100%; margin-left: 0; padding: 15px; }
   .index-project { grid-template-columns: minmax(0,1fr); gap: 0; padding-bottom: 50px; }
   .index-project-content { gap: 13px; }
@@ -817,6 +818,275 @@ video.about-card-media { display: block; }
   .page-loader__topline {
     font-size: 14px;
   }
+}
+
+/* Fonts catalog */
+.fonts-page {
+  --index-gap: clamp(14px, 1.75vw, 24px);
+  min-height: 100svh;
+  padding-left: 48px;
+  background: var(--page);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.18;
+}
+
+.fonts-shell { padding: 0 var(--index-gap); }
+
+.fonts-header {
+  min-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--line);
+}
+
+.fonts-topbar {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.fonts-back-link { font-weight: 600; }
+.fonts-theme-control { flex: none; }
+
+.fonts-hero {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 10vw, 150px) 0 30px;
+}
+
+.fonts-hero h1 {
+  margin: 0;
+  font-family: "Stack Sans Headline Variable", var(--font-inter-display), Inter, Arial, sans-serif;
+  font-size: clamp(78px, 15.6vw, 260px);
+  font-weight: 600;
+  line-height: .72;
+  letter-spacing: -.055em;
+}
+
+.fonts-hero-copy {
+  display: grid;
+  grid-template-columns: minmax(260px, 520px) auto;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  margin-top: clamp(62px, 9vw, 130px);
+}
+
+.fonts-hero-copy p:first-child { font-size: clamp(18px, 1.8vw, 28px); line-height: 1.08; }
+.fonts-hero-copy p:last-child { color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+
+.fonts-catalog { padding: clamp(74px, 9vw, 140px) 0 0; }
+
+.fonts-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+}
+
+.fonts-section-heading h2 {
+  font-family: "Stack Sans Headline Variable", var(--font-inter-display), Inter, Arial, sans-serif;
+  font-size: clamp(44px, 6vw, 96px);
+  line-height: .82;
+}
+
+.fonts-section-heading span { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.fonts-filters {
+  display: grid;
+  grid-template-columns: 46px minmax(220px, 1fr) minmax(190px, .42fr) minmax(190px, .42fr);
+  gap: 8px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.fonts-typing {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  min-height: 64px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.fonts-typing > span {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.fonts-typing input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 10px 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: clamp(18px, 1.65vw, 24px);
+  letter-spacing: -.025em;
+}
+
+.fonts-typing input::placeholder { color: var(--muted); opacity: 1; }
+
+.fonts-favorite-filter,
+.fonts-search,
+.fonts-select {
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.fonts-favorite-filter {
+  display: grid;
+  padding: 0;
+  place-items: center;
+  font-size: 17px;
+}
+
+.fonts-favorite-filter[aria-pressed="true"] { background: var(--ink); color: var(--page); }
+
+.fonts-search,
+.fonts-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fonts-search input,
+.fonts-select select {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  padding: 0 44px 0 14px;
+  appearance: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+.fonts-search input::placeholder { color: var(--muted); opacity: 1; }
+.fonts-search svg { position: absolute; right: 14px; width: 17px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.fonts-select > span:last-child { position: absolute; right: 14px; pointer-events: none; }
+.fonts-search:focus-within,
+.fonts-select:focus-within { border-color: var(--ink); }
+
+.fonts-list { border-top: 1px solid var(--line); }
+
+.font-card {
+  min-height: clamp(290px, 34vw, 510px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px 0 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.font-card-meta {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) .45fr .45fr 34px;
+  align-items: center;
+  gap: 18px;
+  color: var(--muted);
+}
+
+.font-card-meta p:first-child { color: var(--ink); }
+.font-card-meta p:first-child span { display: inline-block; width: 44px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.font-card-meta button { border: 0; padding: 6px; background: transparent; color: var(--ink); font-size: 18px; }
+
+.font-card-sample {
+  overflow: hidden;
+  margin: clamp(34px, 6vw, 86px) 0;
+  font-size: clamp(52px, 8.2vw, 142px);
+  line-height: .84;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+
+.font-preview--inter-regular { font-family: var(--font-catalog-inter), sans-serif; font-weight: 400; }
+.font-preview--inter-semibold { font-family: var(--font-catalog-inter), sans-serif; font-weight: 600; }
+.font-preview--giorgio { font-family: var(--font-catalog-giorgio), sans-serif; font-weight: 900; letter-spacing: -.02em; }
+.font-preview--pitagon { font-family: var(--font-catalog-pitagon), monospace; font-weight: 500; font-size: clamp(42px, 6.7vw, 116px); letter-spacing: -.055em; }
+.font-preview--lebowski {
+  overflow: visible;
+  padding-bottom: .16em;
+  font-family: var(--font-catalog-lebowski), sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+
+.font-card-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--muted);
+}
+
+.font-card-foot p:first-child { color: var(--ink); letter-spacing: .06em; }
+.fonts-empty { min-height: 320px; display: grid; align-content: center; justify-items: start; gap: 14px; }
+.fonts-empty p { font-size: clamp(30px, 4vw, 58px); font-weight: 600; }
+.fonts-empty button { border: 0; padding: 0; background: transparent; color: var(--ink); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.fonts-footer {
+  display: grid;
+  grid-template-columns: .5fr 1fr auto;
+  gap: 28px;
+  margin-top: clamp(90px, 12vw, 180px);
+  padding: 22px 0 36px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.fonts-footer a { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 860px) {
+  .fonts-page { padding-bottom: calc(74px + env(safe-area-inset-bottom)); padding-left: 0; }
+  .fonts-shell { padding: 0 15px; }
+  .fonts-header { min-height: 82svh; }
+  .fonts-topbar { min-height: 62px; }
+  .fonts-hero { padding-top: 70px; }
+  .fonts-hero h1 { font-size: clamp(66px, 20vw, 116px); line-height: .78; }
+  .fonts-hero-copy { grid-template-columns: 1fr; margin-top: 70px; }
+  .fonts-hero-copy p:first-child { max-width: 520px; }
+  .fonts-hero-copy p:last-child { text-align: left; }
+  .fonts-filters { grid-template-columns: 46px minmax(0, 1fr); }
+  .fonts-typing { grid-template-columns: 94px minmax(0, 1fr); }
+  .fonts-search { min-width: 0; }
+  .fonts-select { grid-column: span 1; }
+  .font-card { min-height: 340px; }
+  .font-card-meta { grid-template-columns: minmax(0, 1fr) auto; gap: 7px 14px; }
+  .font-card-meta p:nth-child(2),
+  .font-card-meta p:nth-child(3) { grid-column: 1; }
+  .font-card-meta button { grid-column: 2; grid-row: 1; }
+  .font-card-meta p:nth-child(3) { display: none; }
+  .font-card-sample { white-space: normal; text-wrap: balance; }
+  .font-card-foot { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .fonts-footer { grid-template-columns: 1fr; gap: 12px; }
+}
+
+@media (max-width: 520px) {
+  .fonts-hero h1 { font-size: clamp(58px, 20vw, 88px); }
+  .fonts-filters { grid-template-columns: 44px minmax(0, 1fr); }
+  .fonts-select { grid-column: span 2; }
+  .font-card-sample { font-size: clamp(49px, 15vw, 76px); line-height: .88; }
+  .font-preview--pitagon { font-size: clamp(37px, 11.7vw, 58px); }
 }
 
 .clock-colon {
